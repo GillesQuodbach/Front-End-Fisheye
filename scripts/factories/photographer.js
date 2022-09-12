@@ -10,23 +10,34 @@ function photographerFactory(data) {
         //Card image
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
+        img.className = "profil_image";
+        img.setAttribute("alt", "FishEye Home page");
         // Photographer name
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
-        const living = document.createElement('p');
-        living.innerHTML = `${city}, ${country}`;
+        h2.className = "name";
+        // Photographers living place
+        const livingPlace = document.createElement('p');
+        livingPlace.innerHTML =`${city}, ${country}`;
+        livingPlace.className = "living-place";
+        // Photographers tagline
         const tag = document.createElement('p');
         tag.textContent = tagline;
+        tag.className = "tagline"
+        // Photographers price
         const cost = document.createElement('p');
         cost.textContent = `${price}€/jour`;
+        cost.className = "price";
 
         //Création de la card
         article.appendChild(img);
         article.appendChild(h2);
-        article.appendChild(living);
+        article.appendChild(livingPlace);
         article.appendChild(tag);
         article.appendChild(cost);
         return (article); //Retourne les infos dans les cards
     }
     return { name, picture, getUserCardDOM }
 }
+
+//Rajout des class CSS
