@@ -3,7 +3,8 @@
         const json_url = "data/photographers.json"
 
         //Fonction de récupération des données
-        async function getPhotographers() {
+async function getPhotographers() {
+
         // Récupération des données du fichier JSON
         const response = await fetch(json_url);
         //Conversion des datas en JSON
@@ -11,16 +12,17 @@
         //Affichage les datas
         console.log(data);
 
+
         //Parcourt du tableau de données
         let photographersArray = data.photographers; //Tableau des donnés des photographes
-        let length = photographersArray.length //Longueur du tableau
+        let length = photographersArray.length; //Longueur du tableau
 
         //Boucle dans le tableau
             for (let i = 0; i < length; i++){
                 //Affichage du tableau de données des photographes
                 await console.log(photographersArray[i])}
 
-        //Retour e tableau photographers seulement une fois
+        //Retourne le tableau photographers seulement une fois
         return ({
             photographers: [...photographersArray]})
     }
@@ -44,4 +46,11 @@
         await displayData(photographers);
     }
     init() //RETOURNE UNE PROMESSE EN ATTENTE
-    
+
+
+
+
+
+
+
+
