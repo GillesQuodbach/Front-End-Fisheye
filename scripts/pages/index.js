@@ -21,7 +21,6 @@ async function getPhotographers() {
             for (let i = 0; i < length; i++){
                 //Affichage du tableau de données des photographes
                 await console.log(photographersArray[i])}
-
         //Retourne le tableau photographers seulement une fois
         return ({
             photographers: [...photographersArray]})
