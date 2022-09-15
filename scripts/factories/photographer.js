@@ -12,7 +12,7 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
         img.className = "profil_image";
-        img.setAttribute("alt", "FishEye Home page");
+        img.setAttribute("alt", `Photo de profil de ${name}`);
         // Photographer name
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
@@ -39,17 +39,7 @@ function photographerFactory(data) {
         return (article); //Retourne les infos dans les cards
 
     }
-// =======================================================================
-// AFFICHAGE DE L'ID dans URL
-    let cardsLinks = document.querySelectorAll('article')
-    console.log(cardsLinks);
-
-    cardsLinks.forEach((cardsLink)=>
-        cardsLink.addEventListener("click", ()=> {
-            window.location = `photographer.html?id=${cardsLink.id}`}));
-
-//=======================================================================
-
 
     return { name, picture, id, getUserCardDOM }
     }
+
