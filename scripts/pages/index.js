@@ -20,7 +20,9 @@ async function getPhotographers() {
         //Boucle dans le tableau
             for (let i = 0; i < length; i++){
                 //Affichage du tableau de données des photographes
-                await console.log(photographersArray[i])}
+                console.log(photographersArray[i])}
+                
+
         //Retourne le tableau photographers seulement une fois
         return ({
             photographers: [...photographersArray]})
@@ -37,6 +39,18 @@ async function getPhotographers() {
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
         });
+
+        // Affichage de l'id dans l'url
+        let cardsLinks = document.querySelectorAll('.cardsLink')
+            console.log(cardsLinks);
+    
+        cardsLinks.forEach((cardsLink)=>
+        cardsLink.addEventListener("click", ()=> {
+           window.location = `photographer.html?id=${cardsLink.id}`}));
+            console.log(window.location);
+
+        //Récupération de l'id dans l'url
+        
     }
 
     async function init() {
