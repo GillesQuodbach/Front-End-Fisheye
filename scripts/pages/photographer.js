@@ -6,3 +6,4 @@ const urlParams = new URLSearchParams(urlIdValues);
 const urlId = urlParams.get('id');
 
 console.log(urlId);
+

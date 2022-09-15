@@ -7,7 +7,6 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
         article.setAttribute("id", id);
         article.setAttribute('class', 'cardsLink');
-
         //Card image
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
@@ -35,11 +34,10 @@ function photographerFactory(data) {
         article.appendChild(livingPlace);
         article.appendChild(tag);
         article.appendChild(cost);
-
         return (article); //Retourne les infos dans les cards
-
     }
-
-    return { name, picture, id, getUserCardDOM }
+    
+    
+    return { name, picture, id, getUserCardDOM}
     }
 
