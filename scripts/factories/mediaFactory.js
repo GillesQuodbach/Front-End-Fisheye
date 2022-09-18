@@ -38,4 +38,3 @@ function photographerFactory(data) {
     }
     return { name, picture, id, getUserCardDOM}
     }
-

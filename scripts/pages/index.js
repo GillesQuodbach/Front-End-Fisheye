@@ -41,7 +41,7 @@ async function getPhotographers() {
         cardsLinks.forEach((cardsLink)=>
         cardsLink.addEventListener("click", ()=> {
         //    window.location = `photographer.html?id=${cardsLink.id}`}));
-           window.location = `photographer.html?id=${cardsLink.id}`}));
+        window.location = `photographer.html?id=${cardsLink.id}`}));
             console.log(window.location);
     }
 
@@ -52,12 +52,3 @@ async function getPhotographers() {
         
     }
     init() //RETOURNE UNE PROMESSE EN ATTENTE
-    
-
-
-
-
-
-
-
-
