@@ -12,12 +12,20 @@ async function getPhotographers() {
 
     const photographersData = data.photographers;
     console.log(photographersData); //Affiche la partie photographers du JSON
-
     //Récupération de l'ID de la page
     const queryString_url_id = window.location.search;
     const urlSearchParams = new URLSearchParams(queryString_url_id);
     const id = urlSearchParams.get("id");
-    
+    console.log(id); //Affiche l'id du photographe selectionné (243)
+
+    //Affiche la liste par ID
+    const sortedById = {}; 
+    for (let i = 0, len = photographersData.length; i < len; i++) { 
+        sortedById[photographersData[i].id] = photographersData[i]; }
+        console.log(sortedById); 
+        console.log(sortedById[id]); //Affiche l'objet avec l'id de la page
+        return (sortedById[id]); //Retourne l'objet avec l'id de la page
+
 //!SOURCE PROBLEME ================
 //!BOUCLE RECUPERE L'OBJET LIE A L'ID
 //     let selectedPhotographer = {};
@@ -31,6 +39,8 @@ async function getPhotographers() {
 
 //BOUCLE MODIFIER DU FICHIER INDEX=========================================
 let photographersArray = data.photographers; //Tableau des donnés des photographes
+console.log(photographersArray);
+
 let length = photographersArray.length; //Longueur du tableau
 //Boucle dans le tableau
     for (let i = 0; i < length; i++){
@@ -52,38 +62,33 @@ return ({
 //     photographers: [...photographersArray]})
 //================================================================
 //Affichage des données des photographes
-    async function displayData(photographers) {
-
-        //Selection de la photographer_section de l'index.html (section entière)
-        const photographersSection = document.querySelector(".photograph-header");
+    // async function displayData(photographers) {
+    //     //Selection de la photographer_section de l'index.html (section entière)
+    //     const photographersSection = document.querySelector(".photograph-header");
         
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-            //userCardDOM = block article avec id
-        });
+    //     photographers.forEach((photographer) => {
+    //         const photographerModel = photographerFactory(photographer);
+    //         const userCardDOM = photographerModel.getUserCardDOM();
+    //         photographersSection.appendChild(userCardDOM);
+    //         //userCardDOM = block article avec id
+    //     });
 
-        // Affichage de l'id dans l'url
-        let cardsLinks = document.querySelectorAll('.cardsLink')
-            console.log(cardsLinks);
+    //     // Affichage de l'id dans l'url
+    //     let cardsLinks = document.querySelectorAll('.cardsLink')
+    //         console.log(cardsLinks);
     
-        cardsLinks.forEach((cardsLink)=>
-        cardsLink.addEventListener("click", ()=> {
-        //    window.location = `photographer.html?id=${cardsLink.id}`}));
-           window.location = `photographer.html?id=${cardsLink.id}`}));
-            console.log(window.location);
-    }
-
-    async function init() {
+    //     cardsLinks.forEach((cardsLink)=>
+    //     cardsLink.addEventListener("click", ()=> {
+    //     //    window.location = `photographer.html?id=${cardsLink.id}`}));
+    //        window.location = `photographer.html?id=${cardsLink.id}`}));
+    //         console.log(window.location);
+    // }
+async function init() {
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
-        await displayData(photographers);
-        
+        // await displayData(photographers);
     }
     init() //RETOURNE UNE PROMESSE EN ATTENTE
-
-
 // Récupération de l'id de l'url de la page du photographes
 function photographerFactory(data) {
     const { name, id, portrait, city, country, tagline, price } = data;
@@ -123,8 +128,6 @@ function photographerFactory(data) {
         article.appendChild(cost);
         return (article); //Retourne les infos dans les cards
     }
-    
-    
     return { name, picture, id, getUserCardDOM}
     }
 //RECUPERATION/TRAITEMENT DES DONNEES JSON
