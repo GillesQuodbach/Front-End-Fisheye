@@ -30,11 +30,11 @@ function photographerFactory(data) {
         // cost.textContent = `${price}€/jour`;
         // cost.className = "price";
         //Création de la card
-        photographHeader.appendChild(img);
-        photographHeader.appendChild(article);
         article.appendChild(h2);
         article.appendChild(tag);
         article.appendChild(livingPlace);
+        photographHeader.appendChild(article);
+        photographHeader.appendChild(img);
         // article.appendChild(cost);
         return (article); //Retourne les infos dans les cards
     }
