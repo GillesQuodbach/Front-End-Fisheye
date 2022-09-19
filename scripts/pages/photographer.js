@@ -46,8 +46,4 @@ async function init() {
         const { photographers } = await getPhotographers();
         await displayData(photographers);
     }
-    init() //RETOURNE UNE PROMESSE EN ATTENTE
-
-
-
-
+    init(); //RETOURNE UNE PROMESSE EN ATTENTE
