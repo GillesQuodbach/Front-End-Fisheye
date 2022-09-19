@@ -13,7 +13,7 @@
 
 .detail_profile_image {
     width: 200px;
-    height: 200px;
+    height: auto;
 }
 
 .contact_button {
