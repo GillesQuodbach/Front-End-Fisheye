@@ -1,10 +1,10 @@
-// !FACTORY DE L'ARTICLE DE CHAQUE PHOTOGRAPHES
+//! FACTORY DE LA GALERIE PHOTOGRAPHER
 //!===================================
-function photographerFactory(data) {
-    const { name, id, portrait, city, country, tagline, price } = data;
-    const picture = `assets/photographers/${portrait}`;
+function mediaFactory(data) {
+    const { id, photographerId, title, image, likes } = data;
+    const picture = `assets/photographers/${image}`;
     //Création de la carte de chaque photographe
-    function getUserCardDOM() {
+    function getImageDOM() {
         // Cards container
         const article = document.createElement( 'article' );
         article.setAttribute("id", id);
@@ -12,8 +12,8 @@ function photographerFactory(data) {
         //Card image
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
-        img.className = "detail_profile_image";
-        img.setAttribute("alt", `Photo de profil de ${name}`);
+        img.className = "profil_image";
+        img.setAttribute("alt", `${title}`);
         // Photographer name
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
@@ -40,4 +40,3 @@ function photographerFactory(data) {
     }
     return { name, picture, id, getUserCardDOM}
     }
-
