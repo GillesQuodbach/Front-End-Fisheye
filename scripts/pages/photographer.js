@@ -60,11 +60,11 @@ async function getMedia() {
     // console.log(data); //Contenu complet du JSON
     const allData = data;
     console.log(allData); //!Affiche la partie media ET photographers du JSON
-
-let mediaById = allData.media.filter( function(el) {
+let filteredMedia = {};
+filteredMedia = allData.media.filter( function(el) {
     return el.photographerId == id;
 });
-console.log(mediaById); //Affiche toutes les images correspondants au photographe
+console.log({media : filteredMedia}); //Affiche toutes les images correspondants au photographe
 
 }
 
