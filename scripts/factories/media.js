@@ -3,6 +3,7 @@
 function mediaFactory(data) {
     const { date, id, image, likes, photographerId, price, title } = data;
     const picture = `assets/images/${image}`;
+    
     //Création de la carte de chaque photographe
     function getImageDOM() {
         // Cards container
