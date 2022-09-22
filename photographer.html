@@ -18,13 +18,21 @@
     </main>
     <div id="contact_modal">
 			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+				<header class="modal-header">
+          <h2 class ="modal-title">Contactez-moi</h2>
+          <img class ="close-modal-cross" src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+				<form onsubmit="return validate();">
 					<div>
 						<label>Prénom</label>
+						<input />
+						<label>Nom</label>
+						<input />
+						<label>Email</label>
+						<input />
+            <label>Email</label>
+						<input />
+            <label>Votre message</label>
 						<input />
 					</div>
           <button class="contact_button">Envoyer</button>
