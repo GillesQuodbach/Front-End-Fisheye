@@ -24,13 +24,15 @@ h1 {
     margin-left: 100px;
 }
 
+/* PARTIE PHOTOGRAPHER_SECTION */
+/* block principal */
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
 }
-
+/* article complet */
 .photographer_section article {
     justify-self: center;
     display: flex;
@@ -42,13 +44,16 @@ h1 {
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    font-weight: 400;
     margin-top: 20px;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 .photographer_section article img {
-    height: 200px;
     width: 200px;
+    height: 200px;
+    object-fit: cover;
     border-radius: 50%;
 }
 
