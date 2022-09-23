@@ -10,7 +10,7 @@ function mediaFactory(data) {
         //Création de la carte de chaque photographe
         function getImageDOM() {
             // Cards container
-            const article = document.createElement( 'section' );
+            const article = document.createElement( 'article' );
             article.setAttribute("id", id);
             //Card image
             const img = document.createElement( 'video' );
@@ -50,7 +50,7 @@ function mediaFactory(data) {
     //Création de la carte de chaque photographe
     function getImageDOM() {
         // Cards container
-        const article = document.createElement( 'section' );
+        const article = document.createElement( 'article' );
         article.setAttribute("id", id);
         //Card image
         const img = document.createElement( 'img' );
@@ -119,7 +119,7 @@ return ({media: [...filteredMedia]})
 //Affichage des données des photographes
 async function displayMedias(medias) {
     //Selection de la photographer_section de l'index.html (section entière)
-    const galerySection = document.querySelector("#main");
+    const galerySection = document.querySelector("#photograph_gallery");
     medias.forEach((media) => {
         const photographerMedia = mediaFactory(media);
         const mediaCardDOM = photographerMedia.getImageDOM();

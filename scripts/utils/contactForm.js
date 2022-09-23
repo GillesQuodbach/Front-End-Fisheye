@@ -34,11 +34,13 @@ async function displayModal() {
     const modalHeader = document.querySelector(".modal-header");
     const modalTitle = document.querySelector(".modal-title");
     const closeModalCross = document.querySelector(".close-modal-cross");
-    const name = document.createElement("p");
+    const nameContainer = document.createElement("div");
+    const name = document.createElement("h2");
     name.innerHTML = `${photographerName}`;
+    modalHeader.appendChild(nameContainer);
     name.className="photographer-name";
-    modalHeader.append(name);
-    modalHeader.insertBefore(name, closeModalCross);
+    nameContainer.append(name);
+    // modalHeader.insertBefore(name, closeModalCross);
 }
 
 function closeModal() {

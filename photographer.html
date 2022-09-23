@@ -15,6 +15,9 @@
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
+      <section id="photograph_gallery">
+        <!-- !PHOTOGRAPH GALLERY HERE-->
+      </section>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -22,18 +25,16 @@
           <h2 class ="modal-title">Contactez-moi</h2>
           <img class ="close-modal-cross" src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form onsubmit="return validate();">
-					<div>
+				<form id="contact_form" onsubmit="return validate();">
+					<div id="all_inputs_container">
 						<label>Prénom</label>
 						<input />
 						<label>Nom</label>
 						<input />
 						<label>Email</label>
 						<input />
-            <label>Email</label>
-						<input />
             <label>Votre message</label>
-						<input />
+						<textarea name="contact-message" form="contact_form">Entrer votre message...</textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
