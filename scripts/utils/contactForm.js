@@ -1,8 +1,4 @@
-
-
-
 async function displayModal() {
-    
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
         const queryString_url_id = window.location.search;
@@ -42,8 +38,31 @@ async function displayModal() {
     nameContainer.append(name);
     // modalHeader.insertBefore(name, closeModalCross);
 }
-
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
+}
+
+// Validation et récupération infos formulaire
+
+const myForm = document.querySelector("#contact_form");
+const firstName = document.querySelector("#firstName");
+const lastName = document.querySelector("#lastName");
+const email = document.querySelector("#email");
+const message = document.querySelector("#contact-message");
+
+//Régexp de contrôle du mail
+const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+function validate() {
+    let testEmail = emailRegExp.test(email.value);
+  if (testEmail === false || email.value === "") {
+    // emailError.innerHTML = "Veuillez saisir une adresse email valide.";
+    return false;
+  }
+  console.log(firstName.value) 
+  console.log(lastName.value) 
+  console.log(email.value) 
+  console.log(message.value)
+//   return true;
 }
