@@ -87,7 +87,9 @@ article video {
     margin: 0;
     padding: 0;
 }
-
+.photographer-name {
+    min-width: 320px;
+}
 form {
     display: flex;
     width: 100%;

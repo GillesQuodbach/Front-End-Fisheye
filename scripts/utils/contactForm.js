@@ -5,7 +5,6 @@ async function displayModal() {
         const urlSearchParams = new URLSearchParams(queryString_url_id);
         const id = urlSearchParams.get("id");
         console.log(id); //Affiche l'id du photographe selectionné (243)
-    
         //!Récupération des données du fichier JSON
         const response = await fetch(json_url);
         //Conversion des datas en JSON
@@ -15,7 +14,6 @@ async function displayModal() {
         console.log(data); //!Contenu complet du JSON
         const photographersData = data.photographers;
         console.log(photographersData); //!Affiche la partie photographers du JSON
-    
         //Affiche la liste par ID
         const sortedById = {}; 
         for (let i = 0, len = photographersData.length; i < len; i++) { 
@@ -37,6 +35,11 @@ async function displayModal() {
     name.className="photographer-name";
     nameContainer.append(name);
     // modalHeader.insertBefore(name, closeModalCross);
+
+    function getFocus() {
+      document.getElementById("firstName").focus();
+    }
+    getFocus();
 }
 function closeModal() {
     const modal = document.getElementById("contact_modal");
@@ -60,6 +63,7 @@ function validate() {
     // emailError.innerHTML = "Veuillez saisir une adresse email valide.";
     return false;
   }
+  
   console.log(firstName.value) 
   console.log(lastName.value) 
   console.log(email.value) 
