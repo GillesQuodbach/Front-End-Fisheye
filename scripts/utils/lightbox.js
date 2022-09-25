@@ -1,47 +1,32 @@
 const closeLightBoxButton = document.querySelector('.lightbox_close');
 const lightBox = document.querySelector('.lightbox');
+const lightBoxContainer = document.querySelector('.lightbox_container');
+const galleryArticles = document.querySelectorAll('.profil_image');
 closeLightBoxButton.addEventListener('click', closeLightBox);
+
+
+
 
 function closeLightBox() {
     lightBox.style.display = 'none';
 }
+function openLightBox() {
+  // Récupération de l'id de l'article au click
+  let articleId = this.getAttribute('id');
+  console.log(articleId);
 
-class Lightbox {
-
-    static init() {
-        const links = document.querySelectorAll(`a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"]`).forEach(link => link.addEventListener('click', e => {
-                e.preventDefault();
-                new Lightbox(e.currentTarget.getAttribute('href'))}))
+  lightBox.style.display = 'block';
 }
 
-/** 
- * @param {string} url 
- * URL de l'image
-*/
-constructor(url) {
- const element = this.buildDOM(url);
- document.body.appendChild(element);
-}
+window.onload = () => {
+  const closeLightBoxButton = document.querySelector('.lightbox_close');
+  const lightBox = document.querySelector('.lightbox');
+  const lightBoxContainer = document.querySelector('.lightbox_container');
+  const galleryArticles = document.querySelectorAll('.gallery_cards');
+  closeLightBoxButton.addEventListener('click', closeLightBox);
+  console.log(galleryArticles);
 
-buildDOM(url) {
-    const dom = document.createElement('div')
-    document.classList.add('lightbox');
-    dom.innerHTML = `<button class="lightbox_close">X</button>
-    <button class="lightbox_next">Next</button>
-    <button class="lightbox_prev">Prev</button>
-    <div class="lightbox_container">
-      <img src="https://picsum.photos/1000/900" alt="">
-    </div>`
-    return dom
+  for (let galleryArticle of galleryArticles) {
+    galleryArticle.addEventListener('click', openLightBox);
+  }
 }
-
-}
-
-/* <div class="lightbox">
-      <button class="lightbox_close">X</button>
-      <button class="lightbox_next">Next</button>
-      <button class="lightbox_prev">Prev</button>
-      <div class="lightbox_container">
-        <img src="https://picsum.photos/1000/900" alt="">
-      </div>
-    </div> */

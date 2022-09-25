@@ -52,6 +52,7 @@ function mediaFactory(data) {
         // Cards container
         const article = document.createElement( 'article' );
         article.setAttribute("id", id);
+        article.setAttribute("class", 'gallery_cards');
         //Card image
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
