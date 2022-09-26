@@ -47,23 +47,17 @@ function closeModal() {
 }
 
 // Validation et récupération infos formulaire
+const firstName = document.getElementById("#firstName")
+const lastName = document.getElementById("#lastName")
+const email = document.getElementById("#email")
+const message = document.getElementById("#contact-message")
 
-const myForm = document.querySelector("#contact_form");
-const firstName = document.querySelector("#firstName");
-const lastName = document.querySelector("#lastName");
-const email = document.querySelector("#email");
-const message = document.querySelector("#contact-message");
 
 //Régexp de contrôle du mail
 const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-function validate() {
-    let testEmail = emailRegExp.test(email.value);
-  if (testEmail === false || email.value === "") {
-    // emailError.innerHTML = "Veuillez saisir une adresse email valide.";
-    return false;
-  }
-  
+function validate(e) {
+  e.preventDefault();
   console.log(firstName.value) 
   console.log(lastName.value) 
   console.log(email.value) 

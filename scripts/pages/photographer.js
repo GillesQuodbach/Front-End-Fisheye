@@ -4,7 +4,6 @@
 const json_url = "data/photographers.json"
 
 //!Récupération des données voulues (Profil des photographes)
-
 async function getPhotographers() {
     //!Récupération de l'ID de la page
     const queryString_url_id = window.location.search;
@@ -30,7 +29,6 @@ async function getPhotographers() {
 //!retourne l'objet (le photographe) avec l'id correspondant au photographe//
 return ({photographers:sortedById[id]}) 
 }
-
 //!Affichage/positionnement de l'article
 //Affichage des données des photographes
     async function displayData(photographer) {
@@ -40,12 +38,8 @@ return ({photographers:sortedById[id]})
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
     }
-
-
 //!Récupération des données voulues (Profil des photographes)
-
 async function getMedia() {
-
         //Récupération de l'ID de la page
         const queryString_url_id = window.location.search;
         const urlSearchParams = new URLSearchParams(queryString_url_id);
@@ -64,10 +58,8 @@ let filteredMedia = {};
 filteredMedia = allData.media.filter( function(el) {
     return el.photographerId == id;
 });
-console.log({media : filteredMedia}); //Affiche toutes les images correspondants au photographe
-
+console.log({media : filteredMedia}); //Affiche toutes les images correspondants au photographe.
 }
-
 
 //!A compléter une fois les fonctions du dessus valide
 //?Initialisation des toutes les fonctions
@@ -77,7 +69,6 @@ async function init() {
         // const { media } = await getMedia();
         await displayData(photographers);
         // await displayData(media);
-    }
-    init(); //RETOURNE UNE PROMESSE EN ATTENTE
-
-    getMedia();
+}
+init(); //RETOURNE UNE PROMESSE EN ATTENTE
+getMedia();
