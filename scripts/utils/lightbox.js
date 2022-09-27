@@ -19,7 +19,6 @@ window.onload = () => {
 // Fermeture lightbox
 function closeLightBox() {
   lightBox.style.display = 'none';
-  location.reload();
 }
 // Ouverture lightbox
 async function openLightBox() {
@@ -42,42 +41,13 @@ console.log(mediaFoundById);
 
 // Apparition de la lightbox
 lightBox.style.display = 'block';
-
     await displayLightbox(mediaFoundById);
     // await displayData(media);
-
-
 }
-
-
-
-function lightboxFactory(data) {
-  const { id,  title, image } = data;
-  const picture = `assets/images/${image}`;
-  //Création de la carte de chaque photographe
-  function getLightboxDOM() {
-    const lightBoxContainer = document.querySelector('.lightbox_container');
-      //Card image
-      const img = document.createElement( 'img' );
-      img.setAttribute("src", picture)
-      img.className = "lightbox_image";
-      img.setAttribute("alt", title);
-      // Photographer name
-      const h2 = document.createElement( 'h2' );
-      h2.textContent = title;
-      h2.className = "name";
-      //Création de la card
-      lightBoxContainer.appendChild(img);
-      img.appendChild(h2);
-      return (img); //Retourne les infos dans les cards
-  }
-  return { id, title, image, getLightboxDOM}
-  }
 
   async function displayLightbox(lightboxmedia) {
     //Selection de la photograph_header de l'index.html (section entière)
-    const photographersSection = document.querySelector(".lightbox_container");
         const lightboxMedia = lightboxFactory(lightboxmedia);
         const lightboxDOM = lightboxMedia.getLightboxDOM();
-        photographersSection.appendChild(lightboxDOM);
+        
 }

@@ -21,24 +21,9 @@ function mediaFactory(data) {
             const h2 = document.createElement( 'h2' );
             h2.textContent = title;
             h2.className = "name";
-            // Photographers living place
-            // const livingPlace = document.createElement('p');
-            // livingPlace.innerHTML =`${city}, ${country}`;
-            // livingPlace.className = "living-place";
-            // Photographers tagline
-            // const tag = document.createElement('p');
-            // tag.textContent = tagline;
-            // tag.className = "tagline"
-            // Photographers price
-            // const cost = document.createElement('p');
-            // cost.textContent = `${price}€/jour`;
-            // cost.className = "price";
             //Création de la card
             article.appendChild(img);
             article.appendChild(h2);
-            // article.appendChild(livingPlace);
-            // article.appendChild(tag);
-            // article.appendChild(cost);
             return (article); //Retourne les infos dans les cards
         }
         return { date, id, video, likes, photographerId, price, title, getImageDOM}
@@ -62,24 +47,9 @@ function mediaFactory(data) {
         const h2 = document.createElement( 'h2' );
         h2.textContent = title;
         h2.className = "name";
-        // Photographers living place
-        // const livingPlace = document.createElement('p');
-        // livingPlace.innerHTML =`${city}, ${country}`;
-        // livingPlace.className = "living-place";
-        // Photographers tagline
-        // const tag = document.createElement('p');
-        // tag.textContent = tagline;
-        // tag.className = "tagline"
-        // Photographers price
-        // const cost = document.createElement('p');
-        // cost.textContent = `${price}€/jour`;
-        // cost.className = "price";
         //Création de la card
         article.appendChild(img);
         article.appendChild(h2);
-        // article.appendChild(livingPlace);
-        // article.appendChild(tag);
-        // article.appendChild(cost);
         return (article); //Retourne les infos dans les cards
     }
     return { 

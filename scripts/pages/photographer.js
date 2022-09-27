@@ -71,4 +71,3 @@ async function init() {
         // await displayData(media);
 }
 init(); //RETOURNE UNE PROMESSE EN ATTENTE
-getMedia();
