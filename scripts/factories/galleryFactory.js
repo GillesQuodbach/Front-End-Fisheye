@@ -1,6 +1,6 @@
 //! FACTORY DE LA GALERIE PHOTOGRAPHER
 //!===================================
-function mediaFactory(data) {
+function galleryFactory(data) {
     let photographerMediaArray = [];
     let videoInList = data.video;
     if (videoInList !== undefined) {
@@ -15,7 +15,7 @@ function mediaFactory(data) {
             //Card image
             const img = document.createElement( 'video' );
             img.setAttribute("src", picture)
-            img.className = "profil_image";
+            img.className = "gallery_video";
             img.setAttribute("alt", `${title}`);
             // Photographer name
             const h2 = document.createElement( 'h2' );

@@ -36,11 +36,14 @@ async function displayModal() {
     nameContainer.append(name);
     // modalHeader.insertBefore(name, closeModalCross);
 
+    //? Focus 1er inputs
     function getFocus() {
       document.getElementById("firstName").focus();
     }
     getFocus();
 }
+
+//? FERMETURE FORMULAIRE
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";

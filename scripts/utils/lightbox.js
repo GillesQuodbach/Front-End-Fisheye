@@ -20,6 +20,7 @@ window.onload = () => {
 function closeLightBox() {
   lightBox.style.display = 'none';
 }
+
 // Ouverture lightbox
 async function openLightBox() {
   // Récupération de l'id de l'article au click
@@ -34,13 +35,13 @@ const allData = data;
 console.log(allData);//!Affiche la partie media ET photographers du 
 let allMediaData = {}
 allMediaData = allData.media
-console.log(articleId);
-console.log({allMediaData});//
+
+
 let mediaFoundById = (allMediaData.find(el => el.id == articleId));
-console.log(mediaFoundById);
+
 
 let currentPhotographerId = mediaFoundById.photographerId;
-console.log(currentPhotographerId);
+
 
 let currentPhotographMedia = allMediaData.filter(el => el.photographerId == currentPhotographerId);
 console.log(currentPhotographMedia);
@@ -50,7 +51,6 @@ const lightboxPreviousButton = document.querySelector('.lightbox_previous');
 
 lightboxNextButton.addEventListener('click', function next() {
   //Récupération de l'index de la photo actuelle
-  console.log('lightboxNextButton clicked');
   let currentPictureIndex = currentPhotographMedia.findIndex(el => el.id == articleId);
   //Index de la photo
   // currentPictureIndex
@@ -62,11 +62,9 @@ lightboxNextButton.addEventListener('click', function next() {
   // console.log(currentPhotoListLength); 
 
   currentPictureIndex = currentPictureIndex + 1;
-  console.log(currentPictureIndex); 
+//   console.log(currentPictureIndex); 
+  console.log(currentPhotographMedia.find(el => el.index == currentPictureIndex))
   
-  function nextIndex() {
-    currentPictureIndex = currentPictureIndex += 1;
-  }
   
   //  console.log(IndexOfCurrentPhotographMedia);
 });

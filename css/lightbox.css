@@ -1,5 +1,5 @@
 .lightbox {
-    display: none;
+    display: none;;
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
 }
 
 .lightbox_next,
-.lightbox_prev {
+.lightbox_previous {
     border: none;
     background: url(/assets/icons/arrow.svg) center center / 30px 48px no-repeat; /*taille du chevron */
     width: 50px; /*AGRANDISSEMENT DE LA ZONE DE CLIC A 50px*/
@@ -23,7 +23,7 @@
     z-index: 10000;
 }
 
-.lightbox_prev {
+.lightbox_previous {
     right: auto;
     left: 0;
     transform: rotate(180deg);

@@ -1,4 +1,4 @@
-// !FACTORY DE L'ARTICLE DE CHAQUE PHOTOGRAPHES
+// !FACTORY DU PROFIL DE CHAQUE PHOTOGRAPHE
 //!===================================
 function photographerFactory(data) {
     const { name, id, portrait, city, country, tagline, price } = data;
