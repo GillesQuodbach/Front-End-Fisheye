@@ -36,12 +36,8 @@ console.log(allData);//!Affiche la partie media ET photographers du
 let allMediaData = {}
 allMediaData = allData.media
 
-
 let mediaFoundById = (allMediaData.find(el => el.id == articleId));
-
-
 let currentPhotographerId = mediaFoundById.photographerId;
-
 
 let currentPhotographMedia = allMediaData.filter(el => el.photographerId == currentPhotographerId);
 console.log(currentPhotographMedia);
@@ -50,30 +46,22 @@ const lightboxNextButton = document.querySelector('.lightbox_next');
 const lightboxPreviousButton = document.querySelector('.lightbox_previous');
 
 lightboxNextButton.addEventListener('click', function next() {
-  //Récupération de l'index de la photo actuelle
-  let currentPictureIndex = currentPhotographMedia.findIndex(el => el.id == articleId);
-  //Index de la photo
-  // currentPictureIndex
-  console.log(currentPictureIndex); 
-  //ID de la photo
-  // console.log(articleId); 
-  //Longueur liste complete des photos (et video)
-  let currentPhotoListLength = currentPhotographMedia.length;
-  // console.log(currentPhotoListLength); 
 
-  currentPictureIndex = currentPictureIndex + 1;
-//   console.log(currentPictureIndex); 
-  console.log(currentPhotographMedia.find(el => el.index == currentPictureIndex))
+  const lightboxNextButton = document.querySelector('.lightbox_next');
+  const lightboxPreviousButton = document.querySelector('.lightbox_previous');
+  const slide = document.querySelector('.lightbox_picture')
+  let currentPictureIndex = currentPhotographMedia.findIndex(el => el.id == articleId);
+  console.log(currentPictureIndex)
   
-  
-  //  console.log(IndexOfCurrentPhotographMedia);
+  let currentGallery = currentPhotographMedia // Gallery du photographe OK
+  let currentGalleryLength = currentPhotographMedia.length //Longueur gallery du photographe OK
+  let i = currentPictureIndex; // Index image actuelle OK
+  let currentObject = currentPhotographMedia[currentPictureIndex]; //Objet actuel OK
+  let currentObjectSrc = currentObject.image // SRC de l'objet actuelle OK
+// ! A CONTINUER ICI ====================================================
+// console.log(currentGallery.find(currentObjectSrc))
+
 });
-// lightboxPreviousButton.addEventListener('click', previous());
-// function next() {
-// let IndexOfCurrentPhotographMedia = currentPhotographMedia.findIndex(el => el.id == articleId);
-//   console.log(IndexOfCurrentPhotographMedia);
-//   IndexOfCurrentPhotographMedia == currentPhotographMedia.length + 1
-// }
 
 // Apparition de la lightbox
 lightBox.style.display = 'block';
