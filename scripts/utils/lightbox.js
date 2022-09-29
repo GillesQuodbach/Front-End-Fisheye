@@ -14,6 +14,15 @@ window.onload = () => { // Une fois que la galery est chargée
         lightboxImg.src = selectedImgUrl;
         console.log(selectedImgUrl);
       }
+
+      const prevBtn = document.querySelector('.lightbox_previous');
+      const nextBtn = document.querySelector('.lightbox_next');
+
+    prevBtn.onclick = () => {
+      i--; //décrément l'index
+      preview() // Rapelle de la fonction pour rafraichir l'image
+    }
+    
       preview();
       lightbox.classList.add("show");
       
