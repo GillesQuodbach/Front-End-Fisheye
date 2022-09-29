@@ -1,5 +1,5 @@
 .lightbox {
-    display: none;;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,9 @@
     z-index: 1000;
     overflow: auto;
 }
-
+.lightbox.show {
+    display: block;
+}
 .lightbox_next,
 .lightbox_previous {
     border: none;
