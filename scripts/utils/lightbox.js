@@ -5,23 +5,24 @@ window.onload = () => {
   const totalGallery = gallery.length;
   const lightbox = document.querySelector('.lightbox');
   const lightboxImg = document.querySelector('.lightbox_picture');
+  let lightboxTitle = document.querySelector('.lightbox_picture_title');
   const closeButton = document.querySelector('.lightbox_close')
   const prevBtn = document.querySelector('.lightbox_previous');
   const nextBtn = document.querySelector('.lightbox_next');
 
   for (let i = 0; i < gallery.length; i++) {
-      
     let newIndex = i;
-    let clickedImgIndex;
+    let clickedImgIndex = "";
     
-
+  
     gallery[i].onclick = () => {
-      
 
       function preview() {
         let imageUrl = gallery[newIndex].src
         lightboxImg.src = imageUrl;
-        console.log(imageUrl)
+        let imageTitle = gallery[newIndex].alt
+        lightboxTitle.textContent = imageTitle
+        console.log(lightboxTitle);
       }
       preview();
       
