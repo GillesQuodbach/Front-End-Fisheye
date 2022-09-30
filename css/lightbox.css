@@ -12,8 +12,22 @@
 .lightbox.show {
     display: block;
 }
-.lightbox_next,
+
+.lightbox_next {
+    display: block;
+    border: none;
+    background: url(/assets/icons/arrow.svg) center center / 30px 48px no-repeat; /*taille du chevron */
+    width: 50px; /*AGRANDISSEMENT DE LA ZONE DE CLIC A 50px*/
+    height: 100%; /*AGRANDISSEMENT DE LA ZONE DE CLIC 100% de la hauteur */
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: -20px;
+    z-index: 10000;
+}
+
 .lightbox_previous {
+    display: block;
     border: none;
     background: url(/assets/icons/arrow.svg) center center / 30px 48px no-repeat; /*taille du chevron */
     width: 50px; /*AGRANDISSEMENT DE LA ZONE DE CLIC A 50px*/

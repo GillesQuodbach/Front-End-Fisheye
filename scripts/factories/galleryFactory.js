@@ -15,7 +15,7 @@ function galleryFactory(data) {
             //Card image
             const img = document.createElement( 'video' );
             img.setAttribute("src", picture)
-            img.className = "gallery_video";
+            img.className = "profil_image";
             img.setAttribute("alt", `${title}`);
             // Photographer name
             const h2 = document.createElement( 'h2' );

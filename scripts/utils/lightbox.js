@@ -1,33 +1,66 @@
-window.onload = () => { // Une fois que la galery est chargée
+window.onload = () => {
+ 
+ // Une fois que la galery est chargée
   const gallery = document.querySelectorAll('.profil_image');
+  const totalGallery = gallery.length;
   const lightbox = document.querySelector('.lightbox');
   const lightboxImg = document.querySelector('.lightbox_picture');
   const closeButton = document.querySelector('.lightbox_close')
-  
+  const prevBtn = document.querySelector('.lightbox_previous');
+  const nextBtn = document.querySelector('.lightbox_next');
+
   for (let i = 0; i < gallery.length; i++) {
-    console.log(i);
+      
+    let newIndex = i;
+    let clickedImgIndex;
+    
+
     gallery[i].onclick = () => {
-      console.log(i)
+      
 
       function preview() {
-        let selectedImgUrl = gallery[i].src
-        lightboxImg.src = selectedImgUrl;
-        console.log(selectedImgUrl);
+        let imageUrl = gallery[newIndex].src
+        lightboxImg.src = imageUrl;
+        console.log(imageUrl)
+      }
+      preview();
+      
+      if (newIndex == 0) {
+        prevBtn.style.display = 'none';
+      }
+      if (newIndex >= totalGallery - 1) {
+        nextBtn.style.display = 'none';
       }
 
-      const prevBtn = document.querySelector('.lightbox_previous');
-      const nextBtn = document.querySelector('.lightbox_next');
+      prevBtn.onclick = () => {
+          newIndex--; //décrément l'index
+          if (newIndex == 0) {
+            preview();
+            prevBtn.style.display = 'none';
+          } else {
+            preview()
+            nextBtn.style.display = 'block';
+          }
+      }
 
-    prevBtn.onclick = () => {
-      i--; //décrément l'index
-      preview() // Rapelle de la fonction pour rafraichir l'image
+      nextBtn.onclick = () => {
+          newIndex++; //décrément l'index
+          if (newIndex >= totalGallery - 1) {
+            preview()
+            nextBtn.style.display = 'none';
+          } else {
+            preview()
+            prevBtn.style.display = 'block';
+          }
     }
-    
-      preview();
+  
       lightbox.classList.add("show");
       
         closeButton.onclick = () => {
+          newIndex = clickedImgIndex;
+          prevBtn.style.display = 'block';
+          nextBtn.style.display = 'block';
           lightbox.classList.remove("show");
         }
-  }}};
+}}};
   
