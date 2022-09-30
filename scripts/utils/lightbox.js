@@ -1,38 +1,56 @@
+ // Attente du chargement de la page
 window.onload = () => {
  
- // Une fois que la galery est chargée
+  //Selection des éléments
+  //Tous les éléments de la gallery (photos et videos)
   const gallery = document.querySelectorAll('.profil_image');
+  //Longueur de la galerie
   const totalGallery = gallery.length;
+  //Lightbox
   const lightbox = document.querySelector('.lightbox');
+  //Photo de la lightbox
   const lightboxImg = document.querySelector('.lightbox_picture');
+  //Titre de l'image ou video
   let lightboxTitle = document.querySelector('.lightbox_picture_title');
+  //Bouton fermeture lightbox
   const closeButton = document.querySelector('.lightbox_close')
+  //Bouton retour/suivant de la lightbox
   const prevBtn = document.querySelector('.lightbox_previous');
   const nextBtn = document.querySelector('.lightbox_next');
 
   for (let i = 0; i < gallery.length; i++) {
-    let newIndex = i;
+    let newIndex = i; // Remplacement de i par newIndex
     let clickedImgIndex = "";
-    
-  
     gallery[i].onclick = () => {
-
+      // si imageUrl fini par mp4
+      // img devient video
       function preview() {
+        //Source de l'image cliquée
         let imageUrl = gallery[newIndex].src
         lightboxImg.src = imageUrl;
+        //Titre de l'image cliquée
         let imageTitle = gallery[newIndex].alt
         lightboxTitle.textContent = imageTitle
-        console.log(lightboxTitle);
+        let extension = imageUrl.split('.').pop()
+        console.log(lightboxImg); //extension jpg
+
+//METTRE UNE LIGNE IMG l'autre VIDEO, hid une quand on affiche l'autre !
+
+        if (extension != "jpg") {
+          lightboxImg.tagName = "VIDEO"
+          //<img src="" class="lightbox_picture"></img>
+        }
       }
       preview();
-      
+      //Si index 0 bouton prev invisible
       if (newIndex == 0) {
         prevBtn.style.display = 'none';
       }
+      //Si index final bouton next invisible
       if (newIndex >= totalGallery - 1) {
         nextBtn.style.display = 'none';
       }
-
+      //Défilement photos précédentes
       prevBtn.onclick = () => {
           newIndex--; //décrément l'index
           if (newIndex == 0) {
@@ -43,7 +61,7 @@ window.onload = () => {
             nextBtn.style.display = 'block';
           }
       }
-
+      //Défilement photos suivantes
       nextBtn.onclick = () => {
           newIndex++; //décrément l'index
           if (newIndex >= totalGallery - 1) {
@@ -54,9 +72,9 @@ window.onload = () => {
             prevBtn.style.display = 'block';
           }
     }
-  
+      //Apparition lightbox
       lightbox.classList.add("show");
-      
+      //Fermeture lightbox + reinitialisation bouton
         closeButton.onclick = () => {
           newIndex = clickedImgIndex;
           prevBtn.style.display = 'block';

@@ -6,17 +6,22 @@ function galleryFactory(data) {
     if (videoInList !== undefined) {
         console.log("=============VIDEO=============");
         const { date, id, video, likes, photographerId, price, title } = data;
-        const picture = `assets/images/${video}`;
+        const clip = `assets/images/${video}`;
         //Création de la carte de chaque photographe
         function getImageDOM() {
             // Cards container
             const article = document.createElement( 'article' );
             article.setAttribute("id", id);
+            // article.setAttribute("class", 'gallery_cards');
             //Card image
             const img = document.createElement( 'video' );
-            img.setAttribute("src", picture)
+            img.setAttribute("src", clip)
+            img.setAttribute("controls", "controls")
+            // img.setAttribute("muted", "muted")
+            article.setAttribute("class", 'gallery_cards');
+            
             img.className = "profil_image";
-            img.setAttribute("alt", `${title}`);
+            // img.setAttribute("alt", `${title}`);
             // Photographer name
             const h2 = document.createElement( 'h2' );
             h2.textContent = title;
