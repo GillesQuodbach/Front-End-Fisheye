@@ -26,6 +26,9 @@ function galleryFactory(data) {
       const h2 = document.createElement("h2");
       h2.textContent = title;
       h2.className = "name";
+
+      //! RAJOUTER PRIX ET CUMUL DES LIKES
+
       //Création de la card
       article.appendChild(vids);
       article.appendChild(h2);
