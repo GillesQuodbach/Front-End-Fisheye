@@ -33,6 +33,7 @@ h1 {
     gap: 70px;
     margin-top: 100px;
 }
+
 /* article complet */
 .photographer_section article {
     justify-self: center;
@@ -58,20 +59,25 @@ h1 {
     border-radius: 50%;
 }
 
-.living-place, .tagline, .price {
+.living-place,
+.tagline,
+.price {
     margin: 0;
 }
+
 /*Couleur lieu de vie*/
 .living-place {
     color: #901C1C;
     font-size: 13px;
     margin-bottom: 5px;
 }
+
 /*Tagline*/
-.tagline{
+.tagline {
     font-size: 10px;
     margin-bottom: 3px;
 }
+
 /*Prix*/
 .price {
     font-size: 9px;
@@ -79,7 +85,7 @@ h1 {
 }
 
 /* Form */
-.error-msg {    
+.error-msg {
     color: #901C1C;
     font-size: 12px;
     font-weight: 600;

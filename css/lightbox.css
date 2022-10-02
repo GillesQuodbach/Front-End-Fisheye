@@ -20,22 +20,29 @@
 .lightbox_next {
     display: block;
     border: none;
-    background: url(/assets/icons/arrow.svg) center center / 30px 48px no-repeat; /*taille du chevron */
-    width: 50px; /*AGRANDISSEMENT DE LA ZONE DE CLIC A 50px*/
-    height: 100%; /*AGRANDISSEMENT DE LA ZONE DE CLIC 100% de la hauteur */
+    background: url(/assets/icons/arrow.svg) center center / 30px 48px no-repeat;
+    /*taille du chevron */
+    width: 50px;
+    /*AGRANDISSEMENT DE LA ZONE DE CLIC A 50px*/
+    height: 100%;
+    /*AGRANDISSEMENT DE LA ZONE DE CLIC 100% de la hauteur */
     position: fixed;
     top: 0;
     right: 0;
     margin-top: -20px;
     z-index: 10000;
 }
+
 /* Bouton PREVIOUS */
 .lightbox_previous {
     display: block;
     border: none;
-    background: url(/assets/icons/arrow.svg) center center / 30px 48px no-repeat; /*taille du chevron */
-    width: 50px; /*AGRANDISSEMENT DE LA ZONE DE CLIC A 50px*/
-    height: 100%; /*AGRANDISSEMENT DE LA ZONE DE CLIC 100% de la hauteur */
+    background: url(/assets/icons/arrow.svg) center center / 30px 48px no-repeat;
+    /*taille du chevron */
+    width: 50px;
+    /*AGRANDISSEMENT DE LA ZONE DE CLIC A 50px*/
+    height: 100%;
+    /*AGRANDISSEMENT DE LA ZONE DE CLIC 100% de la hauteur */
     position: fixed;
     top: 0;
     right: 0;
@@ -45,6 +52,7 @@
     left: 0;
     transform: rotate(180deg);
 }
+
 /* Effets sur boutons NEXT/PREVIOUS */
 .lightbox button {
     opacity: 0.5;
@@ -85,22 +93,32 @@
     height: auto;
     animation: lightboxIn .5s;
 }
-.lightbox_picture{
+
+.lightbox_picture {
     display: none;
 }
+
 /* Affichage photos ou video */
 .lightbox_picture.show {
     display: block;
 
 }
-.lightbox_video{
+
+.lightbox_video {
     display: none;
 }
+
 .lightbox_video.show {
     display: block;
 }
+
 /* Animation lightbox */
 @keyframes lightboxIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

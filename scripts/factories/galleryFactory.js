@@ -1,64 +1,78 @@
 //! FACTORY DE LA GALERIE PHOTOGRAPHER
 //!===================================
 function galleryFactory(data) {
-    let photographerMediaArray = [];
-    let videoInList = data.video;
-    if (videoInList !== undefined) {
-        console.log("=============VIDEO=============");
-        const { date, id, video, likes, photographerId, price, title } = data;
-        const clip = `assets/images/${video}`;
-        //Création de la carte de chaque photographe
-        function getImageDOM() {
-            // Cards container
-            const article = document.createElement( 'article' );
-            article.setAttribute("id", id);
-            // article.setAttribute("class", 'gallery_cards');
-            //Card image
-            const vids = document.createElement( 'video' );
-            vids.setAttribute("src", clip)
-            vids.setAttribute("controls", "controls")
-            // img.setAttribute("muted", "muted")
-            article.setAttribute("class", 'gallery_cards');
-            vids.setAttribute("src", clip)
-            vids.className = "profil_image";
-            vids.setAttribute("alt", `${title}`);
-            // Photographer name
-            const h2 = document.createElement( 'h2' );
-            h2.textContent = title;
-            h2.className = "name";
-            //Création de la card
-            article.appendChild(vids);
-            article.appendChild(h2);
-            return (article); //Retourne les infos dans les cards
-        }
-        return { date, id, video, likes, photographerId, price, title, getImageDOM}
-        
-    } else { 
-        
+  let photographerMediaArray = [];
+  let videoInList = data.video;
+  if (videoInList !== undefined) {
+    console.log("=============VIDEO=============");
+    const { date, id, video, likes, photographerId, price, title } = data;
+    const clip = `assets/images/${video}`;
+    //Création de la carte de chaque photographe
+    function getImageDOM() {
+      // Cards container
+      const article = document.createElement("article");
+      article.setAttribute("id", id);
+      // article.setAttribute("class", 'gallery_cards');
+      //Card image
+      const vids = document.createElement("video");
+      vids.setAttribute("src", clip);
+      vids.setAttribute("controls", "controls");
+      // img.setAttribute("muted", "muted")
+      article.setAttribute("class", "gallery_cards");
+      vids.setAttribute("src", clip);
+      vids.className = "profil_image";
+      vids.setAttribute("alt", `${title}`);
+      // Photographer name
+      const h2 = document.createElement("h2");
+      h2.textContent = title;
+      h2.className = "name";
+      //Création de la card
+      article.appendChild(vids);
+      article.appendChild(h2);
+      return article; //Retourne les infos dans les cards
+    }
+    return {
+      date,
+      id,
+      video,
+      likes,
+      photographerId,
+      price,
+      title,
+      getImageDOM,
+    };
+  } else {
     const { date, id, image, likes, photographerId, price, title } = data;
     const picture = `assets/images/${image}`;
     //Création de la carte de chaque photographe
     function getImageDOM() {
-        // Cards container
-        const article = document.createElement( 'article' );
-        article.setAttribute("id", id);
-        article.setAttribute("class", 'gallery_cards');
-        //Card image
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        img.className = "profil_image";
-        img.setAttribute("alt", `${title}`);
-        // Photographer name
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = title;
-        h2.className = "name";
-        //Création de la card
-        article.appendChild(img);
-        article.appendChild(h2);
-        return (article); //Retourne les infos dans les cards
+      // Cards container
+      const article = document.createElement("article");
+      article.setAttribute("id", id);
+      article.setAttribute("class", "gallery_cards");
+      //Card image
+      const img = document.createElement("img");
+      img.setAttribute("src", picture);
+      img.className = "profil_image";
+      img.setAttribute("alt", `${title}`);
+      // Photographer name
+      const h2 = document.createElement("h2");
+      h2.textContent = title;
+      h2.className = "name";
+      //Création de la card
+      article.appendChild(img);
+      article.appendChild(h2);
+      return article; //Retourne les infos dans les cards
     }
-    return { 
-        date, id, image, likes, photographerId, price, title, getImageDOM
-    }
-}}
-
+    return {
+      date,
+      id,
+      image,
+      likes,
+      photographerId,
+      price,
+      title,
+      getImageDOM,
+    };
+  }
+}

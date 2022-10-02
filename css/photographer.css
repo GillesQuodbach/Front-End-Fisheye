@@ -28,14 +28,14 @@
 }
 
 article img {
-width: 200px;
-height: auto;
+    width: 200px;
+    height: auto;
 }
 
 article video {
     width: 200px;
     height: auto;
-    }
+}
 
 .contact_button {
     font-size: 20px;
@@ -50,7 +50,7 @@ article video {
     cursor: pointer;
 }
 
-.detail-profile-image{
+.detail-profile-image {
     width: 200px;
     height: 200px;
 }
@@ -87,19 +87,24 @@ article video {
     margin: 0;
     padding: 0;
 }
+
 .photographer-name {
     min-width: 320px;
 }
+
 form {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
 }
+
 #all_inputs_container {
     margin-top: 50px;
 }
-form label, textarea {
+
+form label,
+textarea {
     color: #312E2E;
     font-size: 26px;
 }
@@ -125,6 +130,7 @@ form textarea {
     border: none;
     border-radius: 5px;
 }
+
 /* PHOTOGRAPH GALLERY */
 #photograph_gallery {
     height: auto;
@@ -142,4 +148,3 @@ form textarea {
     border: 1px solid black;
     border-radius: 5px;
 }
-
