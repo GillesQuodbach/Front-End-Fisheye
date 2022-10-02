@@ -38,7 +38,7 @@ async function displayModal() {
 
     //? Focus 1er inputs
     function getFocus() {
-      document.getElementById("firstName").focus();
+      document.getElementById("firstname").focus();
     }
     getFocus();
 }
@@ -50,20 +50,55 @@ function closeModal() {
 }
 
 // Validation et récupération infos formulaire
-const firstName = document.getElementById("#firstName")
-const lastName = document.getElementById("#lastName")
-const email = document.getElementById("#email")
-const message = document.getElementById("#contact-message")
+const firstName = document.querySelector("#firstname")
+const lastName = document.querySelector("#lastname")
+const email = document.querySelector("#email")
+const message = document.querySelector("#contact-message")
+const myForm = document.querySelector("#contact_form")
 
+//Messages erreur
+const firstNameErrorMsg = document.querySelector(".firstname-error");
+const lastNameErrorMsg = document.querySelector(".lastname-error");
+const emailErrorMsg = document.querySelector(".email-error");
+const msgErrorMsg = document.querySelector(".contact-message-error");
 
 //Régexp de contrôle du mail
 const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-function validate(e) {
+myForm.addEventListener("submit", function(e) {
   e.preventDefault();
-  console.log(firstName.value) 
-  console.log(lastName.value) 
-  console.log(email.value) 
-  console.log(message.value)
-//   return true;
+  if( validate(myForm) === true ) {
+    console.log(`
+    Prénom: ${firstName.value}
+    Nom: ${lastName.value}
+    Email: ${email.value}
+    Message: ${message.value}
+    `)
+  }
 }
+)
+
+function validate() {
+//Validation prénom
+if (firstName.value === "") {
+  firstNameErrorMsg.innerHTML = "Merci d'entrer un prénom valide.";
+}
+if (lastName.value === "") {
+  lastNameErrorMsg.innerHTML = "Merci d'entrer un nom valide.";
+}
+let testMail = emailRegExp.test(email.value);
+if (testMail === false || email.value === "") {
+  emailErrorMsg.innerHTML = "Merci d'entrer un email valide.";
+} 
+if (message.value === "") {
+  msgErrorMsg.innerHTML = "Vous avez oublié votre message...";
+}
+if (!firstName.value ||
+      !lastName.value ||
+      !testMail ||
+      !emailErrorMsg)
+      {
+  return false;
+}
+  return true;
+};

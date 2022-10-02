@@ -77,3 +77,11 @@ h1 {
     font-size: 9px;
     color: #757575;
 }
+
+/* Form */
+.error-msg {    
+    color: #901C1C;
+    font-size: 12px;
+    font-weight: 600;
+
+}
