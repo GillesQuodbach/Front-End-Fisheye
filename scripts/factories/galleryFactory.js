@@ -14,20 +14,20 @@ function galleryFactory(data) {
             article.setAttribute("id", id);
             // article.setAttribute("class", 'gallery_cards');
             //Card image
-            const img = document.createElement( 'video' );
-            img.setAttribute("src", clip)
-            img.setAttribute("controls", "controls")
+            const vids = document.createElement( 'video' );
+            vids.setAttribute("src", clip)
+            vids.setAttribute("controls", "controls")
             // img.setAttribute("muted", "muted")
             article.setAttribute("class", 'gallery_cards');
-            
-            img.className = "profil_image";
-            // img.setAttribute("alt", `${title}`);
+            vids.setAttribute("src", clip)
+            vids.className = "profil_image";
+            vids.setAttribute("alt", `${title}`);
             // Photographer name
             const h2 = document.createElement( 'h2' );
             h2.textContent = title;
             h2.className = "name";
             //Création de la card
-            article.appendChild(img);
+            article.appendChild(vids);
             article.appendChild(h2);
             return (article); //Retourne les infos dans les cards
         }

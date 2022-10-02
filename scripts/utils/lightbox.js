@@ -10,8 +10,9 @@ window.onload = () => {
   const lightbox = document.querySelector('.lightbox');
   //Photo de la lightbox
   const lightboxImg = document.querySelector('.lightbox_picture');
+  const lightboxVideo = document.querySelector('.lightbox_video');
   //Titre de l'image ou video
-  let lightboxTitle = document.querySelector('.lightbox_picture_title');
+  let lightboxTitle = document.querySelector('.lightbox_media_title');
   //Bouton fermeture lightbox
   const closeButton = document.querySelector('.lightbox_close')
   //Bouton retour/suivant de la lightbox
@@ -29,16 +30,29 @@ window.onload = () => {
         let imageUrl = gallery[newIndex].src
         lightboxImg.src = imageUrl;
         //Titre de l'image cliquée
-        let imageTitle = gallery[newIndex].alt
-        lightboxTitle.textContent = imageTitle
         let extension = imageUrl.split('.').pop()
-        console.log(lightboxImg); //extension jpg
-
+        console.log(extension); //extension jpg
+        console.log(gallery[newIndex].alt)
 //METTRE UNE LIGNE IMG l'autre VIDEO, hid une quand on affiche l'autre !
-
-        if (extension != "jpg") {
-          lightboxImg.tagName = "VIDEO"
-          //<img src="" class="lightbox_picture"></img>
+        if (extension == "mp4") {
+          let videoUrl = gallery[newIndex].src
+        lightboxVideo.src = videoUrl;
+        //Titre de l'image cliquée
+        let videoTitle = gallery[newIndex]
+        let videoAlt = videoTitle.getAttribute("alt")
+        console.log(videoAlt);
+          lightboxTitle.textContent = videoAlt
+          lightboxImg.classList.remove("show");
+          lightboxVideo.classList.add("show");
+          lightboxVideo.setAttribute("controls", "controls");
+        } else if (extension == "jpg"){
+          let imageUrl = gallery[newIndex].src
+          lightboxImg.src = imageUrl;
+        //Titre de l'image cliquée
+          let imageTitle = gallery[newIndex].alt
+          lightboxTitle.textContent = imageTitle
+          lightboxImg.classList.add("show");
+          lightboxVideo.classList.remove("show");
         }
       }
       preview();

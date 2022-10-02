@@ -1,3 +1,4 @@
+/* Mise en forme lightbox */
 .lightbox {
     display: none;
     position: fixed;
@@ -9,10 +10,13 @@
     z-index: 1000;
     overflow: auto;
 }
+
+/* Apparition lightbox */
 .lightbox.show {
     display: block;
 }
 
+/* Bouton NEXT */
 .lightbox_next {
     display: block;
     border: none;
@@ -25,7 +29,7 @@
     margin-top: -20px;
     z-index: 10000;
 }
-
+/* Bouton PREVIOUS */
 .lightbox_previous {
     display: block;
     border: none;
@@ -37,25 +41,11 @@
     right: 0;
     margin-top: -20px;
     z-index: 10000;
-}
-
-.lightbox_previous {
     right: auto;
     left: 0;
     transform: rotate(180deg);
 }
-
-.lightbox_close {
-    border: none;
-    background: url(/assets/icons/lb_close.svg) center center /100% 100% no-repeat transparent;
-    width: 42px;
-    height: 42px;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 20000;
-}
-
+/* Effets sur boutons NEXT/PREVIOUS */
 .lightbox button {
     opacity: 0.5;
     cursor: pointer;
@@ -67,6 +57,19 @@
     opacity: 1;
 }
 
+/* Bouton CLOSE */
+.lightbox_close {
+    border: none;
+    background: url(/assets/icons/lb_close.svg) center center /100% 100% no-repeat transparent;
+    width: 42px;
+    height: 42px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 20000;
+}
+
+/* CONTAINER de la lightbox */
 .lightbox_container {
     display: flex;
     justify-content: center;
@@ -82,7 +85,21 @@
     height: auto;
     animation: lightboxIn .5s;
 }
+.lightbox_picture{
+    display: none;
+}
+/* Affichage photos ou video */
+.lightbox_picture.show {
+    display: block;
 
+}
+.lightbox_video{
+    display: none;
+}
+.lightbox_video.show {
+    display: block;
+}
+/* Animation lightbox */
 @keyframes lightboxIn {
     from {opacity: 0;}
     to {opacity: 1;}
