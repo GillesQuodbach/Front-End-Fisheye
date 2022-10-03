@@ -1,6 +1,5 @@
 //! RECUP DONNEES PROFIL PHOTOGRAPHE
 //!=================================================
-
 const json_url = "data/photographers.json";
 
 //Récupération des données voulues (Profil des photographes)
@@ -34,8 +33,8 @@ async function getPhotographersProfils() {
 async function displayPhotographersProfils(photographer) {
   //Selection de la photograph_header de l'index.html (section entière)
   const photographersSection = document.querySelector(".photograph-header");
-  const photographerModel = photographerFactory(photographer);
-  const userCardDOM = photographerModel.getUserCardDOM();
+  const photographerModel = photographerProfilFactory(photographer);
+  const userCardDOM = photographerModel.getProfilCardDOM();
   photographersSection.appendChild(userCardDOM);
 }
 //?Initialisation des toutes les fonctions
@@ -72,6 +71,7 @@ async function getGalleryItems() {
     return el.photographerId == id;
   });
   console.log({ filteredMedia }); //Affiche toutes les images correspondants au photographe
+  //Affiche toutes les images correspondants au photographe
   //  return ({filteredMedia}); //Affiche toutes les images correspondants au photographe
   for (let i = 0; i < filteredMedia.length; i++) {
     return { media: [...filteredMedia] };

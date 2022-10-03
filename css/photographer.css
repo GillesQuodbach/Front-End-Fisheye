@@ -150,6 +150,11 @@ form textarea {
 }
 
 .bottom_fixed_infos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 12px;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -158,4 +163,16 @@ form textarea {
     margin-right: 30px;
     border-radius: 5px 5px 0px 0px;
     background-color: #DB8876;
+}
+
+.bottom_price {
+    margin-left: auto;
+}
+
+i {
+    z-index: 99999999;
+    font-size: 12px;
+    font-weight: 600;
+
+
 }

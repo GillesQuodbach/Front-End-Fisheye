@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+<script src="https://kit.fontawesome.com/b556c70381.js" crossorigin="anonymous"></script>
 
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -28,6 +29,7 @@
       <header class="modal-header" role="contact">
         <h2 class="modal-title">Contactez-moi</h2>
         <img class="close-modal-cross" src="assets/icons/close.svg" onclick="closeModal()" />
+        <h2 class="photograph-contact-name"></h2>
       </header>
       <!-- ! FORM -->
       <form id="contact_form" name="contact_form" method="get" action="index.html" onsubmit="return validate();">
@@ -63,6 +65,7 @@
   <!-- ! FIXED INFOS -->
   <div class="bottom_fixed_infos">
     <p class="fixed_likes"></p>
+    <span><i class="fa-sharp fa-solid fa-heart"></i></span>
     <p class="fixed_price"></p>
   </div>
   <!-- ! ========= -->
@@ -71,6 +74,7 @@
   <script src="/scripts/factories/galleryFactory.js"></script>
   <script src="/scripts/utils/contactForm.js" defer></script>
   <script src="/scripts/utils/lightbox.js" defer></script>
+  <script src="/scripts/utils/fixedInfos.js" defer></script>
 </body>
 
 </html>

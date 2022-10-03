@@ -30,11 +30,8 @@ async function displayModal() {
   const modalTitle = document.querySelector(".modal-title");
   const closeModalCross = document.querySelector(".close-modal-cross");
   const nameContainer = document.createElement("div");
-  const name = document.createElement("h2");
-  name.innerHTML = `${photographerName}`;
-  modalHeader.appendChild(nameContainer);
-  name.className = "photographer-name";
-  nameContainer.append(name);
+  const name = document.querySelector(".photograph-contact-name");
+  name.innerText = `${photographerName}`;
   // modalHeader.insertBefore(name, closeModalCross);
 
   //? Focus 1er inputs
