@@ -17,21 +17,33 @@ function galleryFactory(data) {
       const vids = document.createElement("video");
       vids.setAttribute("src", clip);
       vids.setAttribute("controls", "controls");
-      // img.setAttribute("muted", "muted")
+      vids.setAttribute("muted", "muted");
       article.setAttribute("class", "gallery_cards");
-      vids.setAttribute("src", clip);
-      vids.className = "profil_image";
+      vids.className = "cards_image";
       vids.setAttribute("alt", `${title}`);
+      // Cards infos container
+      const cardInfosContainer = document.createElement("div");
+      cardInfosContainer.className = "cards_infos_container";
       // Photographer name
       const h2 = document.createElement("h2");
       h2.textContent = title;
-      h2.className = "name";
-
+      h2.className = "cards_title";
+      //Affichage des likes sur chaque card
+      const like = document.createElement("p");
+      like.textContent = likes;
+      like.className = "cards_likes";
+      //Affichage du COEUR sur chaque card
+      const heartTag = document.createElement("i");
+      heartTag.className = "fa-sharp fa-solid fa-heart";
       //! RAJOUTER PRIX ET CUMUL DES LIKES
 
       //Création de la card
       article.appendChild(vids);
-      article.appendChild(h2);
+      article.appendChild(cardInfosContainer);
+      cardInfosContainer.appendChild(h2);
+      cardInfosContainer.appendChild(like);
+      cardInfosContainer.appendChild(heartTag);
+
       return article; //Retourne les infos dans les cards
     }
     return {
@@ -56,15 +68,30 @@ function galleryFactory(data) {
       //Card image
       const img = document.createElement("img");
       img.setAttribute("src", picture);
-      img.className = "profil_image";
+      img.className = "cards_image";
       img.setAttribute("alt", `${title}`);
+      // Cards infos container
+      const cardInfosContainer = document.createElement("div");
+      cardInfosContainer.className = "cards_infos_container";
       // Photographer name
       const h2 = document.createElement("h2");
       h2.textContent = title;
-      h2.className = "name";
+      h2.className = "cards_title";
+      //Affichage des likes sur chaque card
+      const like = document.createElement("p");
+      like.textContent = likes;
+      like.className = "cards_likes";
+      //Affichage du COEUR sur chaque card
+      //Affichage du COEUR sur chaque card
+      const spanTag = document.createElement("span");
+      const heartTag = document.createElement("i");
+      heartTag.className = "fa-sharp fa-solid fa-heart";
       //Création de la card
       article.appendChild(img);
-      article.appendChild(h2);
+      article.appendChild(cardInfosContainer);
+      cardInfosContainer.appendChild(h2);
+      cardInfosContainer.appendChild(like);
+      cardInfosContainer.appendChild(heartTag);
       return article; //Retourne les infos dans les cards
     }
     return {

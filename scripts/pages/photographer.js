@@ -32,10 +32,10 @@ async function getPhotographersProfils() {
 //Affichage des données des photographes
 async function displayPhotographersProfils(photographer) {
   //Selection de la photograph_header de l'index.html (section entière)
-  const photographersSection = document.querySelector(".photograph-header");
+  const profilePhotograph = document.querySelector(".photograph-header");
   const photographerModel = photographerProfilFactory(photographer);
   const userCardDOM = photographerModel.getProfilCardDOM();
-  photographersSection.appendChild(userCardDOM);
+  profilePhotograph.appendChild(userCardDOM);
 }
 //?Initialisation des toutes les fonctions
 async function initProfils() {

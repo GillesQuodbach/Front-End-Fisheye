@@ -24,12 +24,6 @@ async function displayModal() {
 
   const photographerName = sortedById[id].name;
   console.log(photographerName);
-
-  // MISE EN FORMe DU DOM
-  const modalHeader = document.querySelector(".modal-header");
-  const modalTitle = document.querySelector(".modal-title");
-  const closeModalCross = document.querySelector(".close-modal-cross");
-  const nameContainer = document.createElement("div");
   const name = document.querySelector(".photograph-contact-name");
   name.innerText = `${photographerName}`;
   // modalHeader.insertBefore(name, closeModalCross);

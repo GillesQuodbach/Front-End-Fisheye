@@ -48,10 +48,14 @@ function photographerProfilFactory(data) {
   const picture = `assets/photographers/${portrait}`;
   //Création de la carte de chaque photographe
   function getProfilCardDOM() {
-    // Cards container
-    const article = document.createElement("article");
-    article.setAttribute("id", id);
-    article.setAttribute("class", "cardsLink");
+    //Profile photographe
+    const profileHeader = document.querySelector(".photograph-header");
+    //Div profileInfos
+    const profileInfos = document.createElement("div");
+    profileInfos.setAttribute("class", "photograph_profile_infos");
+
+    const profileImage = document.querySelector(".photograph-profile-photo");
+    const contactButton = document.querySelector(".contact_button");
     //Card image
     const img = document.createElement("img");
     img.setAttribute("src", picture);
@@ -75,15 +79,17 @@ function photographerProfilFactory(data) {
     totalLikes.className = "bottom_likes";
     // Photographers price
     const cost = document.querySelector(".fixed_price");
-    cost.textContent = `${price}€/jour`;
+    cost.textContent = `${price}€ / jour`;
     cost.className = "bottom_price";
     //Création de la card
-    article.appendChild(img);
-    article.appendChild(h2);
-    article.appendChild(livingPlace);
-    article.appendChild(tag);
+    profileHeader.insertAdjacentElement("afterbegin", img);
+    // contactButton.prepend(img);
+    contactButton.insertAdjacentElement("beforebegin", profileInfos);
+    profileInfos.append(h2);
+    profileInfos.append(livingPlace);
+    profileInfos.append(tag);
     // article.appendChild(cost);
-    return article; //Retourne les infos dans les cards
+    return profileInfos; //Retourne les infos dans les cards
   }
   return { name, picture, id, likes, getProfilCardDOM };
 }

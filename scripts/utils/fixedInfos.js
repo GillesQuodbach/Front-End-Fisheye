@@ -30,5 +30,6 @@ async function getFixedLikesAndPrice() {
 
   const fixPriceBox = document.querySelector(".bottom_likes");
   fixPriceBox.innerText = `${totalLikes}`;
+  //Modif prix dans photographersFactory.js
 }
 getFixedLikesAndPrice();
