@@ -56,31 +56,32 @@ window.onload = () => {
       }
       preview();
       //Si index 0 bouton prev invisible
-      if (newIndex == 0) {
-        prevBtn.style.display = "none";
-      }
-      //Si index final bouton next invisible
-      if (newIndex >= totalGallery - 1) {
-        nextBtn.style.display = "none";
-      }
+      // if (newIndex == 0) {
+      //   prevBtn.style.display = "none";
+      // }
+      // //Si index final bouton next invisible
+      // if (newIndex >= totalGallery - 1) {
+      //   nextBtn.style.display = "none";
+      // }
       //Défilement photos précédentes
       prevBtn.onclick = () => {
-        newIndex--; //décrément l'index
+        //décrément l'index
         if (newIndex == 0) {
           preview();
-          prevBtn.style.display = "none";
+          prevBtn.style.display = "block";
         } else {
+          newIndex--;
           preview();
           nextBtn.style.display = "block";
         }
       };
       //Défilement photos suivantes
       nextBtn.onclick = () => {
-        newIndex++; //décrément l'index
         if (newIndex >= totalGallery - 1) {
           preview();
-          nextBtn.style.display = "none";
+          nextBtn.style.display = "block";
         } else {
+          newIndex++; //décrément l'index
           preview();
           prevBtn.style.display = "block";
         }
