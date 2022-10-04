@@ -59,20 +59,20 @@ function photographerProfilFactory(data) {
     //Card image
     const img = document.createElement("img");
     img.setAttribute("src", picture);
-    img.className = "detail_profile_image";
+    img.className = "photograph_profile_photo";
     img.setAttribute("alt", `Photo de profil de ${name}`);
     // Photographer name
     const h2 = document.createElement("h2");
     h2.textContent = name;
-    h2.className = "name";
+    h2.className = "photograph_profile_name";
     // Photographers living place
     const livingPlace = document.createElement("p");
     livingPlace.innerHTML = `${city}, ${country}`;
-    livingPlace.className = "living-place";
+    livingPlace.className = "photograph_profile_living_place";
     // Photographers tagline
     const tag = document.createElement("p");
     tag.textContent = tagline;
-    tag.className = "tagline";
+    tag.className = "photograph_profile_tagline";
     // Photographers likes
     const totalLikes = document.querySelector(".fixed_likes");
     totalLikes.textContent = `${likes}`;
@@ -81,14 +81,14 @@ function photographerProfilFactory(data) {
     const cost = document.querySelector(".fixed_price");
     cost.textContent = `${price}€ / jour`;
     cost.className = "bottom_price";
+
+    profileHeader.insertAdjacentElement("afterbegin", profileInfos);
+    profileHeader.insertAdjacentElement("beforeend", img);
+    profileInfos.appendChild(h2);
+    profileInfos.appendChild(livingPlace);
+    profileInfos.appendChild(tag);
     //Création de la card
-    profileHeader.insertAdjacentElement("afterbegin", img);
-    // contactButton.prepend(img);
-    contactButton.insertAdjacentElement("beforebegin", profileInfos);
-    profileInfos.append(h2);
-    profileInfos.append(livingPlace);
-    profileInfos.append(tag);
-    // article.appendChild(cost);
+
     return profileInfos; //Retourne les infos dans les cards
   }
   return { name, picture, id, likes, getProfilCardDOM };

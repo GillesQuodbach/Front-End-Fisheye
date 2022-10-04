@@ -2,7 +2,7 @@
 window.onload = () => {
   //Selection des éléments
   //Tous les éléments de la gallery (photos et videos)
-  const gallery = document.querySelectorAll(".profil_image");
+  const gallery = document.querySelectorAll(".cards_image");
   //Longueur de la galerie
   const totalGallery = gallery.length;
   //Lightbox
