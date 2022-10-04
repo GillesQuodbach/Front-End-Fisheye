@@ -34,7 +34,8 @@ function galleryFactory(data) {
       like.className = "cards_likes";
       //Affichage du COEUR sur chaque card
       const heartTag = document.createElement("i");
-      heartTag.className = "fa-sharp fa-solid fa-heart";
+      heartTag.className = `fa-sharp fa-solid fa-heart`;
+      heartTag.setAttribute(`data-id`, `${id}`);
       //! RAJOUTER PRIX ET CUMUL DES LIKES
 
       //Création de la card
@@ -43,7 +44,6 @@ function galleryFactory(data) {
       cardInfosContainer.appendChild(h2);
       cardInfosContainer.appendChild(like);
       cardInfosContainer.appendChild(heartTag);
-
       return article; //Retourne les infos dans les cards
     }
     return {
@@ -85,7 +85,8 @@ function galleryFactory(data) {
       //Affichage du COEUR sur chaque card
       const spanTag = document.createElement("span");
       const heartTag = document.createElement("i");
-      heartTag.className = "fa-sharp fa-solid fa-heart";
+      heartTag.className = "fa-sharp fa-solid fa-heart likes-heart";
+      heartTag.setAttribute(`data-id`, `${id}`);
       //Création de la card
       article.appendChild(img);
       article.appendChild(cardInfosContainer);

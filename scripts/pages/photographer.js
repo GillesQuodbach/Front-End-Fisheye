@@ -102,3 +102,18 @@ async function initGallery() {
 initGallery(); //RETOURNE UNE PROMESSE EN ATTENTE
 
 //! GESTION LIKES GALLERY
+
+const listenForLikes = () => {
+  const cardHearts = document.querySelectorAll(".likes-heart");
+  cardHearts.forEach((cardHeart) => {
+    cardHeart.addEventListener("click", (event) => {
+      event.target.classList.toggle("cardHeart-no");
+      event.target.classList.toggle("cardHeart-yes");
+      if (event.target.classList.contains("cardHeart-yes")) {
+        console.log("COEUR AJOUTE");
+      } else {
+        console.log("DEJA LIKE");
+      }
+    });
+  });
+};

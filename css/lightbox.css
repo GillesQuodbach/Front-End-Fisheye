@@ -20,15 +20,15 @@
 .lightbox_next {
     display: block;
     border: none;
-    background: url(/assets/icons/arrow.svg) center center / 30px 48px no-repeat;
+    background: url(/assets/icons/arrow.svg) center center / 20px 38px no-repeat;
     /*taille du chevron */
-    width: 50px;
+    width: 30px;
     /*AGRANDISSEMENT DE LA ZONE DE CLIC A 50px*/
     height: 100%;
     /*AGRANDISSEMENT DE LA ZONE DE CLIC 100% de la hauteur */
     position: fixed;
     top: 0;
-    right: 0;
+    right: 25px;
     margin-top: -20px;
     z-index: 10000;
 }
@@ -37,7 +37,7 @@
 .lightbox_previous {
     display: block;
     border: none;
-    background: url(/assets/icons/arrow.svg) center center / 30px 48px no-repeat;
+    background: url(/assets/icons/arrow.svg) center center / 20px 38px no-repeat;
     /*taille du chevron */
     width: 50px;
     /*AGRANDISSEMENT DE LA ZONE DE CLIC A 50px*/
@@ -55,31 +55,32 @@
 
 /* Effets sur boutons NEXT/PREVIOUS */
 .lightbox button {
-    opacity: 0.5;
+    /* opacity: 0.5; */
     cursor: pointer;
     transition: opacity 0.5s;
     text-indent: -3000px;
 }
 
 .lightbox button:hover {
-    opacity: 1;
+    /* opacity: 1; */
 }
 
 /* Bouton CLOSE */
 .lightbox_close {
     border: none;
     background: url(/assets/icons/lb_close.svg) center center /100% 100% no-repeat transparent;
-    width: 42px;
-    height: 42px;
+    width: 30px;
+    height: 30px;
     position: fixed;
     top: 20px;
-    right: 20px;
+    right: 25px;
     z-index: 20000;
 }
 
 /* CONTAINER de la lightbox */
 .lightbox_container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: 50px;
@@ -88,14 +89,17 @@
     animation: lightboxIn .5s;
 }
 
-.lightbox_container img {
-    max-width: 100%;
-    height: auto;
-    animation: lightboxIn .5s;
-}
-
-.lightbox_picture {
+.lightbox_picture,
+.lightbox_video {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
     display: none;
+    width: 100%;
+    height: 900px;
+    animation: lightboxIn .5s;
+    object-fit: cover;
 }
 
 /* Affichage photos ou video */
@@ -104,12 +108,16 @@
 
 }
 
-.lightbox_video {
-    display: none;
-}
-
 .lightbox_video.show {
     display: block;
+}
+
+.lightbox_media_title {
+    margin-right: auto;
+    /* padding-left: 50px; */
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
 }
 
 /* Animation lightbox */

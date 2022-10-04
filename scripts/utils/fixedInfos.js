@@ -1,3 +1,4 @@
+let currentMedia = {};
 async function getFixedLikesAndPrice() {
   //Récupération de l'ID de la page
   const queryString_url_id = window.location.search;
@@ -17,19 +18,33 @@ async function getFixedLikesAndPrice() {
     return el.photographerId == id;
   });
   console.log({ filteredMedia }); //Affiche toutes les images du photographe
-  //   let somme = 0
-  //   for (let i = 0; i < mediasArray.length; i++) {
-  //     somme += mediasArray[i].length;
-  // }
+
+  //! Nombre total de likes
   let totalLikes = 0;
   filteredMedia.forEach(function (el) {
     totalLikes += el.likes;
     console.log(totalLikes); //
-    return totalLikes;
   });
-
+  //Incrément likes
+  currentMedia = filteredMedia;
   const fixPriceBox = document.querySelector(".bottom_likes");
   fixPriceBox.innerText = `${totalLikes}`;
   //Modif prix dans photographersFactory.js
 }
 getFixedLikesAndPrice();
+
+window.onload = () => {
+  const hearts = document.querySelectorAll(".likes-heart");
+  const articles = document.querySelectorAll(".gallery_cards");
+  let currentArticleId = "";
+  hearts.forEach((heart) => {
+    heart.addEventListener("click", () => {
+      const articleId = heart.getAttribute("data-id");
+      console.log(articleId);
+      currentArticleId = articleId;
+    });
+    //On récupère l'id de l'article
+  });
+  console.log(currentArticleId); // ID de la cards sélectionnée
+  console.log(currentMedia[0]); // tableau d'objet du photographe
+};
