@@ -1,5 +1,6 @@
 //! RECUP DONNEES PROFIL PHOTOGRAPHE
 //!=================================================
+
 const json_url = "data/photographers.json";
 
 //Récupération des données voulues (Profil des photographes)
@@ -8,7 +9,7 @@ async function getPhotographersProfils() {
   const queryString_url_id = window.location.search;
   const urlSearchParams = new URLSearchParams(queryString_url_id);
   const id = urlSearchParams.get("id");
-  console.log(id); //Affiche l'id du photographe selectionné (243)
+  //Affiche l'id du photographe selectionné (243)
 
   //Récupération des données du fichier JSON
   const response = await fetch(json_url);
@@ -18,13 +19,13 @@ async function getPhotographersProfils() {
   //Lien vers le fichier JSON
   console.log(data); //Contenu complet du JSON
   const photographersData = data.photographers;
-  console.log(photographersData); //Affiche la partie photographers du JSON
+
   //Affiche la liste par ID
   const sortedById = {};
   for (let i = 0, len = photographersData.length; i < len; i++) {
     sortedById[photographersData[i].id] = photographersData[i];
   }
-  console.log({ photographers: sortedById[id] });
+
   //retourne l'objet (le photographe) avec l'id correspondant au photographe//
   return { photographers: sortedById[id] };
 }
@@ -55,7 +56,7 @@ async function getGalleryItems() {
   const queryString_url_id = window.location.search;
   const urlSearchParams = new URLSearchParams(queryString_url_id);
   const id = urlSearchParams.get("id");
-  console.log(id); //Affiche l'id du photographe selectionné (243)
+
   // Récupération des données du fichier JSON
   const response = await fetch(json_url);
   //Conversion des datas en JSON
@@ -65,18 +66,18 @@ async function getGalleryItems() {
   // console.log(data); //Contenu complet du JSON
   let mediasArray = data.media;
   // console.log(mediasArray);
-  let length = mediasArray.length;
   //Affiche la partie media ET photographers du JSON
-  let filteredMedia = mediasArray.filter(function (el) {
+  filteredMedia = mediasArray.filter(function (el) {
     return el.photographerId == id;
   });
-  console.log({ filteredMedia }); //Affiche toutes les images correspondants au photographe
-  //Affiche toutes les images correspondants au photographe
-  //  return ({filteredMedia}); //Affiche toutes les images correspondants au photographe
+  currentArray = filteredMedia;
+  console.log(filteredMedia); //Affiche toutes les images correspondants au photographe
   for (let i = 0; i < filteredMedia.length; i++) {
     return { media: [...filteredMedia] };
   }
   //?PREVIOUS/NEXT LIGHTBOX
+
+  //Modif prix dans photographersFactory.js
 }
 
 //Affichage des données des photographes
@@ -103,17 +104,37 @@ initGallery(); //RETOURNE UNE PROMESSE EN ATTENTE
 
 //! GESTION LIKES GALLERY
 
-const listenForLikes = () => {
-  const cardHearts = document.querySelectorAll(".likes-heart");
-  cardHearts.forEach((cardHeart) => {
-    cardHeart.addEventListener("click", (event) => {
-      event.target.classList.toggle("cardHeart-no");
-      event.target.classList.toggle("cardHeart-yes");
-      if (event.target.classList.contains("cardHeart-yes")) {
-        console.log("COEUR AJOUTE");
-      } else {
-        console.log("DEJA LIKE");
-      }
-    });
-  });
-};
+//! Nombre total de likes
+// filteredMedia.forEach(function (el) {
+//   totalLikes += el.likes;
+//   console.log(totalLikes); //
+//   //Incrément likes
+//   const fixPriceBox = document.querySelector(".bottom_likes");
+//   fixPriceBox.innerText = `${totalLikes}`;
+// });
+
+// const listenForLikes = () => {
+//   const cardHearts = document.querySelectorAll(".likes-heart");
+//   cardHearts.forEach((cardHeart) => {
+//     cardHeart.addEventListener("click", (event) => {
+//       event.target.classList.toggle("cardHeart-no");
+//       event.target.classList.toggle("cardHeart-yes");
+//       if (event.target.classList.contains("cardHeart-yes")) {
+//         console.log("COEUR AJOUTE");
+//       } else {
+//         console.log("DEJA LIKE");
+//       }
+//     });
+//   });
+// };
+
+// Click coeur
+// hearts.forEach((heart) => {
+//   heart.addEventListener("click", () => {
+//     let articleId = heart.getAttribute("data-id");
+//     // console.log(currentMedia);
+//     let clickedMedia = filteredMedia.find((el) => el.id == articleId);
+//     console.log(clickedMedia);
+//     clickedMedia.likes++;
+//     totalLikes = totalLikes + 1;
+// console.log(media);

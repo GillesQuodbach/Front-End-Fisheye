@@ -1,11 +1,22 @@
 //! FACTORY DE LA GALERIE PHOTOGRAPHER
 //!===================================
+let likesArray = [];
 function galleryFactory(data) {
-  let photographerMediaArray = [];
+  //! ICI TOTAL LIKES
   let videoInList = data.video;
+  likesArray.push(data.likes);
+  const initialValue = 0;
+  let totalLikes = likesArray.reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    initialValue
+  );
+  const likesBox = document.querySelector(".bottom_likes");
+  likesBox.innerText = `${totalLikes}`;
+  console.log(totalLikes);
+
   if (videoInList !== undefined) {
-    console.log("=============VIDEO=============");
     const { date, id, video, likes, photographerId, price, title } = data;
+
     const clip = `assets/images/${video}`;
     //Création de la carte de chaque photographe
     function getImageDOM() {
@@ -57,7 +68,8 @@ function galleryFactory(data) {
       getImageDOM,
     };
   } else {
-    const { date, id, image, likes, photographerId, price, title } = data;
+    const { date, id, image, likes, price, title } = data;
+
     const picture = `assets/images/${image}`;
     //Création de la carte de chaque photographe
     function getImageDOM() {
@@ -87,6 +99,7 @@ function galleryFactory(data) {
       const heartTag = document.createElement("i");
       heartTag.className = "fa-sharp fa-solid fa-heart likes-heart";
       heartTag.setAttribute(`data-id`, `${id}`);
+
       //Création de la card
       article.appendChild(img);
       article.appendChild(cardInfosContainer);
@@ -100,7 +113,6 @@ function galleryFactory(data) {
       id,
       image,
       likes,
-      photographerId,
       price,
       title,
       getImageDOM,

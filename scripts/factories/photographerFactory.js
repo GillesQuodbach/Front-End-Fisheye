@@ -1,5 +1,6 @@
 // !FACTORY DE CHAQUE PHOTOGRAPHE PAGE INDEX
 //!===================================
+
 function photographerFactory(data) {
   const { name, id, portrait, city, country, tagline, price } = data;
   const picture = `assets/photographers/${portrait}`;
@@ -38,11 +39,12 @@ function photographerFactory(data) {
     article.appendChild(cost);
     return article; //Retourne les infos dans les cards
   }
-  return { name, picture, id, getUserCardDOM };
+  return { name, id, portrait, city, country, tagline, price, getUserCardDOM };
 }
 
 // !FACTORY DU PROFIL DE CHAQUE PHOTOGRAPHE PAGE PHOTOGRAPHER
 //!===================================
+
 function photographerProfilFactory(data) {
   const { name, id, portrait, city, country, tagline, price, likes } = data;
   const picture = `assets/photographers/${portrait}`;
@@ -89,7 +91,17 @@ function photographerProfilFactory(data) {
     profileInfos.appendChild(tag);
     //Création de la card
 
-    return profileInfos; //Retourne les infos dans les cards
+    //Retourne les infos dans les cards
   }
-  return { name, picture, id, likes, getProfilCardDOM };
+  return {
+    name,
+    id,
+    portrait,
+    city,
+    country,
+    tagline,
+    price,
+    likes,
+    getProfilCardDOM,
+  };
 }
