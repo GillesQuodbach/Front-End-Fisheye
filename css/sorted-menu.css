@@ -1,0 +1,97 @@
+/* Titre du menu de tri */
+.sort_container {
+    margin-left: 100px;
+    margin-right: 100px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+}
+
+/* Liste complète des tris (div) */
+.sort_items {
+    list-style-type: none;
+}
+
+/* Elements de la liste */
+.sorted_by_popularity {
+    padding-top: 10px;
+    border-radius: 5px;
+}
+
+/* Animation de la flèche */
+.sorted_arrow {
+    margin-left: 10px;
+    transform: rotate(180deg);
+}
+
+.sorted_by_popularity:hover>.sorted_arrow {
+    animation: rotationChevronTri 0.2 linear forwards;
+}
+
+#dropdown {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#dropdown.active {
+    display: block;
+}
+
+/* Class des éléments de la liste */
+.sorted {
+    position: relative;
+    color: white;
+    background-color: #901C1C;
+    padding: 10px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.sorted_by {
+    padding-left: 0;
+}
+
+.sorted_by.active {
+    display: block;
+}
+
+.sorted_by_date {
+    margin-top: 15px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.sorted_by_title {
+    padding-bottom: 5px;
+}
+
+@keyframes rotationChevronTri {
+    0% {
+        transform: rotate(2.5turn);
+    }
+
+    100% {
+        transform: rotate(0turn);
+    }
+}
+
+.sorted_by_title {
+    border-radius: 0px 0px 5px 5px;
+    text-align: left;
+    margin-right: auto;
+}
+
+
+
+
+
+/* <div class="sort_container">
+      <p class="sort_menu">Trier par:</p>
+      <ul class="sort_items">
+        <li class="sorted_by_popularity">Popularité</li>
+        <li class="sorted_by_date">Date</li>
+        <li class="sorted_by_title">Titre</li>
+      </ul>
+    </div> */
