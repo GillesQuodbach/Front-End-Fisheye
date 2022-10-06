@@ -1,15 +1,17 @@
 //! FACTORY DE LA GALERIE PHOTOGRAPHER
 //!===================================
 let likesArray = [];
+
 function galleryFactory(data) {
   //! ICI TOTAL LIKES
   let videoInList = data.video;
   likesArray.push(data.likes);
   const initialValue = 0;
-  let totalLikes = likesArray.reduce(
+  let totalLikesReduce = likesArray.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
+  totalLikes = totalLikesReduce;
   const likesBox = document.querySelector(".bottom_likes");
   likesBox.innerText = `${totalLikes}`;
   console.log(totalLikes);
@@ -42,10 +44,10 @@ function galleryFactory(data) {
       //Affichage des likes sur chaque card
       const like = document.createElement("p");
       like.textContent = likes;
-      like.className = "cards_likes";
+      like.className = `cards_likes cards_likes-${id}`;
       //Affichage du COEUR sur chaque card
       const heartTag = document.createElement("i");
-      heartTag.className = `fa-sharp fa-solid fa-heart`;
+      heartTag.className = `fa-sharp fa-solid fa-heart likes-heart`;
       heartTag.setAttribute(`data-id`, `${id}`);
       //! RAJOUTER PRIX ET CUMUL DES LIKES
 
@@ -92,7 +94,8 @@ function galleryFactory(data) {
       //Affichage des likes sur chaque card
       const like = document.createElement("p");
       like.textContent = likes;
-      like.className = "cards_likes";
+      like.className = `cards_likes cards_likes-${id}`;
+      // like.setAttribute(`data-id`, `${id}`);
       //Affichage du COEUR sur chaque card
       //Affichage du COEUR sur chaque card
       const spanTag = document.createElement("span");

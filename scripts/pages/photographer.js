@@ -112,29 +112,19 @@ initGallery(); //RETOURNE UNE PROMESSE EN ATTENTE
 //   const fixPriceBox = document.querySelector(".bottom_likes");
 //   fixPriceBox.innerText = `${totalLikes}`;
 // });
-
-// const listenForLikes = () => {
-//   const cardHearts = document.querySelectorAll(".likes-heart");
-//   cardHearts.forEach((cardHeart) => {
-//     cardHeart.addEventListener("click", (event) => {
-//       event.target.classList.toggle("cardHeart-no");
-//       event.target.classList.toggle("cardHeart-yes");
-//       if (event.target.classList.contains("cardHeart-yes")) {
-//         console.log("COEUR AJOUTE");
-//       } else {
-//         console.log("DEJA LIKE");
-//       }
+// window.onload = () => {
+//   const listenForLikes = () => {
+//     const cardHearts = document.querySelectorAll(".likes-heart");
+//     cardHearts.forEach((cardHeart) => {
+//       cardHeart.addEventListener("click", (event) => {
+//         event.target.classList.toggle("cardHeart-no");
+//         event.target.classList.toggle("cardHeart-yes");
+//         if (event.target.classList.contains("cardHeart-yes")) {
+//           console.log("COEUR AJOUTE");
+//         } else {
+//           console.log("DEJA LIKE");
+//         }
+//       });
 //     });
-//   });
+//   };
 // };
-
-// Click coeur
-// hearts.forEach((heart) => {
-//   heart.addEventListener("click", () => {
-//     let articleId = heart.getAttribute("data-id");
-//     // console.log(currentMedia);
-//     let clickedMedia = filteredMedia.find((el) => el.id == articleId);
-//     console.log(clickedMedia);
-//     clickedMedia.likes++;
-//     totalLikes = totalLikes + 1;
-// console.log(media);
