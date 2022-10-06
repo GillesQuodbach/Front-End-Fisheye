@@ -14,7 +14,7 @@ function galleryFactory(data) {
   totalLikes = totalLikesReduce;
   const likesBox = document.querySelector(".bottom_likes");
   likesBox.innerText = `${totalLikes}`;
-  console.log(totalLikes);
+  // console.log(totalLikes);
 
   if (videoInList !== undefined) {
     const { date, id, video, likes, photographerId, price, title } = data;

@@ -70,14 +70,77 @@ async function getGalleryItems() {
   filteredMedia = mediasArray.filter(function (el) {
     return el.photographerId == id;
   });
-  currentArray = filteredMedia;
-  console.log(filteredMedia); //Affiche toutes les images correspondants au photographe
-  for (let i = 0; i < filteredMedia.length; i++) {
+  console.log(filteredMedia);
+  let currentArray = filteredMedia;
+  // TRI DE LA GALLERIE
+  //? BOUTON POPULARITE
+  document.querySelector("#menu").addEventListener("click", function () {
+    // openSortedMenu();
+
+    sortedByLikes();
+    console.log("Sorted by Likes");
+  });
+  function openSortedMenu() {
+    document.querySelector("#dropdown").classList.toggle("active");
+  }
+  //? BOUTON DATE
+  document
+    .querySelector(".sorted_by_date")
+    .addEventListener("click", function () {
+      console.log("Sorted by date");
+    });
+  //? BOUTON DATE
+  document
+    .querySelector(".sorted_by_title")
+    .addEventListener("click", function () {
+      console.log("Sorted by title");
+    });
+  // !Tri par popularités (likes) ==> OK
+  function sortedByLikes() {
+    filteredMedia.sort(function compare(a, b) {
+      if (a.likes < b.likes) return -1;
+      if (a.likes > b.likes) return 1;
+      return 0;
+    });
+    for (let i = 0; i < filteredMedia.length; i++) {
+      return { media: [...filteredMedia] };
+    }
+  }
+  // return filteredMedia;
+  // }
+  //! Tri par date ==>
+  function sortedByDates() {
+    filteredMedia.sort(function compare(a, b) {
+      if (a.date < b.date) return -1;
+      if (a.date > b.date) return 1;
+      return 0;
+    });
+    for (let i = 0; i < filteredMedia.length; i++) {
+      return { media: [...filteredMedia] };
+    }
+  }
+  //! Tri par ordre alphabetique (title) ==> OK
+  function sortedByTitles() {
+    filteredMedia.sort(function compare(a, b) {
+      if (a.title < b.title) return -1;
+      if (a.title > b.title) return 1;
+      return 0;
+    });
+    for (let i = 0; i < filteredMedia.length; i++) {
+      return { media: [...filteredMedia] };
+    }
     return { media: [...filteredMedia] };
   }
-  //?PREVIOUS/NEXT LIGHTBOX
+  //Affiche toutes les images correspondants au photographe
 
-  //Modif prix dans photographersFactory.js
+  console.log(filteredMedia); //Affiche toutes les images correspondants au photographe
+
+  //! FONCTION DE TRI ICI ??
+
+  // for (let i = 0; i < filteredMedia.length; i++) {
+  return { media: [...filteredMedia] };
+  // }
+  //?PREVIOUS/NEXT LIGHTBOX
 }
 
 //Affichage des données des photographes
@@ -102,29 +165,12 @@ async function initGallery() {
 }
 initGallery(); //RETOURNE UNE PROMESSE EN ATTENTE
 
-//! GESTION LIKES GALLERY
-
-//! Nombre total de likes
-// filteredMedia.forEach(function (el) {
-//   totalLikes += el.likes;
-//   console.log(totalLikes); //
-//   //Incrément likes
-//   const fixPriceBox = document.querySelector(".bottom_likes");
-//   fixPriceBox.innerText = `${totalLikes}`;
+// !TRI DE LA GALLERIE
+// document.querySelector("#menu").addEventListener("click", function () {
+//   openSortedMenu();
+//   sortedByLikes();
 // });
-// window.onload = () => {
-//   const listenForLikes = () => {
-//     const cardHearts = document.querySelectorAll(".likes-heart");
-//     cardHearts.forEach((cardHeart) => {
-//       cardHeart.addEventListener("click", (event) => {
-//         event.target.classList.toggle("cardHeart-no");
-//         event.target.classList.toggle("cardHeart-yes");
-//         if (event.target.classList.contains("cardHeart-yes")) {
-//           console.log("COEUR AJOUTE");
-//         } else {
-//           console.log("DEJA LIKE");
-//         }
-//       });
-//     });
-//   };
-// };
+
+// function openSortedMenu() {
+//   document.querySelector("#dropdown").classList.toggle("active");
+// }}
