@@ -25,7 +25,10 @@ function galleryFactory(data) {
       // Cards container
       const article = document.createElement("article");
       article.setAttribute("id", id);
-      // article.setAttribute("class", 'gallery_cards');
+      article.setAttribute(`data-likes`, `${likes}`);
+      article.setAttribute(`data-date`, `${date}`);
+      article.setAttribute(`data-title`, `${title}`);
+      article.setAttribute("class", "gallery_cards");
       //Card image
       const vids = document.createElement("video");
       vids.setAttribute("src", clip);
@@ -79,6 +82,9 @@ function galleryFactory(data) {
       const article = document.createElement("article");
       article.setAttribute("id", id);
       article.setAttribute("class", "gallery_cards");
+      article.setAttribute(`data-likes`, `${likes}`);
+      article.setAttribute(`data-date`, `${date}`);
+      article.setAttribute(`data-title`, `${title}`);
       //Card image
       const img = document.createElement("img");
       img.setAttribute("src", picture);
