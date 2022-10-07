@@ -3,6 +3,9 @@
 let likesArray = [];
 
 function galleryFactory(data) {
+  let removeOldGallery = document.querySelectorAll(".gallery_cards");
+  let galleryContainer = document.querySelector("#photograph_gallery");
+  // galleryContainer.removeChild(removeOldGallery);
   //! ICI TOTAL LIKES
   let videoInList = data.video;
   likesArray.push(data.likes);
