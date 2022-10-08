@@ -1,19 +1,19 @@
 //! FACTORY DE LA GALERIE PHOTOGRAPHER
 //!===================================
 let likesArray = [];
-
+let removeOldGallery;
+let galleryContainer;
 function galleryFactory(data) {
-  let removeOldGallery = document.querySelectorAll(".gallery_cards");
-  let galleryContainer = document.querySelector("#photograph_gallery");
-  // galleryContainer.removeChild(removeOldGallery);
   //! ICI TOTAL LIKES
   let videoInList = data.video;
   likesArray.push(data.likes);
   const initialValue = 0;
+
   let totalLikesReduce = likesArray.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
+  let totalLikes = 0;
   totalLikes = totalLikesReduce;
   const likesBox = document.querySelector(".bottom_likes");
   likesBox.innerText = `${totalLikes}`;
