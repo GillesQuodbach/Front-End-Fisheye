@@ -57,9 +57,12 @@
 /* Links inside the dropdown */
 .dropdown-content p {
   color: white;
+  font-size: 18px;
+  font-weight: 500;
   padding: 10px 10px;
   text-decoration: none;
   display: block;
+  cursor: pointer;
 
 }
 
@@ -82,7 +85,7 @@
   color: white;
   width: 155px;
   height: 10px;
-  bottom: 110px;
+  bottom: 76px;
   left: 5px;
   border-top: 1px solid
 }
@@ -93,9 +96,19 @@
   color: white;
   width: 155px;
   height: 10px;
-  bottom: 60px;
+  bottom: 43px;
   left: 5px;
   border-bottom: 1px solid
+}
+
+.dropdown-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.dropdown-date {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 @keyframes rotationChevronTri {
