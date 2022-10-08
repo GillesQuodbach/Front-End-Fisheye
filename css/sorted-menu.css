@@ -75,7 +75,7 @@
 }
 
 .dropdown:hover .dropdown-arrow {
-  animation: rotationChevronTri 0.2 linear forwards;
+  animation: rotationChevronTri linear forwards;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
