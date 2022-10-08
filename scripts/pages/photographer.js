@@ -53,33 +53,33 @@ initProfils(); //RETOURNE UNE PROMESSE EN ATTENTE
 
 //? BOUTON POPULARITE
 
-function openSortedMenu() {
-  document.querySelector("#dropdown").classList.toggle("active");
-}
+// function openSortedMenu() {
+//   document.querySelector("#dropdown").classList.toggle("active");
+// }
 //! Tri par date
-document
-  .querySelector(".sorted_by_date")
-  .addEventListener("click", function () {
-    sortedByIdDate();
-    console.log("Sorted by Date");
-    // console.log(document.querySelector("#photograph_gallery"));
-  });
-//! Tri par likes
-document.querySelector("#menu").addEventListener("click", function () {
-  openSortedMenu();
-  sortedByIdDate();
-  console.log("Sorted by Likes");
-  // console.log(document.querySelector("#photograph_gallery"));
-});
-//! Tri par title
-document
-  .querySelector(".sorted_by_title")
-  .addEventListener("click", function () {
-    openSortedMenu();
-    sortedByIdTitle();
-    console.log("Sorted by Likes");
-    // console.log(document.querySelector("#photograph_gallery"));
-  });
+// document
+//   .querySelector(".sorted_by_date")
+//   .addEventListener("click", function () {
+//     sortedByIdDate();
+//     console.log("Sorted by Date");
+//     // console.log(document.querySelector("#photograph_gallery"));
+//   });
+// //! Tri par likes
+// document.querySelector("#menu").addEventListener("click", function () {
+//   openSortedMenu();
+//   sortedByIdDate();
+//   console.log("Sorted by Likes");
+//   // console.log(document.querySelector("#photograph_gallery"));
+// });
+// //! Tri par title
+// document
+//   .querySelector(".sorted_by_title")
+//   .addEventListener("click", function () {
+//     openSortedMenu();
+//     sortedByIdTitle();
+//     console.log("Sorted by Likes");
+//     // console.log(document.querySelector("#photograph_gallery"));
+//   });
 async function getGalleryItems() {
   //Récupération de l'ID de la page
   const queryString_url_id = window.location.search;

@@ -16,25 +16,22 @@
     <img alt="FishEye Home page" src="assets/images/logo.png" class="logo" />
   </header>
   <main id="main">
-
     <div class="photograph-header">
 
       <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
 
     </div>
-    <div class="sort_container">
-      <p class="sort_menu_title">Trier par</p>
-      <ul class="sort_items">
-        <li id="menu" class="sorted sorted_by_popularity">Popularité
-          <img class="sorted_arrow" src="assets/icons/sortedArrow.svg" alt="Chevron du menu de tri">
-          <ul id="dropdown">
-            <li class="sorted sorted_by sorted_by_date">Date</li>
-            <li class=" sorted sorted_by sorted_by_title">Titre</li>
-          </ul>
+    <div class="dropdown-container">
+      <p class="dropdown-container_title">Trier par :</p>
+      <div class="dropdown">
+        <div class="dropbtn">Popularité<img class="dropdown-arrow" src="assets/icons/sortedArrow.svg"></div>
+        <div class="dropdown-content">
+          <p class="dropdown-date">Date</p>
+          <p class="dropdown-title">Title</p>
+        </div>
+      </div>
 
-        </li>
-
-      </ul>
+    </div>
     </div>
     <section id="photograph_gallery">
       <!-- !PHOTOGRAPH GALLERY HERE-->
@@ -91,7 +88,7 @@
   <script src="/scripts/factories/galleryFactory.js" defer></script>
   <script src="/scripts/utils/contactForm.js" defer></script>
   <script src="/scripts/utils/lightbox.js" defer></script>
-  <script src="/scripts/utils/sortedMenu.js" defer></script>
+  <!-- <script src="/scripts/utils/sortedMenu.js" defer></script> -->
   <!-- <script src="/scripts/utils/fixedInfos.js" defer></script> -->
 </body>
 

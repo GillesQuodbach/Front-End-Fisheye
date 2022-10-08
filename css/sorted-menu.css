@@ -1,97 +1,109 @@
-/* Titre du menu de tri */
-.sort_container {
-    margin-left: 100px;
-    margin-right: 100px;
-    font-size: 18px;
-    font-weight: 700;
-    display: flex;
+.dropdown-container {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
-/* Liste complète des tris (div) */
-.sort_items {
-    list-style-type: none;
+.dropdown-container_title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 0;
+
 }
 
-/* Elements de la liste */
-.sorted_by_popularity {
-    padding-top: 10px;
-    border-radius: 5px;
+.dropbtn {
+  background-color: #911C1C;
+  margin-left: 20px;
+  border-radius: 5px;
+  min-width: 150px;
+  /* margin-left: 10px; */
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
 }
 
-/* Animation de la flèche */
-.sorted_arrow {
-    margin-left: 10px;
-    transform: rotate(180deg);
+.dropdown-arrow {
+  margin-left: 50px;
+  transform: rotate(180deg);
 }
 
-.sorted_by_popularity:hover>.sorted_arrow {
-    animation: rotationChevronTri 0.2 linear forwards;
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+
 }
 
-#dropdown {
-    display: none;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.dropdown:hover>.dropbtn {
+  border-radius: 5px 5px 0px 0px;
 }
 
-#dropdown.active {
-    display: block;
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #911C1C;
+  width: 170px;
+  margin-left: 20px;
+  margin-top: 0px;
+  z-index: 1;
+  border-radius: 0px 0px 5px 5px;
 }
 
-/* Class des éléments de la liste */
-.sorted {
-    position: relative;
-    color: white;
-    background-color: #901C1C;
-    padding: 10px;
-    font-weight: 400;
-    text-align: left;
+/* Links inside the dropdown */
+.dropdown-content p {
+  color: white;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+
 }
 
-.sorted_by {
-    padding-left: 0;
+/* Change color of dropdown links on hover */
+/* .dropdown-content p:hover {} */
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-.sorted_by.active {
-    display: block;
+.dropdown:hover .dropdown-arrow {
+  animation: rotationChevronTri 0.2 linear forwards;
 }
 
-.sorted_by_date {
-    margin-top: 15px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown-date:before {
+  content: "";
+  position: absolute;
+  color: white;
+  width: 155px;
+  height: 10px;
+  bottom: 110px;
+  left: 5px;
+  border-top: 1px solid
 }
 
-.sorted_by_title {
-    padding-bottom: 5px;
+.dropdown-date:after {
+  content: "";
+  position: absolute;
+  color: white;
+  width: 155px;
+  height: 10px;
+  bottom: 60px;
+  left: 5px;
+  border-bottom: 1px solid
 }
 
 @keyframes rotationChevronTri {
-    0% {
-        transform: rotate(2.5turn);
-    }
+  0% {
+    transform: rotate(2.5turn);
+  }
 
-    100% {
-        transform: rotate(0turn);
-    }
+  100% {
+    transform: rotate(0turn);
+  }
 }
-
-.sorted_by_title {
-    border-radius: 0px 0px 5px 5px;
-    text-align: left;
-    margin-right: auto;
-}
-
-
-
-
-
-/* <div class="sort_container">
-      <p class="sort_menu">Trier par:</p>
-      <ul class="sort_items">
-        <li class="sorted_by_popularity">Popularité</li>
-        <li class="sorted_by_date">Date</li>
-        <li class="sorted_by_title">Titre</li>
-      </ul>
-    </div> */
