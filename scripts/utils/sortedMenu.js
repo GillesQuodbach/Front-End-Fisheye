@@ -1,11 +1,5 @@
 const loadedLikesGallery = document.querySelector("#photograph_gallery"); // Attente du chargement de la page
 
-// let likesObserver = new MutationObserver(modifDomGalleryLikes);
-// likesObserver.observe(loadedLikesGallery, { childList: true });
-
-// function modifDomGalleryLikes(mutations) {
-//   for (let mutation of mutations) {
-//     if (mutation.type === "childList") {
 //?Click on hearts
 window.onload = () => {
   let allPhotographLikesArray = [];
@@ -78,3 +72,10 @@ window.onload = () => {
 //     });
 //   });
 // };
+
+// let likesObserver = new MutationObserver(modifDomGalleryLikes);
+// likesObserver.observe(loadedLikesGallery, { childList: true });
+
+// function modifDomGalleryLikes(mutations) {
+//   for (let mutation of mutations) {
+//     if (mutation.type === "childList") {
