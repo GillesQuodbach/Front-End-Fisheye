@@ -1,32 +1,10 @@
 //! FACTORY DE LA GALERIE PHOTOGRAPHER
 //!===================================
 let likesArray = [];
-let removeOldGallery;
-let galleryContainer;
+let totalLikes = "";
 
 function galleryFactory(data) {
-  //! ICI TOTAL LIKES
   let videoInList = data.video;
-  let totalLikes = "";
-  // let totalLikes = 0;
-  console.log(likesArray.length);
-  // console.log(data.likes.length);
-  if (likesArray.length >= data.likes.length) {
-    console.log("le tableau est déjà rempli");
-  } else {
-    likesArray.push(data.likes);
-  }
-  const initialValue = 0;
-  totalLikes = likesArray.reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-    initialValue
-  );
-
-  // totalLikes = totalLikesReduce;
-  const likesBox = document.querySelector(".bottom_likes");
-  likesBox.textContent = `${totalLikes}`;
-  // console.log(totalLikes);
-
   if (videoInList !== undefined) {
     const { date, id, video, likes, photographerId, price, title } = data;
 

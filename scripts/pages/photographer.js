@@ -51,21 +51,19 @@ initProfils(); //RETOURNE UNE PROMESSE EN ATTENTE
 //!RECUP DONNEES GALLERY
 //!====================================================
 
-//? BOUTON POPULARITE
-
-//! Tri par date
+//! BOUTON TRI par date
 document.querySelector(".dropdown-date").addEventListener("click", function () {
   sortedByIdDate();
   console.log("Sorted by Date");
   // console.log(document.querySelector("#photograph_gallery"));
 });
-// //! Tri par likes
+// //! BOUTON TRI likes
 document.querySelector(".dropbtn").addEventListener("click", function () {
   sortedByIdLikes();
   console.log("Sorted by Likes");
   // console.log(document.querySelector("#photograph_gallery"));
 });
-// //! Tri par title
+// //! BOUTON TRI title
 document
   .querySelector(".dropdown-title")
   .addEventListener("click", function () {
@@ -86,22 +84,11 @@ async function getGalleryItems() {
   }); //! ICI TABLEAU FILTRE DU PHOTOGRAPHE
   let newFilteredMedia = filteredMedia;
   console.log(newFilteredMedia);
-  // Filtered by likes
-  //============================================
   filteredMedia.sort(function compare(a, b) {
     if (a.likes < b.likes) return -1;
     if (a.likes > b.likes) return 1;
     return 0;
   });
-  //============================================
-  // Filtered by title
-  //============================================
-  // filteredMedia.sort(function compare(a, b) {
-  //   if (a.title < b.title) return -1;
-  //   if (a.title > b.title) return 1;
-  //   return 0;
-  // });
-  //============================================
   for (let i = 0; i < filteredMedia.length; i++) {
     return { media: [...newFilteredMedia] };
   }
@@ -124,11 +111,8 @@ async function initGallery() {
 }
 initGallery();
 
+//! TRI PAR DATES =====================================
 function sortedByIdDate() {
-  let removeOldGallery = document.querySelectorAll(".gallery_cards");
-  let galleryContainer = document.querySelector("#photograph_gallery");
-
-  // console.log(removeOldGallery);
   async function getGalleryItems() {
     //Récupération de l'ID de la page
     const queryString_url_id = window.location.search;
@@ -142,22 +126,12 @@ function sortedByIdDate() {
     }); //! ICI TABLEAU FILTRE DU PHOTOGRAPHE
     let newFilteredMedia = filteredMedia;
     console.log(newFilteredMedia);
-    // Filtered by likes
-    //============================================
+
     filteredMedia.sort(function compare(a, b) {
       if (a.date < b.date) return -1;
       if (a.date > b.date) return 1;
       return 0;
     });
-    //============================================
-    // Filtered by title
-    //============================================
-    // filteredMedia.sort(function compare(a, b) {
-    //   if (a.title < b.title) return -1;
-    //   if (a.title > b.title) return 1;
-    //   return 0;
-    // });
-    //============================================
     for (let i = 0; i < filteredMedia.length; i++) {
       return { media: [...newFilteredMedia] };
     }
@@ -180,12 +154,8 @@ function sortedByIdDate() {
   }
   initGallery();
 }
-
+//! TRI PAR TITLE =====================================
 function sortedByIdTitle() {
-  let removeOldGallery = document.querySelectorAll(".gallery_cards");
-  let galleryContainer = document.querySelector("#photograph_gallery");
-
-  // console.log(removeOldGallery);
   async function getGalleryItems() {
     //Récupération de l'ID de la page
     const queryString_url_id = window.location.search;
@@ -199,16 +169,6 @@ function sortedByIdTitle() {
     }); //! ICI TABLEAU FILTRE DU PHOTOGRAPHE
     let newFilteredMedia = filteredMedia;
     console.log(newFilteredMedia);
-    // Filtered by likes
-    //============================================
-    // filteredMedia.sort(function compare(a, b) {
-    //   if (a.date < b.date) return -1;
-    //   if (a.date > b.date) return 1;
-    //   return 0;
-    // });
-    // ============================================
-    // Filtered by title
-    // ============================================
     filteredMedia.sort(function compare(a, b) {
       if (a.title < b.title) return -1;
       if (a.title > b.title) return 1;
@@ -238,11 +198,8 @@ function sortedByIdTitle() {
   initGallery();
 }
 
+//! TRI PAR LIKES =====================================
 function sortedByIdLikes() {
-  let removeOldGallery = document.querySelectorAll(".gallery_cards");
-  let galleryContainer = document.querySelector("#photograph_gallery");
-
-  // console.log(removeOldGallery);
   async function getGalleryItems() {
     //Récupération de l'ID de la page
     const queryString_url_id = window.location.search;
@@ -256,16 +213,6 @@ function sortedByIdLikes() {
     }); //! ICI TABLEAU FILTRE DU PHOTOGRAPHE
     let newFilteredMedia = filteredMedia;
     console.log(newFilteredMedia);
-    // Filtered by likes
-    //============================================
-    // filteredMedia.sort(function compare(a, b) {
-    //   if (a.date < b.date) return -1;
-    //   if (a.date > b.date) return 1;
-    //   return 0;
-    // });
-    // ============================================
-    // Filtered by title
-    // ============================================
     filteredMedia.sort(function compare(a, b) {
       if (a.likes < b.likes) return -1;
       if (a.likes > b.likes) return 1;
@@ -283,6 +230,7 @@ function sortedByIdLikes() {
     gallerySection.innerHTML = "";
     medias.forEach((media) => {
       const photographerGallery = galleryFactory(media);
+      const likesArray = galleryFactory(media);
       const galleryCardDOM = photographerGallery.getImageDOM();
       gallerySection.appendChild(galleryCardDOM);
     });

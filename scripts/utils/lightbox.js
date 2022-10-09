@@ -95,29 +95,6 @@ function modifDomGallery(mutations) {
           };
         };
       }
-      const cardHearts = document.querySelectorAll(".likes-heart");
-      cardHearts.forEach((cardHeart) => {
-        cardHeart.addEventListener("click", (event) => {
-          let dataId = event.target.getAttribute("data-id");
-          const thisCardLikes = document.querySelector(
-            `.cards_likes-${dataId}`
-          );
-          const bottom_likes = document.querySelector(".bottom_likes");
-          event.target.classList.toggle("cardHeart-no");
-          let cardLikesContent = Number(thisCardLikes.innerHTML);
-          let photographTotalLikes = Number(bottom_likes.innerHTML);
-          if (event.target.classList.contains("cardHeart-yes")) {
-            alert("Vous avez déja liké cette photo");
-          } else {
-            console.log(dataId);
-            thisCardLikes.innerHTML = cardLikesContent + 1;
-            // event.target.classList.toggle("cardHeart-yes");
-            bottom_likes.innerHTML = photographTotalLikes + 1;
-            event.target.classList.add("cardHeart-yes");
-            event.target.classList.remove("cardHeart-no");
-          }
-        });
-      });
     }
   }
 }
