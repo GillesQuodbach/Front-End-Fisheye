@@ -36,7 +36,8 @@ function galleryFactory(data) {
       //Affichage des likes sur chaque card
       const like = document.createElement("p");
       like.textContent = likes;
-      like.className = `cards_likes cards_likes-${id}`;
+      like.className = "cards_likes";
+      like.setAttribute(`data-likes`, `${likes}`);
       //Affichage du COEUR sur chaque card
       const heartTag = document.createElement("i");
       heartTag.className = `fa-sharp fa-solid fa-heart likes-heart`;
@@ -89,7 +90,8 @@ function galleryFactory(data) {
       //Affichage des likes sur chaque card
       const like = document.createElement("p");
       like.textContent = likes;
-      like.className = `cards_likes cards_likes-${id}`;
+      like.className = "cards_likes";
+      like.setAttribute(`data-likes`, `${likes}`);
       // like.setAttribute(`data-id`, `${id}`);
       //Affichage du COEUR sur chaque card
       //Affichage du COEUR sur chaque card
