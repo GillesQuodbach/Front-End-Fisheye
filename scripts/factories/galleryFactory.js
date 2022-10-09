@@ -3,20 +3,28 @@
 let likesArray = [];
 let removeOldGallery;
 let galleryContainer;
+
 function galleryFactory(data) {
   //! ICI TOTAL LIKES
   let videoInList = data.video;
-  likesArray.push(data.likes);
+  let totalLikes = "";
+  // let totalLikes = 0;
+  console.log(likesArray.length);
+  // console.log(data.likes.length);
+  if (likesArray.length >= data.likes.length) {
+    console.log("le tableau est déjà rempli");
+  } else {
+    likesArray.push(data.likes);
+  }
   const initialValue = 0;
-
-  let totalLikesReduce = likesArray.reduce(
+  totalLikes = likesArray.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
-  let totalLikes = 0;
-  totalLikes = totalLikesReduce;
+
+  // totalLikes = totalLikesReduce;
   const likesBox = document.querySelector(".bottom_likes");
-  likesBox.innerText = `${totalLikes}`;
+  likesBox.textContent = `${totalLikes}`;
   // console.log(totalLikes);
 
   if (videoInList !== undefined) {
