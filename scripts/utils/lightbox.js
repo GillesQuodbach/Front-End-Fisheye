@@ -97,4 +97,44 @@ function modifDomGallery(mutations) {
       }
     }
   }
+  //! Gestion du total des likes du photographe
+  let allPhotographLikesArray = [];
+  const allCardLikes = document.querySelectorAll(".cards_likes");
+  allCardLikes.forEach((heart) => {
+    console.log(heart.dataset.likes);
+    allPhotographLikesArray.push(parseInt(heart.dataset.likes));
+  });
+  console.log(allPhotographLikesArray);
+  let sum = 0;
+  for (let i = 0; i < allPhotographLikesArray.length; i++) {
+    sum += allPhotographLikesArray[i];
+  }
+  console.log(sum);
+  let totalBottomLikes = document.querySelector(".bottom_likes");
+  totalBottomLikes.innerHTML = sum;
+
+  let allGalleryHearts = document.querySelectorAll(".likes-heart");
+
+  //! Incrémentation like au clic
+  allGalleryHearts.forEach((heart) => {
+    heart.addEventListener("click", (e) => {
+      const thisId = e.target.dataset.id;
+      console.log(thisId);
+      const thisArticle = document.getElementById(`${thisId}`);
+      const thisArticleLikes = thisArticle.querySelector(".cards_likes");
+      const bottomTotalLikes = document.querySelector(".bottom_likes");
+      console.log(bottomTotalLikes.innerHTML);
+      e.target.classList.toggle("cardHeart-no");
+
+      if (e.target.classList.contains("cardHeart-yes")) {
+        alert("Vous avez déja liké cette photo");
+      } else {
+        e.target.classList.toggle("cardHeart-yes");
+        const cardLikesIncrement = thisArticleLikes.innerHTML++;
+        const bottomLikesIncrement = bottomTotalLikes.innerHTML++;
+        e.target.classList.add("cardHeart-yes");
+        e.target.classList.remove("cardHeart-no");
+      }
+    });
+  });
 }
