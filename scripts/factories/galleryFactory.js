@@ -21,7 +21,7 @@ function galleryFactory(data) {
       //Card image
       const vids = document.createElement("video");
       vids.setAttribute("src", clip);
-      vids.setAttribute("controls", "controls");
+      // vids.setAttribute("controls", "controls");
       vids.setAttribute("muted", "muted");
       article.setAttribute("class", "gallery_cards");
       vids.className = "cards_image";
