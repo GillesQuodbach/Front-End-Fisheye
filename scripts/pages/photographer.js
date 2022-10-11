@@ -182,7 +182,6 @@ function sortedByIdDate() {
   async function initGallery() {
     const { media } = await getGalleryItems()
     await displayGallery(media)
-    console.log(media)
   }
   initGallery()
 }
@@ -199,7 +198,6 @@ function sortedByIdTitle() {
     const mediasArray = data.media
     const filteredMedia = mediasArray.filter((el) => el.photographerId == id)
     const newFilteredMedia = filteredMedia
-    console.log(newFilteredMedia)
     filteredMedia.sort((a, b) => {
       if (a.title < b.title) return -1
       if (a.title > b.title) return 1
@@ -224,7 +222,6 @@ function sortedByIdTitle() {
   async function initGallery() {
     const { media } = await getGalleryItems()
     await displayGallery(media)
-    console.log(media)
   }
   initGallery()
 }
@@ -248,9 +245,8 @@ function sortedByIdLikes() {
     })
     // ============================================
     for (let i = 0; i < filteredMedia.length; i++) {
-      console.log(filteredMedia)
+      return { media: [...newFilteredMedia] }
     }
-    return { media: [...newFilteredMedia] }
   }
 }
 // Affichage des données des photographes

@@ -14,11 +14,10 @@ async function getPhotographers () {
   // Boucle dans le tableau
   for (let i = 0; i < length; i++) {
     // Affichage du tableau de données des photographes
-    console.log(photographersArray[i])
-  }
-  // Retourne le tableau photographers seulement une fois
-  return {
-    photographers: [...photographersArray]
+    // Retourne le tableau photographers seulement une fois
+    return {
+      photographers: [...photographersArray]
+    }
   }
 }
 // Affichage des données des photographes
@@ -60,16 +59,23 @@ function photographerFactory (data) {
     const article = document.createElement('article')
     article.setAttribute('id', id)
     article.setAttribute('class', 'cardsLink')
-    // Card image
+    const readerLink = document.createElement('div')
+    readerLink.setAttribute('class', 'photograph-profile')
+    readerLink.setAttribute('aria', `${name}`)
+    readerLink.setAttribute('role', 'Link + image')
     const img = document.createElement('img')
     img.setAttribute('src', picture)
     img.className = 'detail_profile_image'
-    img.setAttribute('alt', `Photo de profil de ${name}`)
+    img.setAttribute('alt', '')
+    // img.setAttribute('alt', `Photo de profil de ${name}`)
     // Photographer name
     const h2 = document.createElement('h2')
     h2.textContent = name
     h2.className = 'name'
     // Photographers living place
+    const profileText = document.createElement('div')
+    profileText.setAttribute('class', 'profile-text')
+    profileText.setAttribute('role', 'Text paragraph')
     const livingPlace = document.createElement('p')
     livingPlace.innerHTML = `${city}, ${country}`
     livingPlace.className = 'living-place'
@@ -82,11 +88,13 @@ function photographerFactory (data) {
     cost.textContent = `${price}€/jour`
     cost.className = 'price'
     // Création de la card
-    article.appendChild(img)
-    article.appendChild(h2)
-    article.appendChild(livingPlace)
-    article.appendChild(tag)
-    article.appendChild(cost)
+    article.appendChild(readerLink)
+    readerLink.appendChild(img)
+    readerLink.appendChild(h2)
+    article.appendChild(profileText)
+    profileText.appendChild(livingPlace)
+    profileText.appendChild(tag)
+    profileText.appendChild(cost)
     return article // Retourne les infos dans les cards
   }
   return {
