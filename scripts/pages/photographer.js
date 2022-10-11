@@ -1,23 +1,16 @@
-//! RECUP DONNEES PROFIL PHOTOGRAPHE
+//! RECUPERATION DONNEES POUR LE PROFILE DES PHOTOGRAPHES
+//! HEADER DE LA GALLERIE
 //! =================================================
 const jsonUrl = 'data/photographers.json'
-
 // Récupération des données voulues (Profil des photographes)
-async function getPhotographersProfils () {
+async function getPhotographersProfils() {
   // Récupération de l'ID de la page
   const queryStringUrlId = window.location.search
   const urlSearchParams = new URLSearchParams(queryStringUrlId)
   const id = urlSearchParams.get('id')
-  // Affiche l'id du photographe selectionné (243)
-
-  // Récupération des données du fichier JSON
   const response = await fetch(jsonUrl)
-  // Conversion des datas en JSON
   const data = await response.json()
-  // Affichage du tableau des photographes
   const photographersData = data.photographers
-
-  // Affiche la liste par ID
   const sortedById = {}
   for (let i = 0, len = photographersData.length; i < len; i++) {
     sortedById[photographersData[i].id] = photographersData[i]
@@ -25,36 +18,29 @@ async function getPhotographersProfils () {
   // retourne l'objet (le photographe) avec l'id correspondant au photographe//
   return { photographers: sortedById[id] }
 }
-// Affichage/positionnement de l'article
-// Affichage des données des photographes
-async function displayPhotographersProfils (photographer) {
-  // Selection de la photograph_header de l'index.html (section entière)
-  // const profilePhotograph = document.querySelector(".photograph-header");
+async function displayPhotographersProfils(photographer) {
   const photographerModel = photographerProfilFactory(photographer)
   photographerModel.getProfilCardDOM()
-  // profilePhotograph.appendChild(userCardDOM);
 }
-// ?Initialisation des toutes les fonctions
-async function initProfils () {
+async function initProfils() {
   // Récupère les datas des photographes
   const { photographers } = await getPhotographersProfils()
   // const { media } = await getMedia();
   await displayPhotographersProfils(photographers)
   // await displayData(media);
 }
-initProfils() // RETOURNE UNE PROMESSE EN ATTENTE
-
-function photographerProfilFactory (data) {
+initProfils()
+// !CREATION DU PROFILE DES PHOTOGRAPHES
+function photographerProfilFactory(data) {
   const { name, id, portrait, city, country, tagline, price, likes } = data
   const picture = `assets/photographers/${portrait}`
   // Création de la carte de chaque photographe
-  function getProfilCardDOM () {
+  function getProfilCardDOM() {
     // Profile photographe
     const profileHeader = document.querySelector('.photograph-header')
     // Div profileInfos
     const profileInfos = document.createElement('div')
     profileInfos.setAttribute('class', 'photograph_profile_infos')
-
     // Card image
     const img = document.createElement('img')
     img.setAttribute('src', picture)
@@ -80,15 +66,11 @@ function photographerProfilFactory (data) {
     const cost = document.querySelector('.fixed_price')
     cost.textContent = `${price}€ / jour`
     cost.className = 'bottom_price'
-
     profileHeader.insertAdjacentElement('afterbegin', profileInfos)
     profileHeader.insertAdjacentElement('beforeend', img)
     profileInfos.appendChild(h2)
     profileInfos.appendChild(livingPlace)
     profileInfos.appendChild(tag)
-    // Création de la card
-
-    // Retourne les infos dans les cards
   }
   return {
     name,
@@ -103,29 +85,30 @@ function photographerProfilFactory (data) {
   }
 }
 
-//  ? ====================================================
-//  ? GESTION DE LA GALERIE DE CHAQUE PHOTOGRAPHE
-//  ? ====================================================
+//  ! ====================================================
+//  ! GESTION DE LA GALERIE DE CHAQUE PHOTOGRAPHE
+//  ! ====================================================
 
-//! BOUTON TRI par date
+// ? TRI DE LA GALERIE DE CHAQUE PHOTOGRAPHE
+//  ? BOUTON TRI par date
 document.querySelector('.dropdown-date').addEventListener('click', () => {
   sortedByIdDate()
   console.log('Sorted by Date')
   // console.log(document.querySelector("#photograph_gallery"));
 })
-// //! BOUTON TRI likes
+//  ? BOUTON TRI likes
 document.querySelector('.dropbtn').addEventListener('click', () => {
   sortedByIdLikes()
   console.log('Sorted by Likes')
   // console.log(document.querySelector("#photograph_gallery"));
 })
-// //! BOUTON TRI title
+//  ? BOUTON TRI title
 document.querySelector('.dropdown-title').addEventListener('click', () => {
   sortedByIdTitle()
   console.log('Sorted by title')
   // console.log(document.querySelector("#photograph_gallery"));
 })
-async function getGalleryItems () {
+async function getGalleryItems() {
   // Récupération de l'ID de la page
   const queryStringUrlId = window.location.search
   const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -134,7 +117,6 @@ async function getGalleryItems () {
   const data = await response.json()
   const mediasArray = data.media
   const filteredMedia = mediasArray.filter((el) => el.photographerId == id)
-  //  ?FILTRE DU PHOTOGRAPHE
   const newFilteredMedia = filteredMedia
   console.log(newFilteredMedia)
   filteredMedia.sort((a, b) => {
@@ -147,7 +129,7 @@ async function getGalleryItems () {
   }
 }
 // Affichage des données des photographes
-async function displayGallery (medias) {
+async function displayGallery(medias) {
   console.log(medias)
   const gallerySection = document.querySelector('#photograph_gallery')
   gallerySection.innerHTML = ''
@@ -157,7 +139,7 @@ async function displayGallery (medias) {
     gallerySection.appendChild(galleryCardDOM)
   })
 }
-async function initGallery () {
+async function initGallery() {
   const { media } = await getGalleryItems()
   await displayGallery(media)
   console.log(media)
@@ -165,8 +147,8 @@ async function initGallery () {
 initGallery()
 
 //  ?TRI PAR DATES =====================================
-function sortedByIdDate () {
-  async function getGalleryItems () {
+function sortedByIdDate() {
+  async function getGalleryItems() {
     // Récupération de l'ID de la page
     const queryStringUrlId = window.location.search
     const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -177,7 +159,6 @@ function sortedByIdDate () {
     const filteredMedia = mediasArray.filter((el) => el.photographerId == id) //! ICI TABLEAU FILTRE DU PHOTOGRAPHE
     const newFilteredMedia = filteredMedia
     console.log(newFilteredMedia)
-
     filteredMedia.sort((a, b) => {
       if (a.date < b.date) return -1
       if (a.date > b.date) return 1
@@ -188,7 +169,7 @@ function sortedByIdDate () {
     }
   }
   // Affichage des données des photographes
-  async function displayGallery (medias) {
+  async function displayGallery(medias) {
     console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
@@ -198,16 +179,17 @@ function sortedByIdDate () {
       gallerySection.appendChild(galleryCardDOM)
     })
   }
-  async function initGallery () {
+  async function initGallery() {
     const { media } = await getGalleryItems()
     await displayGallery(media)
     console.log(media)
   }
   initGallery()
 }
+
 // ?TRI PAR TITLE =====================================
-function sortedByIdTitle () {
-  async function getGalleryItems () {
+function sortedByIdTitle() {
+  async function getGalleryItems() {
     // Récupération de l'ID de la page
     const queryStringUrlId = window.location.search
     const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -215,7 +197,7 @@ function sortedByIdTitle () {
     const response = await fetch(jsonUrl)
     const data = await response.json()
     const mediasArray = data.media
-    const filteredMedia = mediasArray.filter((el) => el.photographerId == id) //! ICI TABLEAU FILTRE DU PHOTOGRAPHE
+    const filteredMedia = mediasArray.filter((el) => el.photographerId == id)
     const newFilteredMedia = filteredMedia
     console.log(newFilteredMedia)
     filteredMedia.sort((a, b) => {
@@ -229,7 +211,7 @@ function sortedByIdTitle () {
     }
   }
   // Affichage des données des photographes
-  async function displayGallery (medias) {
+  async function displayGallery(medias) {
     console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
@@ -239,7 +221,7 @@ function sortedByIdTitle () {
       gallerySection.appendChild(galleryCardDOM)
     })
   }
-  async function initGallery () {
+  async function initGallery() {
     const { media } = await getGalleryItems()
     await displayGallery(media)
     console.log(media)
@@ -247,8 +229,8 @@ function sortedByIdTitle () {
   initGallery()
 }
 // ? TRI PAR LIKES =====================================
-function sortedByIdLikes () {
-  async function getGalleryItems () {
+function sortedByIdLikes() {
+  async function getGalleryItems() {
     // Récupération de l'ID de la page
     const queryStringUrlId = window.location.search
     const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -266,39 +248,40 @@ function sortedByIdLikes () {
     })
     // ============================================
     for (let i = 0; i < filteredMedia.length; i++) {
-      return { media: [...newFilteredMedia] }
+      console.log(filteredMedia)
     }
+    return { media: [...newFilteredMedia] }
   }
-  // Affichage des données des photographes
-  async function displayGallery (medias) {
-    console.log(medias)
-    const gallerySection = document.querySelector('#photograph_gallery')
-    gallerySection.innerHTML = ''
-    medias.forEach((media) => {
-      const photographerGallery = galleryFactory(media)
-      galleryFactory(media)
-      const galleryCardDOM = photographerGallery.getImageDOM()
-      gallerySection.appendChild(galleryCardDOM)
-    })
-  }
-  async function initGallery () {
-    const { media } = await getGalleryItems()
-    await displayGallery(media)
-    console.log(media)
-  }
-  initGallery()
 }
+// Affichage des données des photographes
+async function displayGallery(medias) {
+  console.log(medias)
+  const gallerySection = document.querySelector('#photograph_gallery')
+  gallerySection.innerHTML = ''
+  medias.forEach((media) => {
+    const photographerGallery = galleryFactory(media)
+    galleryFactory(media)
+    const galleryCardDOM = photographerGallery.getImageDOM()
+    gallerySection.appendChild(galleryCardDOM)
+  })
+}
+async function initGallery() {
+  const { media } = await getGalleryItems()
+  await displayGallery(media)
+  console.log(media)
+}
+initGallery()
 
 //  ? FACTORY DE LA GALERIE PHOTOGRAPHER
 //  ? ===================================
-function galleryFactory (data) {
+function galleryFactory(data) {
   const videoInList = data.video
   if (videoInList !== undefined) {
     const { date, id, video, likes, photographerId, price, title } = data
 
     const clip = `assets/images/${video}`
     // Création de la carte de chaque photographe
-    function getImageDOM () {
+    function getImageDOM() {
       // Cards container
       const article = document.createElement('article')
       article.setAttribute('id', id)
@@ -355,7 +338,7 @@ function galleryFactory (data) {
 
   const picture = `assets/images/${image}`
   // Création de la carte de chaque photographe
-  function getImageDOM () {
+  function getImageDOM() {
     // Cards container
     const article = document.createElement('article')
     article.setAttribute('id', id)
