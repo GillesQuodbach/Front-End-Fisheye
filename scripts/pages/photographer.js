@@ -3,7 +3,7 @@
 //! =================================================
 const jsonUrl = 'data/photographers.json'
 // Récupération des données voulues (Profil des photographes)
-async function getPhotographersProfils() {
+async function getPhotographersProfils () {
   // Récupération de l'ID de la page
   const queryStringUrlId = window.location.search
   const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -18,11 +18,11 @@ async function getPhotographersProfils() {
   // retourne l'objet (le photographe) avec l'id correspondant au photographe//
   return { photographers: sortedById[id] }
 }
-async function displayPhotographersProfils(photographer) {
+async function displayPhotographersProfils (photographer) {
   const photographerModel = photographerProfilFactory(photographer)
   photographerModel.getProfilCardDOM()
 }
-async function initProfils() {
+async function initProfils () {
   // Récupère les datas des photographes
   const { photographers } = await getPhotographersProfils()
   // const { media } = await getMedia();
@@ -31,11 +31,11 @@ async function initProfils() {
 }
 initProfils()
 // !CREATION DU PROFILE DES PHOTOGRAPHES
-function photographerProfilFactory(data) {
+function photographerProfilFactory (data) {
   const { name, id, portrait, city, country, tagline, price, likes } = data
   const picture = `assets/photographers/${portrait}`
   // Création de la carte de chaque photographe
-  function getProfilCardDOM() {
+  function getProfilCardDOM () {
     // Profile photographe
     const profileHeader = document.querySelector('.photograph-header')
     // Div profileInfos
@@ -48,8 +48,8 @@ function photographerProfilFactory(data) {
     img.setAttribute('src', picture)
     img.className = 'photograph_profile_photo'
     img.setAttribute('alt', `Photo de profil de ${name}`)
-    img.setAttribute('role', `img`)
-    img.setAttribute('tabindex', `0`)
+    img.setAttribute('role', 'img')
+    img.setAttribute('tabindex', '0')
 
     // Photographer name
     const h2 = document.createElement('h2')
@@ -107,24 +107,23 @@ function photographerProfilFactory(data) {
 
 // ? TRI DE LA GALERIE DE CHAQUE PHOTOGRAPHE
 //  ? BOUTON TRI par date
-document.querySelector('.dropdown-date').addEventListener('click', () => {
-  sortedByIdDate()
-  console.log('Sorted by Date')
-  // console.log(document.querySelector("#photograph_gallery"));
+
+const sortedMenu = document.querySelector('#select-category')
+
+sortedMenu.addEventListener('change', function () {
+  if (sortedMenu.selectedIndex === 0) {
+    sortedByIdLikes()
+    console.log('sa marche LIKES')
+  } else if (sortedMenu.selectedIndex === 1) {
+    sortedByIdDate()
+    console.log('sa marche DATE')
+  } else if (sortedMenu.selectedIndex === 2) {
+    sortedByIdTitle()
+    console.log('sa marche TITRE')
+  }
 })
-//  ? BOUTON TRI likes
-document.querySelector('.dropbtn').addEventListener('click', () => {
-  sortedByIdLikes()
-  console.log('Sorted by Likes')
-  // console.log(document.querySelector("#photograph_gallery"));
-})
-//  ? BOUTON TRI title
-document.querySelector('.dropdown-title').addEventListener('click', () => {
-  sortedByIdTitle()
-  console.log('Sorted by title')
-  // console.log(document.querySelector("#photograph_gallery"));
-})
-async function getGalleryItems() {
+
+async function getGalleryItems () {
   // Récupération de l'ID de la page
   const queryStringUrlId = window.location.search
   const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -145,7 +144,7 @@ async function getGalleryItems() {
   }
 }
 // Affichage des données des photographes
-async function displayGallery(medias) {
+async function displayGallery (medias) {
   console.log(medias)
   const gallerySection = document.querySelector('#photograph_gallery')
   gallerySection.innerHTML = ''
@@ -155,7 +154,7 @@ async function displayGallery(medias) {
     gallerySection.appendChild(galleryCardDOM)
   })
 }
-async function initGallery() {
+async function initGallery () {
   const { media } = await getGalleryItems()
   await displayGallery(media)
   console.log(media)
@@ -163,8 +162,8 @@ async function initGallery() {
 initGallery()
 
 //  ?TRI PAR DATES =====================================
-function sortedByIdDate() {
-  async function getGalleryItems() {
+function sortedByIdDate () {
+  async function getGalleryItems () {
     // Récupération de l'ID de la page
     const queryStringUrlId = window.location.search
     const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -185,7 +184,7 @@ function sortedByIdDate() {
     }
   }
   // Affichage des données des photographes
-  async function displayGallery(medias) {
+  async function displayGallery (medias) {
     console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
@@ -195,7 +194,7 @@ function sortedByIdDate() {
       gallerySection.appendChild(galleryCardDOM)
     })
   }
-  async function initGallery() {
+  async function initGallery () {
     const { media } = await getGalleryItems()
     await displayGallery(media)
   }
@@ -203,8 +202,8 @@ function sortedByIdDate() {
 }
 
 // ?TRI PAR TITLE =====================================
-function sortedByIdTitle() {
-  async function getGalleryItems() {
+function sortedByIdTitle () {
+  async function getGalleryItems () {
     // Récupération de l'ID de la page
     const queryStringUrlId = window.location.search
     const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -225,7 +224,7 @@ function sortedByIdTitle() {
     }
   }
   // Affichage des données des photographes
-  async function displayGallery(medias) {
+  async function displayGallery (medias) {
     console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
@@ -235,15 +234,15 @@ function sortedByIdTitle() {
       gallerySection.appendChild(galleryCardDOM)
     })
   }
-  async function initGallery() {
+  async function initGallery () {
     const { media } = await getGalleryItems()
     await displayGallery(media)
   }
   initGallery()
 }
 // ? TRI PAR LIKES =====================================
-function sortedByIdLikes() {
-  async function getGalleryItems() {
+function sortedByIdLikes () {
+  async function getGalleryItems () {
     // Récupération de l'ID de la page
     const queryStringUrlId = window.location.search
     const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -264,36 +263,36 @@ function sortedByIdLikes() {
       return { media: [...newFilteredMedia] }
     }
   }
-}
-// Affichage des données des photographes
-async function displayGallery(medias) {
-  console.log(medias)
-  const gallerySection = document.querySelector('#photograph_gallery')
-  gallerySection.innerHTML = ''
-  medias.forEach((media) => {
-    const photographerGallery = galleryFactory(media)
-    galleryFactory(media)
-    const galleryCardDOM = photographerGallery.getImageDOM()
-    gallerySection.appendChild(galleryCardDOM)
-  })
-}
-async function initGallery() {
-  const { media } = await getGalleryItems()
-  await displayGallery(media)
-  console.log(media)
-}
-initGallery()
 
+  // Affichage des données des photographes
+  async function displayGallery (medias) {
+    console.log(medias)
+    const gallerySection = document.querySelector('#photograph_gallery')
+    gallerySection.innerHTML = ''
+    medias.forEach((media) => {
+      const photographerGallery = galleryFactory(media)
+      galleryFactory(media)
+      const galleryCardDOM = photographerGallery.getImageDOM()
+      gallerySection.appendChild(galleryCardDOM)
+    })
+  }
+  async function initGallery () {
+    const { media } = await getGalleryItems()
+    await displayGallery(media)
+    console.log(media)
+  }
+  initGallery()
+}
 //  ? FACTORY DE LA GALERIE PHOTOGRAPHER
 //  ? ===================================
-function galleryFactory(data) {
+function galleryFactory (data) {
   const videoInList = data.video
   if (videoInList !== undefined) {
     const { date, id, video, likes, photographerId, price, title } = data
 
     const clip = `assets/images/${video}`
     // Création de la carte de chaque photographe
-    function getImageDOM() {
+    function getImageDOM () {
       // Cards container
       const article = document.createElement('article')
       article.setAttribute('id', id)
@@ -350,7 +349,7 @@ function galleryFactory(data) {
 
   const picture = `assets/images/${image}`
   // Création de la carte de chaque photographe
-  function getImageDOM() {
+  function getImageDOM () {
     // Cards container
     const article = document.createElement('article')
     article.setAttribute('id', id)

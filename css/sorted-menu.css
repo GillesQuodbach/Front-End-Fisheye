@@ -43,19 +43,19 @@
 }
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
+.dropdown-list {
+  display: block;
   position: absolute;
   background-color: #911C1C;
   width: 170px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   margin-top: 0px;
   z-index: 1;
   border-radius: 0px 0px 5px 5px;
 }
 
 /* Links inside the dropdown */
-.dropdown-content p {
+.dropdown p {
   color: white;
   font-size: 18px;
   font-weight: 500;
@@ -70,7 +70,7 @@
 /* .dropdown-content p:hover {} */
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-list {
   display: block;
 }
 
