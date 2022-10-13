@@ -24,11 +24,17 @@
         onclick="displayModal()">Contactez-moi</button>
 
     </div>
+    <!-- ! FIXED INFOS -->
+    <div class="bottom_fixed_infos">
+      <p class="fixed_likes"></p>
+      <i class="fa-sharp fa-solid fa-heart" aria-label="likes"></i>
+      <p class="fixed_price"></p>
+    </div>
     <div class="dropdown-container">
       <p tabindex="0" role="text" class="dropdown-container_title">Trier par :</p>
       <div class="dropdown">
-        <div role="menuitem" class="dropbtn" aria-label="tri par popularité" tabindex="0">Popularité<img
-            class="dropdown-arrow" src="assets/icons/sortedArrow.svg" alt="flèche menu de tri"></div>
+        <div role="button" aria-haspopup="listbox" class="dropbtn" aria-label="tri par popularité" tabindex="0">
+          Popularité<img class="dropdown-arrow" src="assets/icons/sortedArrow.svg" alt="flèche menu de tri"></div>
         <div class="dropdown-content">
           <p tabindex="0" role="menuitem" aria-label="tri par date" class="dropdown-date">Date</p>
           <p role="menuitem" class="dropdown-title" aria-label="tri par titre" tabindex="0">Titre</p>
@@ -79,12 +85,6 @@
       <video src="" class="lightbox_video"></video>
       <h2 class="lightbox_media_title"></h2>
     </div>
-  </div>
-  <!-- ! FIXED INFOS -->
-  <div class="bottom_fixed_infos">
-    <p class="fixed_likes"></p>
-    <i class="fa-sharp fa-solid fa-heart" aria-label="likes"></i>
-    <p class="fixed_price"></p>
   </div>
   <!-- ! ========= -->
   <script src="/scripts/pages/photographer.js"></script>
