@@ -3,15 +3,15 @@ window.onload = () => {
   const allPhotographLikesArray = []
   const allCardLikes = document.querySelectorAll('.cards_likes')
   allCardLikes.forEach((heart) => {
-    console.log(heart.dataset.likes)
+    // console.log(heart.dataset.likes)
     allPhotographLikesArray.push(parseInt(heart.dataset.likes))
   })
-  console.log(allPhotographLikesArray)
+  // console.log(allPhotographLikesArray)
   let sum = 0
   for (let i = 0; i < allPhotographLikesArray.length; i++) {
     sum += allPhotographLikesArray[i]
   }
-  console.log(sum)
+  // console.log(sum)
   const totalBottomLikes = document.querySelector('.bottom_likes')
   totalBottomLikes.innerHTML = sum
 

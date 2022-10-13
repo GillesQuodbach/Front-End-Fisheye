@@ -108,21 +108,49 @@ function photographerProfilFactory (data) {
 // ? TRI DE LA GALERIE DE CHAQUE PHOTOGRAPHE
 //  ? BOUTON TRI par date
 
-const sortedMenu = document.querySelector('#select-category')
+const listItems = document.querySelector('#list-items')
 
-sortedMenu.addEventListener('change', function () {
-  if (sortedMenu.selectedIndex === 0) {
+listItems.addEventListener('change', function () {
+  if (listItems.selectedIndex === 0) {
     sortedByIdLikes()
+    removeOptions()
     console.log('sa marche LIKES')
-  } else if (sortedMenu.selectedIndex === 1) {
+  } else if (listItems.selectedIndex === 1) {
     sortedByIdDate()
+    removeOptions()
     console.log('sa marche DATE')
-  } else if (sortedMenu.selectedIndex === 2) {
+  } else if (listItems.selectedIndex === 2) {
     sortedByIdTitle()
+    removeOptions()
     console.log('sa marche TITRE')
   }
 })
-
+function removeOptions () {
+  const listeOptions = listItems.options
+  const longueurListe = listItems.options.length
+  console.log(listeOptions[1].selected)
+  let i = 0
+  for (i = longueurListe - 1; i >= 0; i--) {
+    if (listeOptions[i].selected) {
+      // listItems.remove(i)
+      console.log(listeOptions[i].selected)
+    }
+  }
+}
+// //  ? BOUTON TRI likes
+// document
+//   .querySelector('#sorted_by_popularity')
+//   .addEventListener('click', () => {
+//     sortedByIdLikes()
+//     console.log('Sorted by Likes')
+//     // console.log(document.querySelector("#photograph_gallery"));
+//   })
+// //  ? BOUTON TRI title
+// document.querySelector('#sorted_by_title').addEventListener('click', () => {
+//   sortedByIdTitle()
+//   console.log('Sorted by title')
+//   // console.log(document.querySelector("#photograph_gallery"));
+// })
 async function getGalleryItems () {
   // Récupération de l'ID de la page
   const queryStringUrlId = window.location.search
@@ -133,7 +161,7 @@ async function getGalleryItems () {
   const mediasArray = data.media
   const filteredMedia = mediasArray.filter((el) => el.photographerId == id)
   const newFilteredMedia = filteredMedia
-  console.log(newFilteredMedia)
+  // console.log(newFilteredMedia)
   filteredMedia.sort((a, b) => {
     if (a.likes < b.likes) return -1
     if (a.likes > b.likes) return 1
@@ -145,7 +173,7 @@ async function getGalleryItems () {
 }
 // Affichage des données des photographes
 async function displayGallery (medias) {
-  console.log(medias)
+  // console.log(medias)
   const gallerySection = document.querySelector('#photograph_gallery')
   gallerySection.innerHTML = ''
   medias.forEach((media) => {
@@ -157,7 +185,7 @@ async function displayGallery (medias) {
 async function initGallery () {
   const { media } = await getGalleryItems()
   await displayGallery(media)
-  console.log(media)
+  // console.log(media)
 }
 initGallery()
 
@@ -173,7 +201,7 @@ function sortedByIdDate () {
     const mediasArray = data.media
     const filteredMedia = mediasArray.filter((el) => el.photographerId == id) //! ICI TABLEAU FILTRE DU PHOTOGRAPHE
     const newFilteredMedia = filteredMedia
-    console.log(newFilteredMedia)
+    // console.log(newFilteredMedia)
     filteredMedia.sort((a, b) => {
       if (a.date < b.date) return -1
       if (a.date > b.date) return 1
@@ -185,7 +213,7 @@ function sortedByIdDate () {
   }
   // Affichage des données des photographes
   async function displayGallery (medias) {
-    console.log(medias)
+    // console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
     medias.forEach((media) => {
