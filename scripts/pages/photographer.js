@@ -41,16 +41,27 @@ function photographerProfilFactory(data) {
     // Div profileInfos
     const profileInfos = document.createElement('div')
     profileInfos.setAttribute('class', 'photograph_profile_infos')
+
+    profileInfos.setAttribute('aria-label', `${name}`)
     // Card image
     const img = document.createElement('img')
     img.setAttribute('src', picture)
     img.className = 'photograph_profile_photo'
     img.setAttribute('alt', `Photo de profil de ${name}`)
+    img.setAttribute('role', `img`)
+    img.setAttribute('tabindex', `0`)
+
     // Photographer name
     const h2 = document.createElement('h2')
     h2.textContent = name
     h2.className = 'photograph_profile_name'
+    h2.setAttribute('tabindex', '0')
     // Photographers living place
+    const profileInfosBox = document.createElement('div')
+    profileInfosBox.className = 'profile-infos-box'
+    profileInfosBox.setAttribute('role', 'text')
+    profileInfosBox.setAttribute('tabindex', '0')
+
     const livingPlace = document.createElement('p')
     livingPlace.innerHTML = `${city}, ${country}`
     livingPlace.className = 'photograph_profile_living_place'
@@ -62,15 +73,20 @@ function photographerProfilFactory(data) {
     const totalLikes = document.querySelector('.fixed_likes')
     totalLikes.textContent = `${likes}`
     totalLikes.className = 'bottom_likes'
+    totalLikes.setAttribute('tabindex', '0')
+    totalLikes.setAttribute('role', 'text')
     // Photographers price
     const cost = document.querySelector('.fixed_price')
     cost.textContent = `${price}€ / jour`
     cost.className = 'bottom_price'
+    cost.setAttribute('tabindex', '0')
+    cost.setAttribute('role', 'text')
     profileHeader.insertAdjacentElement('afterbegin', profileInfos)
     profileHeader.insertAdjacentElement('beforeend', img)
-    profileInfos.appendChild(h2)
-    profileInfos.appendChild(livingPlace)
-    profileInfos.appendChild(tag)
+    profileInfos.appendChild(profileInfosBox)
+    profileInfos.insertAdjacentElement('afterbegin', h2)
+    profileInfosBox.appendChild(livingPlace)
+    profileInfosBox.appendChild(tag)
   }
   return {
     name,
@@ -292,7 +308,7 @@ function galleryFactory(data) {
       vids.setAttribute('muted', 'muted')
       article.setAttribute('class', 'gallery_cards')
       vids.className = 'cards_image'
-      vids.setAttribute('alt', `${title}`)
+      vids.setAttribute('alt', `${title} vue détaillée`)
       // Cards infos container
       const cardInfosContainer = document.createElement('div')
       cardInfosContainer.className = 'cards_infos_container'
@@ -346,7 +362,7 @@ function galleryFactory(data) {
     const img = document.createElement('img')
     img.setAttribute('src', picture)
     img.className = 'cards_image'
-    img.setAttribute('alt', `${title}`)
+    img.setAttribute('alt', `${title} vue détaillée`)
     // Cards infos container
     const cardInfosContainer = document.createElement('div')
     cardInfosContainer.className = 'cards_infos_container'
@@ -366,6 +382,7 @@ function galleryFactory(data) {
     const heartTag = document.createElement('i')
     heartTag.className = 'fa-sharp fa-solid fa-heart likes-heart'
     heartTag.setAttribute('data-id', `${id}`)
+    heartTag.setAttribute('aria-label', 'likes')
 
     // Création de la card
     article.appendChild(img)

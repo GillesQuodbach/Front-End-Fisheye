@@ -13,23 +13,25 @@
 
 <body>
   <header>
-    <a href="index.html">
+    <a tabindex=0 href="index.html">
       <img alt="FishEye Home page" src="assets/images/logo.png" class="logo" />
     </a>
   </header>
   <main id="main">
     <div class="photograph-header">
 
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button aria-label="Ouvrir le formulaire de contact" class="contact_button"
+        onclick="displayModal()">Contactez-moi</button>
 
     </div>
     <div class="dropdown-container">
-      <p class="dropdown-container_title">Trier par :</p>
+      <p tabindex="0" role="text" class="dropdown-container_title">Trier par :</p>
       <div class="dropdown">
-        <div class="dropbtn">Popularité<img class="dropdown-arrow" src="assets/icons/sortedArrow.svg"></div>
+        <div role="menuitem" class="dropbtn" aria-label="tri par popularité" tabindex="0">Popularité<img
+            class="dropdown-arrow" src="assets/icons/sortedArrow.svg" alt="flèche menu de tri"></div>
         <div class="dropdown-content">
-          <p class="dropdown-date">Date</p>
-          <p class="dropdown-title">Titre</p>
+          <p tabindex="0" role="menuitem" aria-label="tri par date" class="dropdown-date">Date</p>
+          <p role="menuitem" class="dropdown-title" aria-label="tri par titre" tabindex="0">Titre</p>
         </div>
       </div>
 
@@ -81,7 +83,7 @@
   <!-- ! FIXED INFOS -->
   <div class="bottom_fixed_infos">
     <p class="fixed_likes"></p>
-    <span><i class="fa-sharp fa-solid fa-heart"></i></span>
+    <i class="fa-sharp fa-solid fa-heart" aria-label="likes"></i>
     <p class="fixed_price"></p>
   </div>
   <!-- ! ========= -->

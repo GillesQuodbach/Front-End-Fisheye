@@ -24,6 +24,7 @@ h1 {
 .logo {
     height: 50px;
     margin-left: 100px;
+    z-index: 9999;
 }
 
 /* PARTIE PHOTOGRAPHER_SECTION */
