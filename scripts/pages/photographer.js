@@ -56,6 +56,7 @@ function photographerProfilFactory (data) {
     h2.textContent = name
     h2.className = 'photograph_profile_name'
     h2.setAttribute('tabindex', '0')
+    h2.setAttribute('role', 'text')
     // Photographers living place
     const profileInfosBox = document.createElement('div')
     profileInfosBox.className = 'profile-infos-box'
@@ -73,13 +74,13 @@ function photographerProfilFactory (data) {
     const totalLikes = document.querySelector('.fixed_likes')
     totalLikes.textContent = `${likes}`
     totalLikes.className = 'bottom_likes'
-    totalLikes.setAttribute('tabindex', '0')
+    // totalLikes.setAttribute('tabindex', '0')
     totalLikes.setAttribute('role', 'text')
     // Photographers price
     const cost = document.querySelector('.fixed_price')
     cost.textContent = `${price}€ / jour`
     cost.className = 'bottom_price'
-    cost.setAttribute('tabindex', '0')
+    // cost.setAttribute('tabindex', '0')
     cost.setAttribute('role', 'text')
     profileHeader.insertAdjacentElement('afterbegin', profileInfos)
     profileHeader.insertAdjacentElement('beforeend', img)
@@ -105,27 +106,6 @@ function photographerProfilFactory (data) {
 //  ! GESTION DE LA GALERIE DE CHAQUE PHOTOGRAPHE
 //  ! ====================================================
 
-// ? TRI DE LA GALERIE DE CHAQUE PHOTOGRAPHE
-//  ? BOUTON TRI par date
-
-// Listbox avec SELECT
-// const listItems = document.querySelector('#list-items')
-
-// listItems.addEventListener('change', function () {
-//   if (listItems.selectedIndex === 0) {
-//     sortedByIdLikes()
-//     // removeOptions()
-//     console.log('sa marche LIKES')
-//   } else if (listItems.selectedIndex === 1) {
-//     sortedByIdDate()
-//     // removeOptions()
-//     console.log('sa marche DATE')
-//   } else if (listItems.selectedIndex === 2) {
-//     sortedByIdTitle()
-//     // removeOptions()
-//     console.log('sa marche TITRE')
-//   }
-// })
 //  ? BOUTON TRI date
 document.querySelector('.dropdown-date').addEventListener('click', () => {
   sortedByIdDate()
@@ -329,6 +309,7 @@ function galleryFactory (data) {
       article.setAttribute('class', 'gallery_cards')
       vids.className = 'cards_image'
       vids.setAttribute('alt', `${title} vue détaillée`)
+      vids.setAttribute('tabindex', '0')
       // Cards infos container
       const cardInfosContainer = document.createElement('div')
       cardInfosContainer.className = 'cards_infos_container'
@@ -336,15 +317,19 @@ function galleryFactory (data) {
       const h2 = document.createElement('h2')
       h2.textContent = title
       h2.className = 'cards_title'
+      h2.setAttribute('tabindex', '0')
       // Affichage des likes sur chaque card
       const like = document.createElement('p')
       like.textContent = likes
       like.className = 'cards_likes'
       like.setAttribute('data-likes', `${likes}`)
+      like.setAttribute('role', 'text')
       // Affichage du COEUR sur chaque card
       const heartTag = document.createElement('i')
       heartTag.className = 'fa-sharp fa-solid fa-heart likes-heart'
       heartTag.setAttribute('data-id', `${id}`)
+      heartTag.setAttribute('role', 'text')
+      heartTag.setAttribute('aria-label', 'likes')
       // ? RAJOUTER PRIX ET CUMUL DES LIKES
 
       // Création de la card
@@ -383,6 +368,7 @@ function galleryFactory (data) {
     img.setAttribute('src', picture)
     img.className = 'cards_image'
     img.setAttribute('alt', `${title} vue détaillée`)
+    img.setAttribute('tabindex', '0')
     // Cards infos container
     const cardInfosContainer = document.createElement('div')
     cardInfosContainer.className = 'cards_infos_container'
@@ -390,11 +376,13 @@ function galleryFactory (data) {
     const h2 = document.createElement('h2')
     h2.textContent = title
     h2.className = 'cards_title'
+    h2.setAttribute('tabindex', '0')
     // Affichage des likes sur chaque card
     const like = document.createElement('p')
     like.textContent = likes
     like.className = 'cards_likes'
     like.setAttribute('data-likes', `${likes}`)
+    like.setAttribute('role', 'text')
     // like.setAttribute(`data-id`, `${id}`);
     // Affichage du COEUR sur chaque card
     // Affichage du COEUR sur chaque card
@@ -402,6 +390,7 @@ function galleryFactory (data) {
     const heartTag = document.createElement('i')
     heartTag.className = 'fa-sharp fa-solid fa-heart likes-heart'
     heartTag.setAttribute('data-id', `${id}`)
+    heartTag.setAttribute('role', 'text')
     heartTag.setAttribute('aria-label', 'likes')
 
     // Création de la card

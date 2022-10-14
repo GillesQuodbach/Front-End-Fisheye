@@ -13,7 +13,7 @@
 
 <body>
   <header>
-    <a tabindex=0 href="index.html">
+    <a href="index.html" role="link" aria-label="Lien vers la page d'accueil  ">
       <img alt="FishEye Home page" src="assets/images/logo.png" class="logo" />
     </a>
   </header>
@@ -25,7 +25,7 @@
 
     </div>
     <!-- ! FIXED INFOS -->
-    <div class="bottom_fixed_infos">
+    <div class="bottom_fixed_infos" tabindex="0" role="text">
       <p class="fixed_likes"></p>
       <i class="fa-sharp fa-solid fa-heart" aria-label="likes"></i>
       <p class="fixed_price"></p>
@@ -40,14 +40,19 @@
       </select>
     </div> -->
     <div class="dropdown-container">
-      <p class="dropdown-container_title">Trier par: </p>
-      <div class="dropdown">
-        <div class="dropbtn">Popularité<img class="dropdown-arrow" src="assets/icons/sortedArrow.svg"></div>
-        <div class="dropdown-content">
-          <p class="dropdown-date">Date</p>
-          <p class="dropdown-title">Titre</p>
+      <label for="dropdown-menu" class="dropdown-container_title" tabindex="0">Trier par:
+        <div class="dropdown">
+          <div class="dropbtn" role="button" aria-labbeledby="dropdown-menu" aria-label="tri par popularité"
+            tabindex="0" aria-expanded aria-haspopup="listbox">Popularité<img class="dropdown-arrow"
+              src="assets/icons/sortedArrow.svg"></div>
+          <div class="dropdown-content">
+            <p class="dropdown-date" role="listbox" aria-label="tri par date" tabindex="0"
+              aria-labbeledby="dropdown-menu" aria-activedescendant aria-selected>Date</p>
+            <p class="dropdown-title" role="listbox" aria-label="tri par titre" tabindex="0"
+              aria-labbeledby="dropdown-menu" aria-activedescendant aria-selected>Titre</p>
+          </div>
         </div>
-      </div>
+      </label>
     </div>
 
     <section id="photograph_gallery">
