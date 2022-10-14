@@ -319,16 +319,19 @@ function galleryFactory (data) {
       h2.className = 'cards_title'
       h2.setAttribute('tabindex', '0')
       // Affichage des likes sur chaque card
+      const likesContainer = document.createElement('div')
+      likesContainer.className = 'likes-container'
+      likesContainer.setAttribute('tabindex', '0')
+      likesContainer.setAttribute('role', 'text')
       const like = document.createElement('p')
       like.textContent = likes
       like.className = 'cards_likes'
       like.setAttribute('data-likes', `${likes}`)
-      like.setAttribute('role', 'text')
       // Affichage du COEUR sur chaque card
       const heartTag = document.createElement('i')
       heartTag.className = 'fa-sharp fa-solid fa-heart likes-heart'
       heartTag.setAttribute('data-id', `${id}`)
-      heartTag.setAttribute('role', 'text')
+      // heartTag.setAttribute('role', 'text')
       heartTag.setAttribute('aria-label', 'likes')
       // ? RAJOUTER PRIX ET CUMUL DES LIKES
 
@@ -336,8 +339,9 @@ function galleryFactory (data) {
       article.appendChild(vids)
       article.appendChild(cardInfosContainer)
       cardInfosContainer.appendChild(h2)
-      cardInfosContainer.appendChild(like)
-      cardInfosContainer.appendChild(heartTag)
+      cardInfosContainer.appendChild(likesContainer)
+      likesContainer.appendChild(like)
+      likesContainer.appendChild(heartTag)
       return article // Retourne les infos dans les cards
     }
     return {
@@ -377,12 +381,16 @@ function galleryFactory (data) {
     h2.textContent = title
     h2.className = 'cards_title'
     h2.setAttribute('tabindex', '0')
+    const likesContainer = document.createElement('div')
+    likesContainer.className = 'likes-container'
+    likesContainer.setAttribute('tabindex', '0')
+    likesContainer.setAttribute('role', 'text')
     // Affichage des likes sur chaque card
     const like = document.createElement('p')
     like.textContent = likes
     like.className = 'cards_likes'
     like.setAttribute('data-likes', `${likes}`)
-    like.setAttribute('role', 'text')
+    like.setAttribute('aria-label', 'likes')
     // like.setAttribute(`data-id`, `${id}`);
     // Affichage du COEUR sur chaque card
     // Affichage du COEUR sur chaque card
@@ -390,15 +398,16 @@ function galleryFactory (data) {
     const heartTag = document.createElement('i')
     heartTag.className = 'fa-sharp fa-solid fa-heart likes-heart'
     heartTag.setAttribute('data-id', `${id}`)
-    heartTag.setAttribute('role', 'text')
+    // heartTag.setAttribute('role', 'text')
     heartTag.setAttribute('aria-label', 'likes')
 
     // Création de la card
     article.appendChild(img)
     article.appendChild(cardInfosContainer)
     cardInfosContainer.appendChild(h2)
-    cardInfosContainer.appendChild(like)
-    cardInfosContainer.appendChild(heartTag)
+    cardInfosContainer.appendChild(likesContainer)
+    likesContainer.appendChild(like)
+    likesContainer.appendChild(heartTag)
     return article // Retourne les infos dans les cards
   }
   return {
