@@ -108,49 +108,42 @@ function photographerProfilFactory (data) {
 // ? TRI DE LA GALERIE DE CHAQUE PHOTOGRAPHE
 //  ? BOUTON TRI par date
 
-const listItems = document.querySelector('#list-items')
+// Listbox avec SELECT
+// const listItems = document.querySelector('#list-items')
 
-listItems.addEventListener('change', function () {
-  if (listItems.selectedIndex === 0) {
-    sortedByIdLikes()
-    removeOptions()
-    console.log('sa marche LIKES')
-  } else if (listItems.selectedIndex === 1) {
-    sortedByIdDate()
-    removeOptions()
-    console.log('sa marche DATE')
-  } else if (listItems.selectedIndex === 2) {
-    sortedByIdTitle()
-    removeOptions()
-    console.log('sa marche TITRE')
-  }
-})
-function removeOptions () {
-  const listeOptions = listItems.options
-  const longueurListe = listItems.options.length
-  console.log(listeOptions[1].selected)
-  let i = 0
-  for (i = longueurListe - 1; i >= 0; i--) {
-    if (listeOptions[i].selected) {
-      // listItems.remove(i)
-      console.log(listeOptions[i].selected)
-    }
-  }
-}
-// //  ? BOUTON TRI likes
-// document
-//   .querySelector('#sorted_by_popularity')
-//   .addEventListener('click', () => {
+// listItems.addEventListener('change', function () {
+//   if (listItems.selectedIndex === 0) {
 //     sortedByIdLikes()
-//     console.log('Sorted by Likes')
-//     // console.log(document.querySelector("#photograph_gallery"));
-//   })
-// //  ? BOUTON TRI title
-// document.querySelector('#sorted_by_title').addEventListener('click', () => {
-//   sortedByIdTitle()
-//   console.log('Sorted by title')
-//   // console.log(document.querySelector("#photograph_gallery"));
+//     // removeOptions()
+//     console.log('sa marche LIKES')
+//   } else if (listItems.selectedIndex === 1) {
+//     sortedByIdDate()
+//     // removeOptions()
+//     console.log('sa marche DATE')
+//   } else if (listItems.selectedIndex === 2) {
+//     sortedByIdTitle()
+//     // removeOptions()
+//     console.log('sa marche TITRE')
+//   }
 // })
+//  ? BOUTON TRI date
+document.querySelector('.dropdown-date').addEventListener('click', () => {
+  sortedByIdDate()
+  console.log('Sorted by Date')
+  // console.log(document.querySelector("#photograph_gallery"));
+})
+//  ? BOUTON TRI likes
+document.querySelector('.dropbtn').addEventListener('click', () => {
+  sortedByIdLikes()
+  console.log('Sorted by Likes')
+  // console.log(document.querySelector("#photograph_gallery"));
+})
+//  ? BOUTON TRI title
+document.querySelector('.dropdown-title').addEventListener('click', () => {
+  sortedByIdTitle()
+  console.log('Sorted by title')
+  // console.log(document.querySelector("#photograph_gallery"));
+})
 async function getGalleryItems () {
   // Récupération de l'ID de la page
   const queryStringUrlId = window.location.search
@@ -253,7 +246,7 @@ function sortedByIdTitle () {
   }
   // Affichage des données des photographes
   async function displayGallery (medias) {
-    console.log(medias)
+    // console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
     medias.forEach((media) => {
@@ -280,7 +273,7 @@ function sortedByIdLikes () {
     const mediasArray = data.media
     const filteredMedia = mediasArray.filter((el) => el.photographerId == id) //! ICI TABLEAU FILTRE DU PHOTOGRAPHE
     const newFilteredMedia = filteredMedia
-    console.log(newFilteredMedia)
+    // console.log(newFilteredMedia)
     filteredMedia.sort((a, b) => {
       if (a.likes < b.likes) return -1
       if (a.likes > b.likes) return 1
@@ -294,7 +287,7 @@ function sortedByIdLikes () {
 
   // Affichage des données des photographes
   async function displayGallery (medias) {
-    console.log(medias)
+    // console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
     medias.forEach((media) => {
@@ -307,7 +300,7 @@ function sortedByIdLikes () {
   async function initGallery () {
     const { media } = await getGalleryItems()
     await displayGallery(media)
-    console.log(media)
+    // console.log(media)
   }
   initGallery()
 }

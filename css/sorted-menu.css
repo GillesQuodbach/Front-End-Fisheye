@@ -1,21 +1,70 @@
-/* The container must be positioned relative: */
-.custom-select {
-  position: relative;
-  font-family: Arial;
-  width: 170px;
+/* Dropdown menu */
+.dropdown-container {
+  display: flex;
+  margin-top: 20px;
   margin-left: 100px;
+  margin-right: 100px;
 }
 
-.custom-select select {
-  /* display: none; */
-  /*hide original SELECT element: */
+.dropdown-container_title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 0;
 }
 
-.select-selected {
+.dropbtn {
   background-color: #911C1C;
+  margin-left: 20px;
+  border-radius: 5px;
+  min-width: 150px;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  z-index: 0;
 }
 
+.dropdown-arrow {
+  margin-left: 50px;
+  transform: rotate(180deg);
+}
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown:hover>.dropbtn {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #911C1C;
+  ;
+  width: 170px;
+  margin-left: 20px;
+  margin-top: 0px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.dropdown-content p {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  z-index: 9999000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 .dropdown:hover .dropdown-arrow {
   animation: rotationChevronTri linear forwards;
@@ -44,6 +93,15 @@
   border-bottom: 1px solid
 }
 
+.dropdown-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.dropdown-date {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 @keyframes rotationChevronTri {
   0% {
