@@ -48,7 +48,7 @@ function photographerProfilFactory (data) {
     img.setAttribute('src', picture)
     img.className = 'photograph_profile_photo'
     img.setAttribute('alt', `Photo de profil de ${name}`)
-    img.setAttribute('role', 'img')
+    // img.setAttribute('role', 'img')
     img.setAttribute('tabindex', '0')
 
     // Photographer name
@@ -56,11 +56,11 @@ function photographerProfilFactory (data) {
     h2.textContent = name
     h2.className = 'photograph_profile_name'
     h2.setAttribute('tabindex', '0')
-    h2.setAttribute('role', 'text')
+    // h2.setAttribute('role', 'text')
     // Photographers living place
     const profileInfosBox = document.createElement('div')
     profileInfosBox.className = 'profile-infos-box'
-    profileInfosBox.setAttribute('role', 'text')
+    // profileInfosBox.setAttribute('role', 'text')
     profileInfosBox.setAttribute('tabindex', '0')
 
     const livingPlace = document.createElement('p')
@@ -75,13 +75,13 @@ function photographerProfilFactory (data) {
     totalLikes.textContent = `${likes}`
     totalLikes.className = 'bottom_likes'
     // totalLikes.setAttribute('tabindex', '0')
-    totalLikes.setAttribute('role', 'text')
+    // totalLikes.setAttribute('role', 'text')
     // Photographers price
     const cost = document.querySelector('.fixed_price')
     cost.textContent = `${price}€ / jour`
     cost.className = 'bottom_price'
     // cost.setAttribute('tabindex', '0')
-    cost.setAttribute('role', 'text')
+    // cost.setAttribute('role', 'text')
     profileHeader.insertAdjacentElement('afterbegin', profileInfos)
     profileHeader.insertAdjacentElement('beforeend', img)
     profileInfos.appendChild(profileInfosBox)
@@ -322,7 +322,7 @@ function galleryFactory (data) {
       const likesContainer = document.createElement('div')
       likesContainer.className = 'likes-container'
       likesContainer.setAttribute('tabindex', '0')
-      likesContainer.setAttribute('role', 'text')
+      // likesContainer.setAttribute('role', 'text')
       const like = document.createElement('p')
       like.textContent = likes
       like.className = 'cards_likes'
@@ -331,7 +331,7 @@ function galleryFactory (data) {
       const heartTag = document.createElement('i')
       heartTag.className = 'fa-sharp fa-solid fa-heart likes-heart'
       heartTag.setAttribute('data-id', `${id}`)
-      // heartTag.setAttribute('role', 'text')
+      heartTag.setAttribute('role', 'text')
       heartTag.setAttribute('aria-label', 'likes')
       // ? RAJOUTER PRIX ET CUMUL DES LIKES
 
@@ -384,13 +384,13 @@ function galleryFactory (data) {
     const likesContainer = document.createElement('div')
     likesContainer.className = 'likes-container'
     likesContainer.setAttribute('tabindex', '0')
-    likesContainer.setAttribute('role', 'text')
+    // likesContainer.setAttribute('role', 'text')
     // Affichage des likes sur chaque card
     const like = document.createElement('p')
     like.textContent = likes
     like.className = 'cards_likes'
     like.setAttribute('data-likes', `${likes}`)
-    like.setAttribute('aria-label', 'likes')
+    // like.setAttribute('aria-label', 'likes')
     // like.setAttribute(`data-id`, `${id}`);
     // Affichage du COEUR sur chaque card
     // Affichage du COEUR sur chaque card
@@ -398,7 +398,7 @@ function galleryFactory (data) {
     const heartTag = document.createElement('i')
     heartTag.className = 'fa-sharp fa-solid fa-heart likes-heart'
     heartTag.setAttribute('data-id', `${id}`)
-    // heartTag.setAttribute('role', 'text')
+    heartTag.setAttribute('role', 'text')
     heartTag.setAttribute('aria-label', 'likes')
 
     // Création de la card

@@ -25,9 +25,9 @@
 
     </div>
     <!-- ! FIXED INFOS -->
-    <div class="bottom_fixed_infos" tabindex="0" role="text">
+    <div class="bottom_fixed_infos" tabindex="0">
       <p class="fixed_likes"></p>
-      <i class="fa-sharp fa-solid fa-heart" aria-label="likes"></i>
+      <i class="fa-sharp fa-solid fa-heart" role="text" aria-label="likes"></i>
       <p class="fixed_price"></p>
     </div>
     <!-- ! SELECT DROPDOWN MENU -->
@@ -42,14 +42,12 @@
     <div class="dropdown-container">
       <label for="dropdown-menu" class="dropdown-container_title" tabindex="0">Trier par:
         <div class="dropdown">
-          <div class="dropbtn" role="button" aria-labbeledby="dropdown-menu" aria-label="tri par popularité"
-            tabindex="0" aria-expanded aria-haspopup="listbox">Popularité<img class="dropdown-arrow"
-              src="assets/icons/sortedArrow.svg"></div>
+          <div class="dropbtn" tabindex="0">Popularité<img class="dropdown-arrow" src="assets/icons/sortedArrow.svg"
+              alt="chevron menu de tri">
+          </div>
           <div class="dropdown-content">
-            <p class="dropdown-date" role="listbox" aria-label="tri par date" tabindex="0"
-              aria-labbeledby="dropdown-menu" aria-activedescendant aria-selected>Date</p>
-            <p class="dropdown-title" role="listbox" aria-label="tri par titre" tabindex="0"
-              aria-labbeledby="dropdown-menu" aria-activedescendant aria-selected>Titre</p>
+            <p class="dropdown-date" aria-label="tri par date" tabindex="0">Date</p>
+            <p class="dropdown-title" tabindex="0">Titre</p>
           </div>
         </div>
       </label>
