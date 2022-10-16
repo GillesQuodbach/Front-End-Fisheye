@@ -31,7 +31,7 @@
     </div>
     <!-- ! SELECT DROPDOWN MENU -->
 
-    <div id="dropdown-container" aria-labelledby="dropdown-container">
+    <div role="navigation" id="dropdown-container" aria-labelledby="dropdown-container">
       <label for="dropdown-container" class="dropdown-container_title" tabindex="0">Trier par:
         <div class="dropdown">
           <div role="button" aria-haspopup="listbox" aria-expanded="false" class="dropbtn" tabindex="0">Popularité<img
@@ -55,8 +55,8 @@
     <div class="modal">
       <header id="modal-header">
         <h2 class="modal-title">Contactez-moi</h2>
-        <img role="button" aria-lebel="Fermer le formulaire de contact" class="close-modal-cross"
-          src="assets/icons/close.svg" onclick="closeModal()" />
+        <img role="img" alt="Fermer le formulaire de contact" class="close-modal-cross" src="assets/icons/close.svg"
+          onclick="closeModal()" />
         <h2 class="photograph-contact-name"></h2>
       </header>
       <!-- ! FORM -->

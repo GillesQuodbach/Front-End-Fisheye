@@ -59,6 +59,7 @@ function photographerProfilFactory (data) {
     // Div profileInfos
     const profileInfos = document.createElement('div')
     profileInfos.setAttribute('class', 'photograph_profile_infos')
+    profileInfos.setAttribute('role', 'text')
 
     profileInfos.setAttribute('aria-label', `${name}`)
     // Card image
@@ -70,7 +71,7 @@ function photographerProfilFactory (data) {
     img.setAttribute('tabindex', '0')
 
     // Photographer name
-    const h2 = document.createElement('h2')
+    const h2 = document.createElement('h1')
     h2.textContent = name
     h2.className = 'photograph_profile_name'
     h2.setAttribute('tabindex', '0')
