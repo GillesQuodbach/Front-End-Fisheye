@@ -65,7 +65,7 @@ function photographerProfilFactory (data) {
     const img = document.createElement('img')
     img.setAttribute('src', picture)
     img.className = 'photograph_profile_photo'
-    img.setAttribute('alt', `Photo de profil de ${name}`)
+    img.setAttribute('alt', `${name}`)
     // img.setAttribute('role', 'img')
     img.setAttribute('tabindex', '0')
 
@@ -80,6 +80,7 @@ function photographerProfilFactory (data) {
     profileInfosBox.className = 'profile-infos-box'
     // profileInfosBox.setAttribute('role', 'text')
     profileInfosBox.setAttribute('tabindex', '0')
+    profileInfosBox.setAttribute('role', 'text')
 
     const livingPlace = document.createElement('p')
     livingPlace.innerHTML = `${city}, ${country}`

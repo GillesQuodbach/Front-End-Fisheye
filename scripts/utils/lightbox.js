@@ -45,11 +45,12 @@ function modifDomGallery (mutations) {
               // Titre de l'image cliquée
               const videoTitle = gallery[newIndex]
               const videoAlt = videoTitle.getAttribute('alt')
-              console.log(videoAlt)
+              // console.log(videoAlt)
               lightboxTitle.textContent = videoAlt
               lightboxImg.classList.remove('show')
               lightboxVideo.classList.add('show')
               lightboxVideo.setAttribute('controls', 'controls')
+              lightboxVideo.setAttribute('alt', videoAlt)
             } else if (extension == 'jpg') {
               const imageUrl = gallery[newIndex].src
               lightboxImg.src = imageUrl
@@ -57,6 +58,7 @@ function modifDomGallery (mutations) {
               const imageTitle = gallery[newIndex].alt
               lightboxTitle.textContent = imageTitle
               lightboxImg.classList.add('show')
+              lightboxImg.setAttribute('alt', imageTitle)
               lightboxVideo.classList.remove('show')
             }
           }
@@ -97,44 +99,4 @@ function modifDomGallery (mutations) {
       }
     }
   }
-  //! Gestion du total des likes du photographe
-  const allPhotographLikesArray = []
-  const allCardLikes = document.querySelectorAll('.cards_likes')
-  allCardLikes.forEach((heart) => {
-    // console.log(heart.dataset.likes)
-    allPhotographLikesArray.push(parseInt(heart.dataset.likes))
-  })
-  // console.log(allPhotographLikesArray)
-  let sum = 0
-  for (let i = 0; i < allPhotographLikesArray.length; i++) {
-    sum += allPhotographLikesArray[i]
-  }
-  // console.log(sum)
-  const totalBottomLikes = document.querySelector('.bottom_likes')
-  totalBottomLikes.innerHTML = sum
-
-  const allGalleryHearts = document.querySelectorAll('.likes-heart')
-
-  //! Incrémentation like au clic
-  allGalleryHearts.forEach((heart) => {
-    heart.addEventListener('click', (e) => {
-      const thisId = e.target.dataset.id
-      console.log(thisId)
-      const thisArticle = document.getElementById(`${thisId}`)
-      const thisArticleLikes = thisArticle.querySelector('.cards_likes')
-      const bottomTotalLikes = document.querySelector('.bottom_likes')
-      console.log(bottomTotalLikes.innerHTML)
-      e.target.classList.toggle('cardHeart-no')
-
-      if (e.target.classList.contains('cardHeart-yes')) {
-        alert('Vous avez déja liké cette photo')
-      } else {
-        e.target.classList.toggle('cardHeart-yes')
-        const cardLikesIncrement = thisArticleLikes.innerHTML++
-        const bottomLikesIncrement = bottomTotalLikes.innerHTML++
-        e.target.classList.add('cardHeart-yes')
-        e.target.classList.remove('cardHeart-no')
-      }
-    })
-  })
 }

@@ -13,15 +13,14 @@
 
 <body>
   <header>
-    <a href="index.html" role="link" aria-label="Lien vers la page d'accueil  ">
+    <a href="index.html">
       <img alt="FishEye Home page" src="assets/images/logo.png" class="logo" />
     </a>
   </header>
   <main id="main">
     <div class="photograph-header">
 
-      <button aria-label="Ouvrir le formulaire de contact" class="contact_button"
-        onclick="displayModal()">Contactez-moi</button>
+      <button aria-label="Contactez-moi" class="contact_button" onclick="displayModal()">Contactez-moi</button>
 
     </div>
     <!-- ! FIXED INFOS -->
@@ -31,21 +30,15 @@
       <p class="fixed_price"></p>
     </div>
     <!-- ! SELECT DROPDOWN MENU -->
-    <!-- <div class="custom-select">
-      <label id="selected-category-container" for="sorted-menu" class="sorted_title">Trier par :</label>
-      <select id="list-items">
-        <option value="1">Popularité</option>
-        <option value="2">Date</option>
-        <option value="3">Titre</option>
-      </select>
-    </div> -->
-    <div class="dropdown-container">
-      <label for="dropdown-menu" class="dropdown-container_title" tabindex="0">Trier par:
+
+    <div id="dropdown-container" aria-labelledby="dropdown-container">
+      <label for="dropdown-container" class="dropdown-container_title" tabindex="0">Trier par:
         <div class="dropdown">
-          <div class="dropbtn" tabindex="0">Popularité<img class="dropdown-arrow" src="assets/icons/sortedArrow.svg"
-              alt="chevron menu de tri">
+          <div role="button" aria-haspopup="listbox" aria-expanded="false" class="dropbtn" tabindex="0">Popularité<img
+              class="dropdown-arrow" src="assets/icons/sortedArrow.svg" alt="chevron menu de tri">
           </div>
-          <div class="dropdown-content">
+          <div class="dropdown-content" role="listbox" aria-activedescendant="" aria-selected=""
+            aria-labelledby="dropdown-container">
             <p class="dropdown-date" aria-label="tri par date" tabindex="0">Date</p>
             <p class="dropdown-title" tabindex="0">Titre</p>
           </div>
@@ -58,11 +51,12 @@
     </section>
   </main>
   <!-- ! CONTACT MODAL -->
-  <div id="contact_modal">
+  <div id="contact_modal" role="dialog" aria-labelledby="modal-header">
     <div class="modal">
-      <header class="modal-header" role="contact">
+      <header id="modal-header">
         <h2 class="modal-title">Contactez-moi</h2>
-        <img class="close-modal-cross" src="assets/icons/close.svg" onclick="closeModal()" />
+        <img role="button" aria-lebel="Fermer le formulaire de contact" class="close-modal-cross"
+          src="assets/icons/close.svg" onclick="closeModal()" />
         <h2 class="photograph-contact-name"></h2>
       </header>
       <!-- ! FORM -->
@@ -81,15 +75,15 @@
           <textarea id="contact-message" name="contact-message" form="contact_form"></textarea>
           <span class="contact-message-error error-msg"></span>
         </div>
-        <button type="submit" class="contact_button" aria-label="Envoyez votre message">Envoyer</button>
+        <button type="submit" class="contact_button" aria-label="Envoyez">Envoyer</button>
       </form>
     </div>
   </div>
   <!-- ! LIGHTBOX -->
-  <div class="lightbox">
-    <button class="lightbox_close">X</button>
-    <button class="lightbox_next">Next</button>
-    <button class="lightbox_previous">Prev</button>
+  <div class="lightbox" aria-label="Vu détaillée de l'image">
+    <button class="lightbox_close" aria-label="Fermer modale">X</button>
+    <button class="lightbox_next" aria-label="Image suivante">Next</button>
+    <button class="lightbox_previous" aria-label="Image précédente">Prev</button>
     <div class="lightbox_container">
       <img src="" class="lightbox_picture show">
       <video src="" class="lightbox_video"></video>
@@ -102,8 +96,8 @@
   <script src="/scripts/factories/galleryFactory.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/utils/lightbox.js"></script>
-  <script src="/scripts/utils/totalLikes.js"></script>
-  <!-- <script src="/scripts/utils/fixedInfos.js" defer></script> -->
+  <!-- <script src="/scripts/utils/totalLikes.js"></script> -->
+
 </body>
 
 </html>

@@ -59,12 +59,10 @@ function photographerFactory (data) {
     const article = document.createElement('article')
     article.setAttribute('id', id)
     article.setAttribute('class', 'cardsLink')
-    article.setAttribute('role', 'article')
-    article.setAttribute('aria-label', "Lien vers la page d'accueil")
     const readerLink = document.createElement('div')
     readerLink.setAttribute('class', 'photograph-profile')
     readerLink.setAttribute('role', 'link')
-    readerLink.setAttribute('aria-label', `Lien vers le profil de ${name} `)
+    readerLink.setAttribute('aria-label', `${name} `)
     readerLink.setAttribute('tabindex', '0')
     const img = document.createElement('img')
     img.setAttribute('src', picture)
@@ -77,7 +75,6 @@ function photographerFactory (data) {
     // Photographers living place
     const profileText = document.createElement('div')
     profileText.setAttribute('class', 'profile-text')
-    profileText.setAttribute('role', 'complementary')
     const livingPlace = document.createElement('p')
     livingPlace.innerHTML = `${city}, ${country}`
     livingPlace.className = 'living-place'

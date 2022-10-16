@@ -1,12 +1,13 @@
 async function displayModal () {
+  const jsonUrl = 'data/photographers.json'
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'block'
-  const queryString_url_id = window.location.search
-  const urlSearchParams = new URLSearchParams(queryString_url_id)
+  const queryStringUrlId = window.location.search
+  const urlSearchParams = new URLSearchParams(queryStringUrlId)
   const id = urlSearchParams.get('id')
   console.log(id) // Affiche l'id du photographe selectionné (243)
   //! Récupération des données du fichier JSON
-  const response = await fetch(json_url)
+  const response = await fetch(jsonUrl)
   // Conversion des datas en JSON
   const data = await response.json()
   // Affichage du tableau des photographes
