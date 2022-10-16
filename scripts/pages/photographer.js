@@ -69,6 +69,7 @@ function photographerProfilFactory (data) {
     img.setAttribute('alt', `${name}`)
     // img.setAttribute('role', 'img')
     img.setAttribute('tabindex', '0')
+    // img.setAttribute('tabindex', '0')
 
     // Photographer name
     const h2 = document.createElement('h1')
