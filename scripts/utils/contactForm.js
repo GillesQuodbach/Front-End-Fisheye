@@ -1,6 +1,9 @@
+const mainContent = document.querySelector('#main')
 async function displayModal () {
-  const jsonUrl = 'data/photographers.json'
   const modal = document.getElementById('contact_modal')
+  modal.setAttribute('aria-hidden', 'false')
+  mainContent.setAttribute('aria-hidden', 'true')
+  const jsonUrl = 'data/photographers.json'
   modal.style.display = 'block'
   const queryStringUrlId = window.location.search
   const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -40,6 +43,8 @@ async function displayModal () {
 function closeModal () {
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'none'
+  modal.setAttribute('aria-hidden', 'true')
+  mainContent.setAttribute('aria-hidden', 'false')
 }
 
 // Validation et récupération infos formulaire

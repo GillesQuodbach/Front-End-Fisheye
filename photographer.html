@@ -17,7 +17,7 @@
       <img alt="FishEye Home page" src="assets/images/logo.png" class="logo" />
     </a>
   </header>
-  <main id="main">
+  <main id="main" aria-hidden="false">
     <div class="photograph-header">
 
       <button aria-label="Contactez-moi" class="contact_button" onclick="displayModal()">Contactez-moi</button>
@@ -51,7 +51,7 @@
     </section>
   </main>
   <!-- ! CONTACT MODAL -->
-  <div id="contact_modal" role="dialog" aria-labelledby="modal-header">
+  <div id="contact_modal" role="dialog" aria-labelledby="modal-header" aria-hidden="true">
     <div class="modal">
       <header id="modal-header">
         <h2 class="modal-title">Contactez-moi</h2>
@@ -80,7 +80,7 @@
     </div>
   </div>
   <!-- ! LIGHTBOX -->
-  <div class="lightbox" aria-label="Vu détaillée de l'image">
+  <div class="lightbox" aria-label="Vu détaillée de l'image" aria-hidden="true">
     <button class="lightbox_close" aria-label="Fermer modale">X</button>
     <button class="lightbox_next" aria-label="Image suivante">Next</button>
     <button class="lightbox_previous" aria-label="Image précédente">Prev</button>
