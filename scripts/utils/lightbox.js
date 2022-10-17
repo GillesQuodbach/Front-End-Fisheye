@@ -5,12 +5,12 @@ const observer = new MutationObserver(modifDomGallery)
 observer.observe(loadedGallery, { childList: true })
 
 // Fermeture lightbox au clavier
-// Gestion formulaire au clavier
-// Fermeture modal de contact au clavier
+// Fermeture formulaire de contact au clavier
+
 document.onkeydown = function (e) {
   const modal = document.getElementById('contact_modal')
   const lightbox = document.querySelector('.lightbox')
-  const keyCode = e.keyCode ? e.keyCode : e.which
+
   if (modal.getAttribute('aria-hidden') == 'false' && e.key == 'Escape') {
     closeModal()
   }
