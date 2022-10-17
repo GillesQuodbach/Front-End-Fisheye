@@ -16,6 +16,7 @@
     "balanced-match": "^1.0.2",
     "brace-expansion": "^1.1.11",
     "braces": "^3.0.2",
+    "builtins": "^5.0.1",
     "call-bind": "^1.0.2",
     "callsites": "^3.1.0",
     "chalk": "^4.1.2",
@@ -37,6 +38,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-module-utils": "^2.7.4",
+    "eslint-plugin-es": "^4.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-scope": "^7.1.1",
     "eslint-utils": "^3.0.0",
@@ -104,6 +106,7 @@
     "levn": "^0.4.1",
     "locate-path": "^6.0.0",
     "lodash.merge": "^4.6.2",
+    "lru-cache": "^6.0.0",
     "merge2": "^1.4.1",
     "micromatch": "^4.0.5",
     "minimatch": "^3.1.2",
@@ -127,7 +130,6 @@
     "path-type": "^4.0.0",
     "picomatch": "^2.3.1",
     "prelude-ls": "^1.2.1",
-    "prettier": "^2.7.1",
     "prettier-linter-helpers": "^1.0.0",
     "punycode": "^2.1.1",
     "queue-microtask": "^1.2.3",
@@ -162,6 +164,7 @@
     "which-boxed-primitive": "^1.0.2",
     "word-wrap": "^1.2.3",
     "wrappy": "^1.0.2",
+    "yallist": "^4.0.0",
     "yocto-queue": "^0.1.0"
   },
   "devDependencies": {
@@ -169,7 +172,8 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.3.0",
-    "eslint-plugin-promise": "^6.0.1"
+    "eslint-plugin-promise": "^6.1.0",
+    "prettier": "^2.7.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -178,7 +182,6 @@
     "type": "git",
     "url": "git+https://github.com/GillesQuodbach/Front-End-Fisheye.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
