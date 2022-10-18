@@ -23,6 +23,7 @@ document.onkeydown = function (e) {
 }
 
 function modifDomGallery (mutations) {
+  incLikesClicks()
   for (const mutation of mutations) {
     if (mutation.type === 'childList') {
       // Selection des éléments

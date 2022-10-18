@@ -13,8 +13,6 @@ async function getPhotographers () {
   const { length } = photographersArray // Longueur du tableau
   // Boucle dans le tableau
   for (let i = 0; i < length; i++) {
-    // Affichage du tableau de données des photographes
-    // Retourne le tableau photographers seulement une fois
     return {
       photographers: [...photographersArray]
     }
@@ -38,7 +36,7 @@ async function displayData (photographers) {
       window.location = `photographer.html?id=${cardsLink.id}`
     })
   )
-  console.log(window.location)
+  // console.log(window.location)
 }
 async function init () {
   // Récupère les datas des photographes

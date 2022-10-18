@@ -2,7 +2,8 @@
 document.addEventListener('DOMContentLoaded', ready)
 
 function ready () {
-  alert('ready')
+  const heart = document.querySelectorAll('.likes-heart')
+  //   console.log(heart)
   // allGalleryHearts.forEach((heart) => {
   //   heart.addEventListener('click', (e) => {
   //     const thisId = e.target.dataset.id

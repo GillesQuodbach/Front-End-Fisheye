@@ -45,9 +45,9 @@ function photographerProfilFactory (data) {
     tag.textContent = tagline
     tag.className = 'photograph_profile_tagline'
     // Photographers likes
-    const totalLikes = document.querySelector('.fixed_likes')
-    totalLikes.textContent = `${likes}`
-    totalLikes.className = 'bottom_likes'
+    // const totalLikes = document.querySelector('.fixed_likes')
+    // totalLikes.textContent = `${likes}`
+    // totalLikes.className = 'bottom_likes'
     // totalLikes.setAttribute('tabindex', '0')
     // totalLikes.setAttribute('role', 'text')
     // Photographers price

@@ -6,6 +6,7 @@ const jsonUrl = 'data/photographers.json'
 // Récupération des données voulues (Profil des photographes)
 async function getPhotographersProfils () {
   // Récupération de l'ID de la page
+
   const queryStringUrlId = window.location.search
   const urlSearchParams = new URLSearchParams(queryStringUrlId)
   const id = urlSearchParams.get('id')
@@ -18,6 +19,8 @@ async function getPhotographersProfils () {
   }
   return { photographers: sortedById[id] }
 }
+
+// ! ICI RECUP CARDS OK !!!!!!!!!!!!!!!!!!!!!!
 
 function photographerProfilFactory (data) {
   const { name, id, portrait, city, country, tagline, price, likes } = data
@@ -103,8 +106,36 @@ async function initProfils () {
   // const { media } = await getMedia();
   await displayPhotographersProfils(photographers)
   // await displayData(media);
+  incLikesClicks()
 }
 initProfils()
+
+function incLikesClicks () {
+  const hearts = document.querySelectorAll('.likes-heart')
+  console.log(hearts)
+  hearts.forEach((heart) => {
+    heart.addEventListener('click', (e) => {
+      const thisId = e.target.dataset.id
+      console.log(thisId)
+      const thisArticle = document.getElementById(`${thisId}`)
+      const thisArticleLikes = thisArticle.querySelector('.cards_likes')
+      const bottomTotalLikes = document.querySelector('.bottom_likes')
+      console.log(bottomTotalLikes.innerHTML)
+      e.target.classList.toggle('cardHeart-no')
+
+      if (e.target.classList.contains('cardHeart-yes')) {
+        alert('Vous avez déja liké cette photo')
+      } else {
+        e.target.classList.toggle('cardHeart-yes')
+        const cardLikesIncrement = thisArticleLikes.innerHTML++
+        const bottomLikesIncrement = bottomTotalLikes.innerHTML++
+        e.target.classList.add('cardHeart-yes')
+        e.target.classList.remove('cardHeart-no')
+      }
+    })
+  })
+}
+// getLikesClicks()
 
 //  ! ====================================================
 //  ! GESTION DE LA GALERIE DE CHAQUE PHOTOGRAPHE
@@ -453,3 +484,10 @@ function galleryFactory (data) {
     getImageDOM
   }
 }
+
+// window.onload = function () {
+//   const test = document.getElementById('main')
+//   console.log(test)
+//   const test2 = document.querySelectorAll('article')
+//   console.log(test2)
+// }
