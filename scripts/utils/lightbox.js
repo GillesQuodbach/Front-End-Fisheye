@@ -6,20 +6,6 @@ observer.observe(loadedGallery, { childList: true })
 
 // Fermeture lightbox au clavier
 // Fermeture formulaire de contact au clavier
-document.onkeydown = function (e) {
-  const modal = document.getElementById('contact_modal')
-  const lightbox = document.querySelector('.lightbox')
-
-  if (modal.getAttribute('aria-hidden') == 'false' && e.key == 'Escape') {
-    closeModal()
-  }
-  const mainContent = document.querySelector('#main')
-  if (lightbox.getAttribute('aria-hidden') == 'false' && e.key == 'Escape') {
-    lightbox.classList.remove('show')
-    lightbox.setAttribute('aria-hidden', 'true')
-    mainContent.setAttribute('aria-hidden', 'false')
-  }
-}
 
 function modifDomGallery (mutations) {
   incLikesClicks()
@@ -120,6 +106,53 @@ function modifDomGallery (mutations) {
             lightbox.classList.remove('show')
             lightbox.setAttribute('aria-hidden', 'true')
             mainContent.setAttribute('aria-hidden', 'false')
+          }
+          document.onkeydown = function (e) {
+            const modal = document.getElementById('contact_modal')
+            const lightbox = document.querySelector('.lightbox')
+
+            if (
+              modal.getAttribute('aria-hidden') == 'false' &&
+              e.key == 'Escape'
+            ) {
+              closeModal()
+            }
+            const mainContent = document.querySelector('#main')
+            if (
+              lightbox.getAttribute('aria-hidden') == 'false' &&
+              e.key == 'Escape'
+            ) {
+              lightbox.classList.remove('show')
+              lightbox.setAttribute('aria-hidden', 'true')
+              mainContent.setAttribute('aria-hidden', 'false')
+            }
+            if (
+              lightbox.getAttribute('aria-hidden') == 'false' &&
+              e.key == 'ArrowLeft'
+            ) {
+              // décrément l'index
+              if (newIndex == 0) {
+                preview()
+                prevBtn.style.display = 'block'
+              } else {
+                newIndex--
+                preview()
+                nextBtn.style.display = 'block'
+              }
+            }
+            if (
+              lightbox.getAttribute('aria-hidden') == 'false' &&
+              e.key == 'ArrowRight'
+            ) {
+              if (newIndex >= totalGallery - 1) {
+                preview()
+                nextBtn.style.display = 'block'
+              } else {
+                newIndex++ // décrément l'index
+                preview()
+                prevBtn.style.display = 'block'
+              }
+            }
           }
         }
       }
