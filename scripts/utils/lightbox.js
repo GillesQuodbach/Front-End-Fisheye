@@ -6,7 +6,6 @@ observer.observe(loadedGallery, { childList: true })
 
 // Fermeture lightbox au clavier
 // Fermeture formulaire de contact au clavier
-
 document.onkeydown = function (e) {
   const modal = document.getElementById('contact_modal')
   const lightbox = document.querySelector('.lightbox')
@@ -45,9 +44,11 @@ function modifDomGallery (mutations) {
       const nextBtn = document.querySelector('.lightbox_next')
 
       for (let i = 0; i < gallery.length; i++) {
-        let newIndex = i // Remplacement de i par newIndex
+        // Remplacement de i par newIndex
+        let newIndex = i
         const clickedImgIndex = ''
         gallery[i].onclick = () => {
+          newIndex = i
           // si imageUrl fini par mp4
           // img devient video
           function preview () {
@@ -55,6 +56,7 @@ function modifDomGallery (mutations) {
             mainContent.setAttribute('aria-hidden', 'true')
             // Source de l'image cliquée
             const imageUrl = gallery[newIndex].src
+            console.log(gallery[newIndex])
             lightboxImg.src = imageUrl
             // Titre de l'image cliquée
             const extension = imageUrl.split('.').pop()

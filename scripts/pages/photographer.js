@@ -106,11 +106,11 @@ async function initProfils () {
   // const { media } = await getMedia();
   await displayPhotographersProfils(photographers)
   // await displayData(media);
-  incLikesClicks()
+  // await incLikesClicks()
 }
 initProfils()
 
-function incLikesClicks () {
+async function incLikesClicks () {
   const hearts = document.querySelectorAll('.likes-heart')
   console.log(hearts)
   hearts.forEach((heart) => {
@@ -121,7 +121,7 @@ function incLikesClicks () {
       const thisArticleLikes = thisArticle.querySelector('.cards_likes')
       const bottomTotalLikes = document.querySelector('.bottom_likes')
       console.log(bottomTotalLikes.innerHTML)
-      e.target.classList.toggle('cardHeart-no')
+      // e.target.classList.toggle('cardHeart-no')
 
       if (e.target.classList.contains('cardHeart-yes')) {
         alert('Vous avez déja liké cette photo')
@@ -130,7 +130,7 @@ function incLikesClicks () {
         const cardLikesIncrement = thisArticleLikes.innerHTML++
         const bottomLikesIncrement = bottomTotalLikes.innerHTML++
         e.target.classList.add('cardHeart-yes')
-        e.target.classList.remove('cardHeart-no')
+        // e.target.classList.remove('cardHeart-no')
       }
     })
   })
