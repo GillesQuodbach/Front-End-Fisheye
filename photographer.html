@@ -25,21 +25,17 @@
     </div>
 
     <!-- ! SELECT DROPDOWN MENU -->
-
-    <div role="navigation" id="dropdown-container" aria-labelledby="dropdown-container">
-      <label for="dropdown-container" class="dropdown-container_title" tabindex="0">Trier par:
-        <div class="dropdown">
-          <div role="button" aria-haspopup="listbox" aria-expanded="false" class="dropbtn" tabindex="0">Popularité<img
-              class="dropdown-arrow" src="assets/icons/sortedArrow.svg" alt="chevron menu de tri">
-          </div>
-          <div class="dropdown-content" role="listbox" aria-activedescendant="" aria-selected=""
-            aria-labelledby="dropdown-container">
-            <p class="dropdown-date" aria-label="tri par date" tabindex="0">Date</p>
-            <p class="dropdown-title" tabindex="0">Titre</p>
-          </div>
-        </div>
-      </label>
+    <label for="dropdown" class="dropdown-label">Trier par:</label>
+    <div id="dropdown">
+      <button class="dropbtn dropdown-button dropdown-toggle" tabindex="0">Popularité<img class="dropdown-arrow"
+          src="assets/icons/sortedArrow.svg" alt="chevron menu de tri">
+      </button>
+      <div class="dropdown-menu">
+        <p class="dropdown-date dropdown-items show" aria-label="tri par date">Date</p>
+        <p class="dropdown-title dropdown-items show">Titre</p>
+      </div>
     </div>
+
 
     <section id="photograph_gallery">
       <!-- !PHOTOGRAPH GALLERY HERE-->
@@ -97,6 +93,7 @@
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/utils/lightbox.js"></script>
   <script src="/scripts/utils/likes.js"></script>
+  <script src="/scripts/utils/keyboard.js"></script>
 
 
 </body>

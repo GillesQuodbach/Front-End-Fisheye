@@ -112,7 +112,7 @@ initProfils()
 
 async function incLikesClicks () {
   const hearts = document.querySelectorAll('.likes-heart')
-  console.log(hearts)
+  // console.log(hearts)
   hearts.forEach((heart) => {
     heart.addEventListener('click', (e) => {
       const thisId = e.target.dataset.id

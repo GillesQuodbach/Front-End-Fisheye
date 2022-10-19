@@ -110,7 +110,6 @@ function modifDomGallery (mutations) {
           document.onkeydown = function (e) {
             const modal = document.getElementById('contact_modal')
             const lightbox = document.querySelector('.lightbox')
-
             if (
               modal.getAttribute('aria-hidden') == 'false' &&
               e.key == 'Escape'
