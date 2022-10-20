@@ -23,7 +23,7 @@ async function displayData (photographers) {
   // Selection de la photographer_section de l'index.html (section entière)
   const photographersSection = document.querySelector('.photographer_section')
   photographers.forEach((photographer) => {
-    const photographerModel = photographerFactory(photographer)
+    const photographerModel = _photographerFactory(photographer)
     const userCardDOM = photographerModel.getUserCardDOM()
     photographersSection.appendChild(userCardDOM)
     // userCardDOM = block article avec id
@@ -44,7 +44,7 @@ async function init () {
   await displayData(photographers)
 }
 init() // RETOURNE UNE PROMESSE EN ATTENTE
-function photographerFactory (data) {
+function _photographerFactory (data) {
   const { name, id, portrait, city, country, tagline, price } = data
   const picture = `assets/photographers/${portrait}`
   // Création de la carte de chaque photographe

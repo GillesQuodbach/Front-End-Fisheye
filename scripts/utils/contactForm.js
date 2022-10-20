@@ -1,5 +1,5 @@
 const mainContent = document.querySelector('#main')
-async function displayModal () {
+async function _displayModal () {
   const modal = document.getElementById('contact_modal')
   modal.setAttribute('aria-hidden', 'false')
   mainContent.setAttribute('aria-hidden', 'true')
@@ -38,7 +38,15 @@ async function displayModal () {
   }
   getFocus()
 }
-
+document.onkeydown = function (e) {
+  const modal = document.getElementById('contact_modal')
+  if (
+    modal.getAttribute('aria-hidden') == 'false' &&
+    e.key == 'Escape'
+  ) {
+    closeModal()
+  }
+}
 // ? FERMETURE FORMULAIRE
 function closeModal () {
   const modal = document.getElementById('contact_modal')
@@ -61,7 +69,7 @@ const emailErrorMsg = document.querySelector('.email-error')
 const msgErrorMsg = document.querySelector('.contact-message-error')
 
 // Régexp de contrôle du mail
-const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+const emailRegExp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
 
 myForm.addEventListener('submit', (e) => {
   e.preventDefault()

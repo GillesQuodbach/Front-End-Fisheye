@@ -6,7 +6,31 @@ observer.observe(loadedGallery, { childList: true })
 
 // Fermeture lightbox au clavier
 // Fermeture formulaire de contact au clavier
+async function incLikesClicks () {
+  const hearts = document.querySelectorAll('.likes-heart')
+  // console.log(hearts)
+  hearts.forEach((heart) => {
+    heart.addEventListener('click', (e) => {
+      const thisId = e.target.dataset.id
+      console.log(thisId)
+      const thisArticle = document.getElementById(`${thisId}`)
+      const thisArticleLikes = thisArticle.querySelector('.cards_likes')
+      const bottomTotalLikes = document.querySelector('.bottom_likes')
+      console.log(bottomTotalLikes.innerHTML)
+      // e.target.classList.toggle('cardHeart-no')
 
+      if (e.target.classList.contains('cardHeart-yes')) {
+        alert('Vous avez déja liké cette photo')
+      } else {
+        e.target.classList.toggle('cardHeart-yes')
+        thisArticleLikes.innerHTML++
+        bottomTotalLikes.innerHTML++
+        e.target.classList.add('cardHeart-yes')
+        // e.target.classList.remove('cardHeart-no')
+      }
+    })
+  })
+}
 function modifDomGallery (mutations) {
   incLikesClicks()
   for (const mutation of mutations) {
@@ -108,14 +132,6 @@ function modifDomGallery (mutations) {
             mainContent.setAttribute('aria-hidden', 'false')
           }
           document.onkeydown = function (e) {
-            const modal = document.getElementById('contact_modal')
-            const lightbox = document.querySelector('.lightbox')
-            if (
-              modal.getAttribute('aria-hidden') == 'false' &&
-              e.key == 'Escape'
-            ) {
-              closeModal()
-            }
             const mainContent = document.querySelector('#main')
             if (
               lightbox.getAttribute('aria-hidden') == 'false' &&

@@ -2,7 +2,7 @@
 const dropdownToggle = document.querySelector('.dropdown-toggle')
 const dropdownMenu = document.querySelector('.dropdown-menu')
 const dropdownArrow = document.querySelector('.dropdown-arrow')
-const dropdownLabel = document.querySelector('.dropdown-label')
+
 
 // Ouverture/fermeture menu
 dropdownToggle.addEventListener('mouseover', function () {

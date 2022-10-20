@@ -1,4 +1,4 @@
-function photographerFactory (data) {
+function _photographerFactory (data) {
   const { name, id, portrait, city, country, tagline, price } = data
   const picture = `assets/photographers/${portrait}`
   // Création de la carte de chaque photographe
