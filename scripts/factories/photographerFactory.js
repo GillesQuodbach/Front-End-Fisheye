@@ -2,7 +2,7 @@
 //! ===================================
 // !CREATION DU PROFILE DES PHOTOGRAPHES
 
-function photographerProfilFactory (data) {
+function _photographerProfilFactory (data) {
   const { name, id, portrait, city, country, tagline, price, likes } = data
   const picture = `assets/photographers/${portrait}`
   // Création de la carte de chaque photographe
