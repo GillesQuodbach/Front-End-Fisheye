@@ -4,6 +4,8 @@ function _photographerFactory (data) {
   // Création de la carte de chaque photographe
   function getUserCardDOM () {
     // Cards container
+    // Cards container
+    // Cards container
     const article = document.createElement('article')
     article.setAttribute('id', id)
     article.setAttribute('class', 'cardsLink')
