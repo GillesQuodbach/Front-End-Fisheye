@@ -3,7 +3,6 @@ const jsonUrl = 'data/photographers.json'
 // Fonction de récupération des données
 async function getPhotographers () {
   // Récupération des données du fichier JSON
-  // Test GIT
   const response = await fetch(jsonUrl)
   // Conversion des datas en JSON
   const data = await response.json()
