@@ -45,10 +45,12 @@
   <div id="contact_modal" role="dialog" aria-labelledby="modal-header" aria-hidden="true">
     <div class="modal">
       <header id="modal-header">
-        <h2 class="modal-title">Contactez-moi</h2>
+        <div class="contact-modal-name">
+          <h2 class="modal-title">Contactez-moi</h2>
+          <h2 class="photograph-contact-name"></h2>
+        </div>
         <img role="img" alt="Fermer le formulaire de contact" class="close-modal-cross" src="assets/icons/close.svg"
           onclick="closeModal()" />
-        <h2 class="photograph-contact-name"></h2>
       </header>
       <!-- ! FORM -->
       <form id="contact_form" name="contact_form" method="get" action="index.html" onsubmit="return validate();">
@@ -76,9 +78,11 @@
     <button class="lightbox_next" aria-label="Image suivante">Next</button>
     <button class="lightbox_previous" aria-label="Image précédente">Prev</button>
     <div class="lightbox_container">
-      <img src="" class="lightbox_picture show">
-      <video src="" class="lightbox_video"></video>
-      <h2 class="lightbox_media_title"></h2>
+      <div class="lightbox-media-container">
+        <img src="" class="lightbox_picture show">
+        <video src="" class="lightbox_video"></video>
+        <h2 class="lightbox_media_title"></h2>
+      </div>
     </div>
   </div>
   <!-- ! FIXED INFOS -->

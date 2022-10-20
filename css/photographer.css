@@ -33,10 +33,16 @@
     flex-wrap: wrap;
 }
 
+.close-modal-cross {
+    position: relative;
+    top: -35px;
+    right: 0px;
+}
+
 .modal header img {
     cursor: pointer;
-    width: 42px;
-    height: 42px;
+    width: 30px;
+    height: 30px;
 }
 
 .modal header h2 {
@@ -49,6 +55,7 @@
 
 .photographer-name {
     min-width: 320px;
+    margin-right: auto;
 }
 
 form {
