@@ -41,8 +41,8 @@
 
 .modal header img {
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
 }
 
 .modal header h2 {
@@ -88,6 +88,7 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+    font-size: 26px;
 }
 
 form textarea {
