@@ -460,3 +460,4 @@ function galleryFactory (data) {
     getImageDOM
   }
 }
+
