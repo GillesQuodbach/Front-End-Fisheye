@@ -28,7 +28,7 @@
     <label for="dropdown" class="dropdown-label">Trier par:</label>
     <div id="dropdown">
       <button id="dropdown-trigger" type="button" aria-haspopup="false" aria-controls="listbox"
-        class="dropbtn dropdown-button dropdown-toggle">Popularité
+        class="dropbtn dropdown-button dropdown-toggle" aria-selected="true">Popularité
         <img class="dropdown-arrow" src="assets/icons/sortedArrow.svg" alt="chevron menu de tri">
       </button>
       <ul role="listbox" id="listbox" class="dropdown-menu" tabindex="-1" aria-lebelledby="dropdown-trigger"
@@ -93,7 +93,7 @@
   <!-- ! FIXED INFOS -->
   <div class="bottom_fixed_infos" tabindex="0">
     <p class="fixed_likes"></p>
-    <i class="fa-sharp fa-solid fa-heart" role="text" aria-label="likes"></i>
+    <em class="fa-sharp fa-solid fa-heart" aria-label="likes"></em>
     <p class="fixed_price"></p>
   </div>
   <!-- ! ========= -->
