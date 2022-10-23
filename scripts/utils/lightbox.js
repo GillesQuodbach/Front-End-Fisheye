@@ -73,6 +73,7 @@ function modifDomGallery (mutations) {
             console.log(extension) // extension jpg
             console.log(gallery[newIndex].alt)
             // METTRE UNE LIGNE IMG l'autre VIDEO, hid une quand on affiche l'autre !
+            //! PARTIE VIDEO
             if (extension == 'mp4') {
               const videoUrl = gallery[newIndex].src
               lightboxVideo.src = videoUrl
@@ -85,6 +86,7 @@ function modifDomGallery (mutations) {
               lightboxVideo.classList.add('show')
               // lightboxVideo.setAttribute('controls', 'controls')
               lightboxVideo.setAttribute('alt', videoAlt)
+              //! PARTIE PHOTO
             } else if (extension == 'jpg') {
               const imageUrl = gallery[newIndex].src
               lightboxImg.src = imageUrl

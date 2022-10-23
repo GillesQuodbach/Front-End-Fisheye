@@ -45,7 +45,8 @@
     height: 35px;
 }
 
-.modal header h2 {
+.modal header h2,
+.photograph-contact-name {
     font-size: 45px;
     font-weight: normal;
     text-align: left;
