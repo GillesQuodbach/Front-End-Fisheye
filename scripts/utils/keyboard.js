@@ -1,58 +1,59 @@
-  
+
+// Ouverture dropdown au focus
+const body = document.querySelector('#body')
+const dropdownBtn = document.querySelector('#dropdown-trigger')
+const dropdownListTitle = document.querySelector('#dropdown-title')
+const dropdownListDate = document.querySelector('#dropdown-date')
+const dropdownComplet = document.querySelector('#dropdown')
 
 
 
-// const dropdownButton = document.querySelector('.dropdown-button')
-// // const dropdsownToggle = document.querySelector('.dropdown-toggle')
-// // const dropdownMenu = document.querySelector('.dropdown-menu')
+//*Ouverture dropdown au focus (TAB)
+dropdownBtn.addEventListener('focus', function() {
+        dropdownMenu.classList.add('show') //Listbox active
+        dropdownToggle.classList.add('open') //Button avec radius 0 OK
+})
 
-// //Ouverture Dropdown au focus
-// dropdownButton.addEventListener('focus', function openDropdown(e) {
-//     dropdownMenu.classList.toggle('show')
-//     dropdownButton.classList.toggle('open')
-//     // dropdownToggle.classList.toggle('open')
-//     console.log(e.currentTarget);
+// dropdownComplet.addEventListener('focusout', function(e) {
+//     dropdownMenu.classList.remove('show')
+//     dropdownToggle.classList.remove('open')
 // })
-// // Fermeture Dropdown au blur
-// dropdownButton.addEventListener('blur', function openDropdown(e) {
-//     dropdownMenu.classList.toggle('show')
-//     // dropdownToggle.classList.toggle('open')
-
-//     console.log(e.currentTarget);
+dropdownListDate.addEventListener('focusin', function(e) {
+        dropdownMenu.classList.add('show')
+        dropdownToggle.classList.add('open')
+        console.log('Marche 1')
+})
+dropdownListDate.addEventListener('focusout', function(e) {
+    dropdownMenu.classList.add('show')
+    dropdownToggle.classList.add('open')
+    console.log('Marche 2')
+})
+dropdownListTitle.addEventListener('focusin', function(e) {
+    dropdownMenu.classList.add('show')
+    dropdownToggle.classList.add('open')
+    console.log('Marche 3')
+})
+// dropdownListTitle.addEventListener('focusout', function(e) {
+// dropdownMenu.classList.remove('show')
+// dropdownToggle.classList.remove('open')
+// console.log('Marche 4')
 // })
 
-// dropdownButton.onkeydown = function (e) {
-//     if ((dropdownButton.toggle("open") === true && (e.keydown == "Esc"))){
-//         dropdownMenu.classList.remove('show')
-//         dropdownButton.classList.remove('open') 
-//     }
-// }
+//*Filtrage de la gallery au press d'ENTRER
+dropdownListDate.addEventListener('keydown', function(e) { 
+    if (e.key == 'Enter') {
+        sortedByIdDate()
+}})
 
-// Fonction de désactivation du scroll de la page
-// function functiondisable() {
-//     // To get the scroll position of current webpage
-//     TopScroll = (window.pageYOffset || document.documentElement.scrollTop);
-//     LeftScroll = (window.pageXOffset || document.documentElement.scrollLeft);
-    
-//     // if scroll happens, set it to the previous value
-//     window.onscroll = function() {
-//     window.scrollTo(LeftScroll, TopScroll)
-//             }
-//     };
-    
-// // Fonction de d'activation du scroll de la page
-//     function functionenable() {
-//     window.onscroll = function() {};
-//     };
+dropdownListTitle.addEventListener('keydown', function(e) { 
+    if (e.key == 'Enter') {
+        sortedByIdTitle()
+}})
 
-
-
-
-
-
-// *SI dropdown-button est FOCUS => OUVERTURE menu
-// *SI dropdown-button est BLUR OU ESC => FERMETURE menu
-// *SI dropdown-button est focus ET que la touche ENTRER est pressée => SortedByLikes()
-// !SI dropdown-button est focus ET que la touche flecheBas est pressée => selection div après 
-// SI dropdown-button est focus ET que la touche flecheHaut est pressée => selection div avant 
-// Si entrer => SortedByDate ou Title
+document.onkeydown = function(e) {
+    if ((dropdownBtn.classList.contains('open'))&&(e.key == 'Escape')){
+        dropdownMenu.classList.remove('show')
+        dropdownToggle.classList.remove('open')
+        console.log(e.key)
+    }
+}

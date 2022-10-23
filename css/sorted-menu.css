@@ -24,7 +24,6 @@ li {
   padding: 10px 10px 10px 20px;
   border-radius: .25rem;
   background-color: #911C1C;
-  /* background-color: green; */
   color: #fff;
   border: none;
   cursor: pointer;
@@ -33,13 +32,8 @@ li {
   width: 190px;
 }
 
-
-
 .dropdown-menu {
   position: absolute;
-
-  /* top: 100%;
-  left: 0; */
   top: 23px;
   width: 190px;
   background-color: #911C1C;
@@ -48,7 +42,6 @@ li {
   display: none;
   cursor: pointer;
   text-align: left;
-
 }
 
 .dropdown-items {
@@ -62,22 +55,6 @@ li {
   display: block;
   /* border-radius: 0px 0px 5px 5px; */
 }
-
-/* .dropbtn {
-  display: inline-block;
-  background-color: #911C1C;
-  margin-left: 20px;
-  border-radius: 5px;
-  width: 170px;
-  color: white;
-  border: none;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 10px 10px;
-  text-decoration: none;
-  cursor: pointer;
-  z-index: 9999000;
-} */
 
 .dropdown-arrow {
   display: inline-block;
@@ -93,8 +70,6 @@ li {
 .dropdown-toggle.open {
   border-radius: 5px 5px 0px 0px;
 }
-
-
 
 .dropdown-date:before {
   content: "";
@@ -117,21 +92,6 @@ li {
   left: 7px;
   border-bottom: 1px solid
 }
-
-/* .dropdown-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  border-radius: 0px 0px 5px 5px;
-
-}
-
-.dropdown-date {
-  margin-top: 0;
-  margin-bottom: 0;
-  border-radius: 0px;
-} */
-
-
 
 @keyframes rotationChevronTri {
   0% {
