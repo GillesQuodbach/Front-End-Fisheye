@@ -111,8 +111,6 @@ async function initProfils () {
 initProfils()
 
 
-// getLikesClicks()
-
 //  ! ====================================================
 //  ! GESTION DE LA GALERIE DE CHAQUE PHOTOGRAPHE
 //  ! ====================================================
@@ -165,12 +163,14 @@ async function displayGallery (medias) {
     const galleryCardDOM = photographerGallery.getImageDOM()
     gallerySection.appendChild(galleryCardDOM)
   })
+  
 }
 async function initGallery () {
   const { media } = await getGalleryItems()
   await displayGallery(media)
   // console.log(media)
 }
+
 initGallery()
 
 //  ?TRI PAR DATES =====================================
@@ -211,6 +211,7 @@ function sortedByIdDate () {
     await displayGallery(media)
   }
   initGallery()
+  
 }
 
 // ?TRI PAR TITLE =====================================
@@ -294,6 +295,7 @@ function sortedByIdLikes () {
     await displayGallery(media)
     // console.log(media)
   }
+
   initGallery()
 }
 
@@ -450,6 +452,15 @@ function galleryFactory (data) {
     likesContainer.appendChild(heartTag)
     return article // Retourne les infos dans les cards
   }
+  // const allArticlesImg = document.getElementsByClassName('cards_image')
+  // console.log(allArticlesImg)
+  // allArticlesImg.forEach(img =>
+  //   img.addEventListener('keydown', (e) =>{
+  //   if ((!lightbox.classList.contains('show')) && (e.key === 'Enter')){
+  //   }
+  //   lightbox.classList.add('show')
+  //   alert('OK')
+  // }))
   return {
     date,
     id,
@@ -459,5 +470,6 @@ function galleryFactory (data) {
     title,
     getImageDOM
   }
+  
 }
 

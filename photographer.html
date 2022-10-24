@@ -20,7 +20,8 @@
   <main id="main" aria-hidden="false">
     <div class="photograph-header">
 
-      <button aria-label="Contactez-moi" class="contact_button" onclick="_displayModal()">Contactez-moi</button>
+      <button aria-label="Contactez-moi" class="contact_button form_open_button"
+        onclick="_displayModal()">Contactez-moi</button>
 
     </div>
 
@@ -28,8 +29,8 @@
     <label for="dropdown" class="dropdown-label">Trier par:</label>
     <div id="dropdown">
       <button id="dropdown-trigger" type="button" aria-haspopup="false" aria-controls="listbox"
-        class="dropbtn dropdown-button dropdown-toggle" aria-selected="true">Popularité
-        <img class="dropdown-arrow" src="assets/icons/sortedArrow.svg" alt="chevron menu de tri">
+        class="dropbtn dropdown-button dropdown-toggle" aria-selected="true" aria-expanded="false">Popularité
+        <img class="dropdown-arrow" src="assets/icons/sortedArrow.svg" alt="chevron menu de tri" aria-hidden="true">
       </button>
       <ul role="listbox" id="listbox" class="dropdown-menu" tabindex="-1" aria-lebelledby="dropdown-trigger"
         aria-activedescendant="dropdown-date">
@@ -47,10 +48,10 @@
     </section>
   </main>
   <!-- ! CONTACT MODAL -->
-  <div id="contact_modal" role="dialog" aria-labelledby="modal-header" aria-hidden="true">
+  <div id="contact_modal" role="dialog" aria-labelledby="contact-modal-name" aria-hidden="true">
     <div class="modal">
       <header id="modal-header">
-        <div class="contact-modal-name">
+        <div id="contact-modal-name">
           <h2 class="modal-title">Contactez-moi</h2>
           <p class="photograph-contact-name"></p>
         </div>
@@ -59,21 +60,25 @@
       </header>
       <!-- ! FORM -->
       <form id="contact_form" name="contact_form" method="get" action="index.html" onsubmit="return validate();">
-        <div id="all_inputs_container">
-          <label for="firstname">Prénom</label>
-          <input type="text" id="firstname" name="firstname" autocomplete="name">
-          <span class="firstname-error error-msg"></span>
-          <label for="lastname">Nom</label>
-          <input type="text" id="lastname" name="lastname" autocomplete="lastname-error" />
-          <span class="lastname-error error-msg"></span>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" />
-          <span class="email-error error-msg"></span>
-          <label for="contact-message">Votre message</label>
-          <textarea id="contact-message" name="contact-message" form="contact_form"></textarea>
-          <span class="contact-message-error error-msg"></span>
+        <div role="group" id="all_inputs_container">
+          <label for="firstname">Prénom
+            <input type="text" id="firstname" name="firstname" autocomplete="on" aria-invalid="false">
+            <span class="firstname-error error-msg"></span>
+          </label>
+          <label for="lastname">Nom
+            <input type="text" id="lastname" name="lastname" autocomplete="on" aria-invalid="false" />
+            <span class="lastname-error error-msg"></span>
+          </label>
+          <label for="email">Email
+            <input type="email" id="email" name="email" autocomplete="on" aria-invalid="false" />
+            <span class="email-error error-msg"></span>
+          </label>
+          <label for="contact-message">Votre message
+            <textarea id="contact-message" name="contact-message" form="contact_form" aria-invalid="false"></textarea>
+            <span class="contact-message-error error-msg"></span>
+          </label>
         </div>
-        <button type="submit" class="contact_button" aria-label="Envoyez">Envoyer</button>
+        <button type="submit" class="contact_button" aria-label="Envoyer le formulaire">Envoyer</button>
       </form>
     </div>
   </div>

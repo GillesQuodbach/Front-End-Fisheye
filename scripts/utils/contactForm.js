@@ -38,15 +38,7 @@ async function _displayModal () {
   }
   getFocus()
 }
-document.onkeydown = function (e) {
-  const modal = document.getElementById('contact_modal')
-  if (
-    modal.getAttribute('aria-hidden') == 'false' &&
-    e.key == 'Escape'
-  ) {
-    closeModal()
-  }
-}
+
 // ? FERMETURE FORMULAIRE
 function closeModal () {
   const modal = document.getElementById('contact_modal')
@@ -74,6 +66,14 @@ const emailRegExp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
 myForm.addEventListener('submit', (e) => {
   e.preventDefault()
   if (validate(myForm) === true) {
+    firstName.setAttribute('aria-invalid', 'false')
+    lastName.setAttribute('aria-invalid', 'false')
+    email.setAttribute('aria-invalid', 'false')
+    message.setAttribute('aria-invalid', 'false')
+    firstNameErrorMsg.innerHTML = ""
+    lastNameErrorMsg.innerHTML = ""
+    emailErrorMsg.innerHTML = ""
+    msgErrorMsg.innerHTML = ''
     console.log(`
     Prénom: ${firstName.value}
     Nom: ${lastName.value}
@@ -87,19 +87,34 @@ function validate () {
   // Validation prénom
   if (firstName.value === '') {
     firstNameErrorMsg.innerHTML = "Merci d'entrer un prénom valide."
+    firstName.setAttribute('aria-invalid', 'true')
   }
   if (lastName.value === '') {
     lastNameErrorMsg.innerHTML = "Merci d'entrer un nom valide."
+    lastName.setAttribute('aria-invalid', 'true')
   }
   const testMail = emailRegExp.test(email.value)
   if (testMail === false || email.value === '') {
     emailErrorMsg.innerHTML = "Merci d'entrer un email valide."
+    email.setAttribute('aria-invalid', 'true')
   }
   if (message.value === '') {
     msgErrorMsg.innerHTML = 'Vous avez oublié votre message...'
+    message.setAttribute('aria-invalid', 'true')
   }
   if (!firstName.value || !lastName.value || !testMail || !emailErrorMsg) {
     return false
   }
+
   return true
 }
+
+const closeFormModalCross = document.querySelector('.close-modal-cross')
+const formModal = document.querySelector('#contact_modal')
+const formModalAriaHidden = formModal.getAttribute('ariaHidden')
+console.log(formModalAriaHidden)
+
+window.addEventListener('keydown', function (e) {
+  if ((formModal.hasAttributes('ariaHidden', 'false') && ( e.key === 'Escape')))
+  closeModal()
+})

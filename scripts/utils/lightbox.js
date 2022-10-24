@@ -1,8 +1,11 @@
 const lightbox = document.querySelector('.lightbox')
-
+const lightboxImg = document.querySelector('.lightbox_picture')
 const loadedGallery = document.querySelector('#photograph_gallery') // Attente du chargement de la page
 const observer = new MutationObserver(modifDomGallery)
 observer.observe(loadedGallery, { childList: true })
+
+// Ouverture lightbox clavier (Entrer)
+
 
 // Fermeture lightbox au clavier
 // Fermeture formulaire de contact au clavier
@@ -43,7 +46,7 @@ function modifDomGallery (mutations) {
       // Lightbox
       const mainContent = document.querySelector('#main')
       // Photo de la lightbox
-      const lightboxImg = document.querySelector('.lightbox_picture')
+      
       const lightboxVideo = document.querySelector('.lightbox_video')
       // Titre de l'image ou video
       const lightboxTitle = document.querySelector('.lightbox_media_title')
@@ -170,6 +173,8 @@ function modifDomGallery (mutations) {
                 prevBtn.style.display = 'block'
               }
             }
+            
+
           }
         }
       }

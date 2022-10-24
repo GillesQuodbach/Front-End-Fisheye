@@ -74,6 +74,7 @@ form label,
 textarea {
     color: #312E2E;
     font-size: 26px;
+    width: 100%;
 }
 
 form div {
@@ -141,7 +142,7 @@ form textarea {
     cursor: pointer;
 }
 
-.contact_button:hover {
+.form_open_button:hover {
     background-color: #DB8876;
     color: black;
     ;
