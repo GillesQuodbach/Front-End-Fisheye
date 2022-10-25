@@ -1,15 +1,17 @@
 const lightbox = document.querySelector('.lightbox')
 const lightboxImg = document.querySelector('.lightbox_picture')
 const loadedGallery = document.querySelector('#photograph_gallery') // Attente du chargement de la page
+const gallery = document.querySelectorAll('.cards_image')
 const observer = new MutationObserver(modifDomGallery)
 observer.observe(loadedGallery, { childList: true })
 
 // Ouverture lightbox clavier (Entrer)
 
-
 // Fermeture lightbox au clavier
 // Fermeture formulaire de contact au clavier
 async function incLikesClicks () {
+
+
   const hearts = document.querySelectorAll('.likes-heart')
   // console.log(hearts)
   hearts.forEach((heart) => {
@@ -101,7 +103,11 @@ function modifDomGallery (mutations) {
               lightboxVideo.classList.remove('show')
             }
           }
+
           preview()
+
+
+
           // Défilement photos précédentes
           prevBtn.onclick = () => {
             // décrément l'index
@@ -125,6 +131,7 @@ function modifDomGallery (mutations) {
               prevBtn.style.display = 'block'
             }
           }
+
           // Apparition lightbox
           lightbox.classList.add('show')
           // Fermeture lightbox + reinitialisation bouton

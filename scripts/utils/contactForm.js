@@ -111,8 +111,8 @@ function validate () {
 
 const closeFormModalCross = document.querySelector('.close-modal-cross')
 const formModal = document.querySelector('#contact_modal')
-const formModalAriaHidden = formModal.getAttribute('ariaHidden')
-console.log(formModalAriaHidden)
+
+//Fermeture du formulaire avec Esc
 
 window.addEventListener('keydown', function (e) {
   if ((formModal.hasAttributes('ariaHidden', 'false') && ( e.key === 'Escape')))

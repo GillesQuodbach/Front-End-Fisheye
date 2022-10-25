@@ -154,7 +154,7 @@ async function getGalleryItems () {
   }
 }
 // Affichage des données des photographes
-async function displayGallery (medias) {
+function displayGallery (medias) {
   // console.log(medias)
   const gallerySection = document.querySelector('#photograph_gallery')
   gallerySection.innerHTML = ''
@@ -163,11 +163,17 @@ async function displayGallery (medias) {
     const galleryCardDOM = photographerGallery.getImageDOM()
     gallerySection.appendChild(galleryCardDOM)
   })
-  
+  //! ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  incLikesWithEnter()
+   //! ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
+
+ 
 async function initGallery () {
   const { media } = await getGalleryItems()
-  await displayGallery(media)
+  displayGallery(media)
+
   // console.log(media)
 }
 
@@ -196,7 +202,7 @@ function sortedByIdDate () {
     }
   }
   // Affichage des données des photographes
-  async function displayGallery (medias) {
+  function displayGallery (medias) {
     // console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
@@ -208,7 +214,8 @@ function sortedByIdDate () {
   }
   async function initGallery () {
     const { media } = await getGalleryItems()
-    await displayGallery(media)
+    displayGallery(media)
+
   }
   initGallery()
   
@@ -237,7 +244,7 @@ function sortedByIdTitle () {
     }
   }
   // Affichage des données des photographes
-  async function displayGallery (medias) {
+  function displayGallery (medias) {
     // console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
@@ -249,7 +256,7 @@ function sortedByIdTitle () {
   }
   async function initGallery () {
     const { media } = await getGalleryItems()
-    await displayGallery(media)
+    displayGallery(media)
   }
 
   initGallery()
@@ -279,7 +286,7 @@ function sortedByIdLikes () {
   }
 
   // Affichage des données des photographes
-  async function displayGallery (medias) {
+  function displayGallery (medias) {
     // console.log(medias)
     const gallerySection = document.querySelector('#photograph_gallery')
     gallerySection.innerHTML = ''
@@ -292,7 +299,7 @@ function sortedByIdLikes () {
   }
   async function initGallery () {
     const { media } = await getGalleryItems()
-    await displayGallery(media)
+    displayGallery(media)
     // console.log(media)
   }
 
@@ -472,4 +479,3 @@ function galleryFactory (data) {
   }
   
 }
-

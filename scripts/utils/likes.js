@@ -1,40 +1,41 @@
-// Gestion dropdown menu
-const dropdownToggle = document.querySelector('.dropdown-toggle')
-const dropdownMenu = document.querySelector('.dropdown-menu')
-const dropdownArrow = document.querySelector('.dropdown-arrow')
-const dropdownTrigger = document.querySelector('#dropdown-trigger')
+function incLikesWithEnter() {
 
-// article.setAttribute('data-likes', `${likes}`)
-// Ouverture/fermeture menu
-dropdownToggle.addEventListener('mouseover', function () {
-  dropdownMenu.classList.toggle('show')
-  dropdownToggle.classList.toggle('open')
-  dropdownArrow.classList.toggle('reverse')
-  dropdownTrigger.setAttribute('aria-expanded', 'true')
-})
+const galleryImages = document.querySelectorAll('.cards_image')
+console.log(galleryImages)
 
-dropdownToggle.addEventListener('mouseout', function () {
-  dropdownMenu.classList.toggle('show')
-  dropdownToggle.classList.toggle('open')
-  dropdownArrow.classList.toggle('reverse')
-  dropdownTrigger.setAttribute('aria-expanded', 'false')
-})
-// Ouverture/fermeture liste
-dropdownMenu.addEventListener('mouseover', function () {
-  dropdownMenu.classList.toggle('show')
-  dropdownToggle.classList.toggle('open')
-  dropdownArrow.classList.toggle('reverse')
-  dropdownTrigger.setAttribute('aria-expanded', 'true')
-})
+//Donne la cible au moment de l'action
+galleryImages.forEach((img) => {
+    img.addEventListener('keydown', (e) => {
+     if((e.target === document.activeElement) && (e.key === 'Enter')) {
+        const thisId = e.target
+        console.log(thisId)
+        // preview()
+     }
+    })})}
 
-dropdownMenu.addEventListener('mouseout', function () {
-  dropdownMenu.classList.toggle('show')
-  dropdownToggle.classList.toggle('open')
-  dropdownArrow.classList.toggle('reverse')
-  dropdownTrigger.setAttribute('aria-expanded', 'false')
-})
 
-// document.onkeydown = function (e) {
 
-//   }
+//     const hearts = document.querySelectorAll('.likes-heart')
+//   // console.log(hearts)
+//   hearts.forEach((heart) => {
+//     heart.addEventListener('click', (e) => {
+//       const thisId = e.target.dataset.id
+//       console.log(thisId)
+//       const thisArticle = document.getElementById(`${thisId}`)
+//       const thisArticleLikes = thisArticle.querySelector('.cards_likes')
+//       const bottomTotalLikes = document.querySelector('.bottom_likes')
+//       console.log(bottomTotalLikes.innerHTML)
+//       // e.target.classList.toggle('cardHeart-no')
+
+//       if (e.target.classList.contains('cardHeart-yes')) {
+//         alert('Vous avez déja liké cette photo')
+//       } else {
+//         e.target.classList.toggle('cardHeart-yes')
+//         thisArticleLikes.innerHTML++
+//         bottomTotalLikes.innerHTML++
+//         e.target.classList.add('cardHeart-yes')
+//         // e.target.classList.remove('cardHeart-no')
+//       }
+//     })
+//   })
 // }
