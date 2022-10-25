@@ -1,17 +1,15 @@
 const lightbox = document.querySelector('.lightbox')
 const lightboxImg = document.querySelector('.lightbox_picture')
 const loadedGallery = document.querySelector('#photograph_gallery') // Attente du chargement de la page
-const gallery = document.querySelectorAll('.cards_image')
 const observer = new MutationObserver(modifDomGallery)
 observer.observe(loadedGallery, { childList: true })
 
 // Ouverture lightbox clavier (Entrer)
 
+
 // Fermeture lightbox au clavier
 // Fermeture formulaire de contact au clavier
 async function incLikesClicks () {
-
-
   const hearts = document.querySelectorAll('.likes-heart')
   // console.log(hearts)
   hearts.forEach((heart) => {
@@ -36,9 +34,29 @@ async function incLikesClicks () {
     })
   })
 }
+
 function modifDomGallery (mutations) {
   incLikesClicks()
+  
+  // openLightBoxWithEnter ()
   for (const mutation of mutations) {
+    function openLightBoxWithEnter () {
+      console.log("====OK=====")
+      
+    const galleryImages = document.querySelectorAll('.cards_image')
+    console.log(galleryImages)
+    
+    //Donne la cible au moment de l'action
+    galleryImages.forEach((img) => {
+        img.addEventListener('keydown', (e) => {
+         if((e.target === document.activeElement) && (e.key === 'Enter')) {
+            const thisId = e.target
+            console.log('=======PUTAIN=======')
+            preview()
+         }
+        })})
+    }
+    openLightBoxWithEnter ()
     if (mutation.type === 'childList') {
       // Selection des éléments
       // Tous les éléments de la gallery (photos et videos)
@@ -103,7 +121,7 @@ function modifDomGallery (mutations) {
               lightboxVideo.classList.remove('show')
             }
           }
-
+          // openLightBoxWithEnter ()
           preview()
 
 
@@ -188,3 +206,4 @@ function modifDomGallery (mutations) {
     }
   }
 }
+

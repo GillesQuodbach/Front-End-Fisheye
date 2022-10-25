@@ -1,17 +1,17 @@
-function incLikesWithEnter() {
+// function incLikesWithEnter() {
 
-const galleryImages = document.querySelectorAll('.cards_image')
-console.log(galleryImages)
+// const galleryImages = document.querySelectorAll('.cards_image')
+// console.log(galleryImages)
 
-//Donne la cible au moment de l'action
-galleryImages.forEach((img) => {
-    img.addEventListener('keydown', (e) => {
-     if((e.target === document.activeElement) && (e.key === 'Enter')) {
-        const thisId = e.target
-        console.log(thisId)
-        // preview()
-     }
-    })})}
+// //Donne la cible au moment de l'action
+// galleryImages.forEach((img) => {
+//     img.addEventListener('keydown', (e) => {
+//      if((e.target === document.activeElement) && (e.key === 'Enter')) {
+//         const thisId = e.target
+//         console.log('=======PUTAIN=======')
+//         // preview()
+//      }
+//     })})}
 
 
 

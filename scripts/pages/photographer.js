@@ -165,7 +165,7 @@ function displayGallery (medias) {
   })
   //! ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-  incLikesWithEnter()
+  // incLikesWithEnter()
    //! ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
