@@ -38,25 +38,10 @@ async function incLikesClicks () {
 function modifDomGallery (mutations) {
   incLikesClicks()
   
+  
   // openLightBoxWithEnter ()
   for (const mutation of mutations) {
-    function openLightBoxWithEnter () {
-      console.log("====OK=====")
-      
-    const galleryImages = document.querySelectorAll('.cards_image')
-    console.log(galleryImages)
-    
-    //Donne la cible au moment de l'action
-    galleryImages.forEach((img) => {
-        img.addEventListener('keydown', (e) => {
-         if((e.target === document.activeElement) && (e.key === 'Enter')) {
-            const thisId = e.target
-            console.log('=======PUTAIN=======')
-            preview()
-         }
-        })})
-    }
-    openLightBoxWithEnter ()
+
     if (mutation.type === 'childList') {
       // Selection des éléments
       // Tous les éléments de la gallery (photos et videos)
@@ -121,7 +106,9 @@ function modifDomGallery (mutations) {
               lightboxVideo.classList.remove('show')
             }
           }
-          // openLightBoxWithEnter ()
+
+          
+
           preview()
 
 
@@ -203,7 +190,181 @@ function modifDomGallery (mutations) {
           }
         }
       }
+
+      function openLightBoxWithEnter () {
+        console.log("====OK=====")
+        
+      const galleryImages = document.querySelectorAll('.cards_image')
+      console.log(galleryImages)
+      
+      //Donne la cible au moment de l'action
+      galleryImages.forEach((img) => {
+          img.addEventListener('keydown', (e) => {
+           if((e.target === document.activeElement) && (e.key === 'Enter')) {
+              const thisId = e.target
+              console.log('=======PUTAIN=======')
+              preview()
+           }
+          })})
+      }
+
+      const galleryImages = document.querySelectorAll('.cards_image')
+      for (let i = 0; i < galleryImages.length; i++) {
+        // Remplacement de i par newIndex
+        let newIndex = i
+        const clickedImgIndex = ''
+        galleryImages[i].addEventListener('keydown', (e) => {
+          if((e.target === document.activeElement) && (e.key === 'Enter')) {
+          newIndex = i
+          // si imageUrl fini par mp4
+          // img devient video
+          function preview () {
+            lightbox.setAttribute('aria-hidden', 'false')
+            mainContent.setAttribute('aria-hidden', 'true')
+            // Source de l'image cliquée
+            const imageUrl = gallery[newIndex].src
+            console.log(gallery[newIndex])
+            lightboxImg.src = imageUrl
+            // Titre de l'image cliquée
+            const extension = imageUrl.split('.').pop()
+            console.log(extension) // extension jpg
+            console.log(gallery[newIndex].alt)
+            // METTRE UNE LIGNE IMG l'autre VIDEO, hid une quand on affiche l'autre !
+            //! PARTIE VIDEO
+            if (extension == 'mp4') {
+              const videoUrl = gallery[newIndex].src
+              lightboxVideo.src = videoUrl
+              // Titre de l'image cliquée
+              const videoTitle = gallery[newIndex]
+              const videoAlt = videoTitle.getAttribute('alt')
+              // console.log(videoAlt)
+              lightboxTitle.textContent = videoAlt
+              lightboxImg.classList.remove('show')
+              lightboxVideo.classList.add('show')
+              // lightboxVideo.setAttribute('controls', 'controls')
+              lightboxVideo.setAttribute('alt', videoAlt)
+              //! PARTIE PHOTO
+            } else if (extension == 'jpg') {
+              const imageUrl = gallery[newIndex].src
+              lightboxImg.src = imageUrl
+              // Titre de l'image cliquée
+              const imageTitle = gallery[newIndex].alt
+              lightboxTitle.textContent = imageTitle
+              lightboxImg.classList.add('show')
+              lightboxImg.setAttribute('alt', imageTitle)
+              lightboxVideo.classList.remove('show')
+            }
+          }
+
+          
+
+          preview()
+
+
+
+          // Défilement photos précédentes
+          prevBtn.onclick = () => {
+            // décrément l'index
+            if (newIndex == 0) {
+              preview()
+              prevBtn.style.display = 'block'
+            } else {
+              newIndex--
+              preview()
+              nextBtn.style.display = 'block'
+            }
+          }
+          // Défilement photos suivantes
+          nextBtn.onclick = () => {
+            if (newIndex >= totalGallery - 1) {
+              preview()
+              nextBtn.style.display = 'block'
+            } else {
+              newIndex++ // décrément l'index
+              preview()
+              prevBtn.style.display = 'block'
+            }
+          }
+
+          // Apparition lightbox
+          lightbox.classList.add('show')
+          // Fermeture lightbox + reinitialisation bouton
+          closeButton.onclick = () => {
+            newIndex = clickedImgIndex
+            prevBtn.style.display = 'block'
+            nextBtn.style.display = 'block'
+            lightbox.classList.remove('show')
+            lightbox.setAttribute('aria-hidden', 'true')
+            mainContent.setAttribute('aria-hidden', 'false')
+          }
+          document.onkeydown = function (e) {
+            const mainContent = document.querySelector('#main')
+            if (
+              lightbox.getAttribute('aria-hidden') == 'false' &&
+              e.key == 'Escape'
+            ) {
+              lightbox.classList.remove('show')
+              lightbox.setAttribute('aria-hidden', 'true')
+              mainContent.setAttribute('aria-hidden', 'false')
+            }
+            if (
+              lightbox.getAttribute('aria-hidden') == 'false' &&
+              e.key == 'ArrowLeft'
+            ) {
+              // décrément l'index
+              if (newIndex == 0) {
+                preview()
+                prevBtn.style.display = 'block'
+              } else {
+                newIndex--
+                preview()
+                nextBtn.style.display = 'block'
+              }
+            }
+            if (
+              lightbox.getAttribute('aria-hidden') == 'false' &&
+              e.key == 'ArrowRight'
+            ) {
+              if (newIndex >= totalGallery - 1) {
+                preview()
+                nextBtn.style.display = 'block'
+              } else {
+                newIndex++ // décrément l'index
+                preview()
+                prevBtn.style.display = 'block'
+              }
+            }
+            
+
+          }
+        }
+      })}
+
+
+
+
     }
   }
 }
 
+
+
+
+//!=================================================================
+// function openLightBoxWithEnter () {
+//   console.log("====OK=====")
+  
+// const galleryImages = document.querySelectorAll('.cards_image')
+// console.log(galleryImages)
+
+// //Donne la cible au moment de l'action
+// galleryImages.forEach((img) => {
+//     img.addEventListener('keydown', (e) => {
+//      if((e.target === document.activeElement) && (e.key === 'Enter')) {
+//         const thisId = e.target
+//         console.log('=======PUTAIN=======')
+//         preview()
+//      }
+//     })})
+// }
+//!=================================================================
