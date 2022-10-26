@@ -74,6 +74,22 @@ function incLikesClicksWithEnter () {
 function modifDomGallery (mutations) {
   incLikesClicks()
   incLikesClicksWithEnter ()
+
+//Ajouter fermeture dropdown au focus gallery 1 child
+
+  const completePhotographGallery = document.querySelector('#photograph_gallery')
+  const photographProfilePhoto = document.querySelector('.photograph_profile_photo')
+  // Quand le premier noeud enfant va être focus (focus in) ferme le menu dropdown
+  completePhotographGallery.querySelector('.gallery_cards').addEventListener('focusin', function() {
+      dropdownMenu.classList.remove('show')
+      dropdownToggle.classList.remove('open')
+      console.log('Marche Sortie')
+  })
+  photographProfilePhoto.addEventListener('focusin', function() {
+    dropdownMenu.classList.remove('show')
+    dropdownToggle.classList.remove('open')
+    console.log('Marche Sortie')
+})
   // openLightBoxWithEnter ()
   for (const mutation of mutations) {
     if (mutation.type === 'childList') {
