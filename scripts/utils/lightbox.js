@@ -9,9 +9,8 @@ observer.observe(loadedGallery, { childList: true })
 
 // Fermeture lightbox au clavier
 // Fermeture formulaire de contact au clavier
-async function incLikesClicks () {
+function incLikesClicks () {
   const hearts = document.querySelectorAll('.likes-heart')
-  // console.log(hearts)
   hearts.forEach((heart) => {
     heart.addEventListener('click', (e) => {
       const thisId = e.target.dataset.id
@@ -21,7 +20,6 @@ async function incLikesClicks () {
       const bottomTotalLikes = document.querySelector('.bottom_likes')
       console.log(bottomTotalLikes.innerHTML)
       // e.target.classList.toggle('cardHeart-no')
-
       if (e.target.classList.contains('cardHeart-yes')) {
         alert('Vous avez déja liké cette photo')
       } else {
@@ -34,14 +32,50 @@ async function incLikesClicks () {
     })
   })
 }
+// function openLightBoxWithEnter () {
+//   console.log("====OK=====")
+  
+// const galleryImages = document.querySelectorAll('.cards_image')
+// console.log(galleryImages)
+
+// //Donne la cible au moment de l'action
+// galleryImages.forEach((img) => {
+//     img.addEventListener('keydown', (e) => {
+//      if((e.target === document.activeElement) && (e.key === 'Enter')) {
+// 
+//      }
+//     })})
+// }
+function incLikesClicksWithEnter () {
+  const hearts = document.querySelectorAll('.likes-heart')
+  hearts.forEach((heart) => {
+    heart.addEventListener('keydown', (e) => {
+      if((e.target === document.activeElement) && (e.key === 'Enter')){
+      const thisId = e.target.dataset.id
+      console.log(thisId)
+      const thisArticle = document.getElementById(`${thisId}`)
+      const thisArticleLikes = thisArticle.querySelector('.cards_likes')
+      const bottomTotalLikes = document.querySelector('.bottom_likes')
+      console.log(bottomTotalLikes.innerHTML)
+      // e.target.classList.toggle('cardHeart-no')
+      if (e.target.classList.contains('cardHeart-yes')) {
+        alert('Vous avez déja liké cette photo')
+      } else {
+        e.target.classList.toggle('cardHeart-yes')
+        thisArticleLikes.innerHTML++
+        bottomTotalLikes.innerHTML++
+        e.target.classList.add('cardHeart-yes')
+        // e.target.classList.remove('cardHeart-no')
+      }
+    }})
+  })
+}
 
 function modifDomGallery (mutations) {
   incLikesClicks()
-  
-  
+  incLikesClicksWithEnter ()
   // openLightBoxWithEnter ()
   for (const mutation of mutations) {
-
     if (mutation.type === 'childList') {
       // Selection des éléments
       // Tous les éléments de la gallery (photos et videos)
@@ -255,13 +289,7 @@ function modifDomGallery (mutations) {
               lightboxVideo.classList.remove('show')
             }
           }
-
-          
-
           preview()
-
-
-
           // Défilement photos précédentes
           prevBtn.onclick = () => {
             // décrément l'index
@@ -339,17 +367,13 @@ function modifDomGallery (mutations) {
           }
         }
       })}
-
-
-
-
     }
   }
 }
 
 
 
-
+//!Fonction ouverture lightbox avec Enter
 //!=================================================================
 // function openLightBoxWithEnter () {
 //   console.log("====OK=====")
