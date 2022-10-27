@@ -107,6 +107,13 @@ async function initProfils () {
   await displayPhotographersProfils(photographers)
   // await displayData(media);
   // await incLikesClicks()
+   //! ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   const photographProfilePhoto = document.querySelector('.photograph_profile_photo')
+   photographProfilePhoto.addEventListener('focusin', function() {
+       dropdownMenu.classList.remove('show')
+       dropdownToggle.classList.remove('open')
+       console.log('Marche Sortie')
+   })
 }
 initProfils()
 
@@ -163,8 +170,7 @@ function displayGallery (medias) {
     const galleryCardDOM = photographerGallery.getImageDOM()
     gallerySection.appendChild(galleryCardDOM)
   })
-  //! ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+ 
   // incLikesWithEnter()
    //! ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
