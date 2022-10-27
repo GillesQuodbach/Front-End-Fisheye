@@ -114,7 +114,17 @@ const formModal = document.querySelector('#contact_modal')
 
 //Fermeture du formulaire avec Esc
 
-window.addEventListener('keydown', function (e) {
+formModal.addEventListener('keydown', function (e) {
+  if ((formModal.hasAttributes('ariaHidden', 'false') && ( e.key === 'Escape')))
+  closeModal()
+})
+
+closeFormModalCross.addEventListener('keydown', function (e) {
+  if ((formModal.hasAttributes('ariaHidden', 'false') && ( e.key === 'Enter')))
+  closeModal()
+})
+
+formModal.addEventListener('keydown', function (e) {
   if ((formModal.hasAttributes('ariaHidden', 'false') && ( e.key === 'Escape')))
   closeModal()
 })

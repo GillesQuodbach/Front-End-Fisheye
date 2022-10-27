@@ -1,33 +1,6 @@
 //  ? FACTORY DE LA GALERIE PHOTOGRAPHER
 //  ? ===================================
 function galleryFactory (data) {
-  async function getTotalLikes () {
-    const queryStringUrlId = window.location.search
-    const urlSearchParams = new URLSearchParams(queryStringUrlId)
-    const id = urlSearchParams.get('id')
-    const response = await fetch(jsonUrl)
-    const data = await response.json()
-    const mediasArray = data.media
-    mediasArray.filter((el) => el.photographerId == id) //! ICI TABLEAU FILTRE DU PHOTOGRAPHE
-
-    //! Gestion du total des likes du photographe
-    const allPhotographLikesArray = []
-    const allCardLikes = document.querySelectorAll('.cards_likes')
-    allCardLikes.forEach((heart) => {
-      // console.log(heart.dataset.likes)
-      allPhotographLikesArray.push(parseInt(heart.dataset.likes))
-    })
-    // console.log(allPhotographLikesArray)
-    let sum = 0
-    for (let i = 0; i < allPhotographLikesArray.length; i++) {
-      sum += allPhotographLikesArray[i]
-    }
-    // console.log(sum)
-    const totalBottomLikes = document.querySelector('.bottom_likes')
-    totalBottomLikes.innerHTML = sum
-  }
-  getTotalLikes()
-
   const videoInList = data.video
   if (videoInList !== undefined) {
     const { date, id, video, likes, photographerId, price, title } = data
@@ -151,15 +124,6 @@ function galleryFactory (data) {
     likesContainer.appendChild(heartTag)
     return article // Retourne les infos dans les cards
   }
-  // const allArticlesImg = document.getElementsByClassName('cards_image')
-  // console.log(allArticlesImg)
-  // allArticlesImg.forEach(img =>
-  //   img.addEventListener('keydown', (e) =>{
-  //   if ((!lightbox.classList.contains('show')) && (e.key === 'Enter')){
-  //   }
-  //   lightbox.classList.add('show')
-  //   alert('OK')
-  // }))
   return {
     date,
     id,
@@ -169,5 +133,4 @@ function galleryFactory (data) {
     title,
     getImageDOM
   }
-  
 }

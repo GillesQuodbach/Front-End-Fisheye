@@ -33,8 +33,3 @@ dropdownMenu.addEventListener('mouseout', function () {
   dropdownArrow.classList.toggle('reverse')
   dropdownTrigger.setAttribute('aria-expanded', 'false')
 })
-
-// document.onkeydown = function (e) {
-
-//   }
-// }

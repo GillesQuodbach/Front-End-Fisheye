@@ -5,6 +5,8 @@ const dropdownListTitle = document.querySelector('#dropdown-title')
 const dropdownListDate = document.querySelector('#dropdown-date')
 const dropdownComplet = document.querySelector('#dropdown')
 
+//
+
 //*Ouverture dropdown au focus (TAB)
 dropdownBtn.addEventListener('focus', function() {
         dropdownMenu.classList.add('show') //Listbox active
