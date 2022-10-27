@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
-<script src="https://kit.fontawesome.com/b556c70381.js" crossorigin="anonymous"></script>
 
 <head>
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/b556c70381.js" crossorigin="anonymous"></script>
+  <meta name="description"
+    content="FishEye est un site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
   <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="assets/favicon.png" alt="icon mettre en favori">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-
   <title>Fisheye - photographe </title>
 </head>
 
-<body id="body">
+<body>
   <header>
     <a href="index.html">
-      <img alt="FishEye Home page" src="assets/images/logo.png" class="logo" />
+      <img alt="FishEye Home page" src="assets/images/logo.png" class="logo">
     </a>
   </header>
   <main id="main" aria-hidden="false">
     <div class="photograph-header">
 
-      <button aria-label="Contactez-moi" class="contact_button form_open_button"
+      <button aria-label="Ouvrir le formulaire de contact" class="contact_button form_open_button"
         onclick="_displayModal()">Contactez-moi</button>
 
     </div>
 
     <!-- ! SELECT DROPDOWN MENU -->
-    <label for="dropdown" class="dropdown-label">Trier par:</label>
+    <label for="dropdown-trigger" class="dropdown-label">Trier par:</label>
     <div id="dropdown">
-      <button id="dropdown-trigger" type="button" aria-haspopup="false" aria-controls="listbox"
-        class="dropbtn dropdown-button dropdown-toggle" aria-selected="true" aria-expanded="false">Popularité
+      <button id="dropdown-trigger" type="button" aria-haspopup="listbox" aria-controls="listbox"
+        class="dropbtn dropdown-button dropdown-toggle" aria-selected="true" aria-expanded="true"
+        aria-label="Trier par popularité">Popularité
         <img class="dropdown-arrow" src="assets/icons/sortedArrow.svg" alt="chevron menu de tri" aria-hidden="true">
       </button>
-      <ul role="listbox" id="listbox" class="dropdown-menu" tabindex="-1" aria-lebelledby="dropdown-trigger"
-        aria-activedescendant="dropdown-date">
+      <ul role="listbox" id="listbox" class="dropdown-menu" tabindex="-1" aria-activedescendant="dropdown-date">
         <li role="option" aria-selected="false" id="dropdown-date" class="dropdown-date dropdown-items show"
-          tabindex="0">Date</li>
+          tabindex="0" aria-label="Trier par date">Date</li>
         <li role="option" aria-selected="false" id="dropdown-title" class="dropdown-title dropdown-items show"
-          tabindex="0">Titre
+          tabindex="0" aria-label="Trier par titre">Titre
         </li>
       </ul>
     </div>
@@ -56,7 +58,7 @@
           <p class="photograph-contact-name"></p>
         </div>
         <img role="img" alt="Fermer le formulaire de contact" class="close-modal-cross" src="assets/icons/close.svg"
-          onclick="closeModal()" />
+          onclick="closeModal()">
       </header>
       <!-- ! FORM -->
       <form id="contact_form" name="contact_form" method="get" action="index.html" onsubmit="return validate();">
@@ -66,11 +68,11 @@
             <span class="firstname-error error-msg"></span>
           </label>
           <label for="lastname">Nom
-            <input type="text" id="lastname" name="lastname" autocomplete="on" aria-invalid="false" />
+            <input type="text" id="lastname" name="lastname" autocomplete="on" aria-invalid="false">
             <span class="lastname-error error-msg"></span>
           </label>
           <label for="email">Email
-            <input type="email" id="email" name="email" autocomplete="on" aria-invalid="false" />
+            <input type="email" id="email" name="email" autocomplete="on" aria-invalid="false">
             <span class="email-error error-msg"></span>
           </label>
           <label for="contact-message">Votre message
@@ -89,8 +91,8 @@
     <button class="lightbox_previous" aria-label="Image précédente">Prev</button>
     <div class="lightbox_container">
       <div class="lightbox-media-container">
-        <img src="" class="lightbox_picture show" alt="">
-        <video src="" class="lightbox_video" alt=""></video>
+        <img src="#" class="lightbox_picture show" alt="No description yet">
+        <video src="#" class="lightbox_video" alt="No description yet"></video>
         <p class="lightbox_media_title"></p>
       </div>
     </div>
