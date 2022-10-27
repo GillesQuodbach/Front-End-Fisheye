@@ -26,7 +26,13 @@
         onclick="_displayModal()">Contactez-moi</button>
 
     </div>
-
+    <!-- ! FIXED INFOS -->
+    <div class="bottom_fixed_infos" tabindex="0">
+      <p class="fixed_likes"></p>
+      <em class="fa-sharp fa-solid fa-heart" aria-label="likes"></em>
+      <p class="fixed_price"></p>
+    </div>
+    <!-- ! ========= -->
     <!-- ! SELECT DROPDOWN MENU -->
     <label for="dropdown-trigger" class="dropdown-label">Trier par:</label>
     <div id="dropdown">
@@ -84,6 +90,7 @@
       </form>
     </div>
   </div>
+
   <!-- ! LIGHTBOX -->
   <div class="lightbox" aria-label="Vu détaillée de l'image" aria-hidden="true">
     <button class="lightbox_close" aria-label="Fermer modale">X</button>
@@ -97,17 +104,11 @@
       </div>
     </div>
   </div>
-  <!-- ! FIXED INFOS -->
-  <div class="bottom_fixed_infos" tabindex="0">
-    <p class="fixed_likes"></p>
-    <em class="fa-sharp fa-solid fa-heart" aria-label="likes"></em>
-    <p class="fixed_price"></p>
-  </div>
-  <!-- ! ========= -->
 
 
-  <script src="/scripts/factories/photographerFactory.js"></script>
+
   <script src="/scripts/factories/galleryFactory.js"></script>
+  <script src="/scripts/factories/photographerFactory.js"></script>
   <script src="/scripts/pages/photographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/utils/lightbox.js"></script>
