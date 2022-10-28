@@ -21,19 +21,20 @@
   </header>
   <main id="main" aria-hidden="false">
     <div class="photograph-header">
-
       <button aria-label="Ouvrir le formulaire de contact" class="contact_button form_open_button"
         onclick="_displayModal()">Contactez-moi</button>
-
     </div>
-    <!-- ! FIXED INFOS -->
+
+    <!-- * FIXED INFOS -->
+
     <div class="bottom_fixed_infos" tabindex="0">
       <p class="fixed_likes"></p>
       <em class="fa-sharp fa-solid fa-heart" aria-label="likes"></em>
       <p class="fixed_price"></p>
     </div>
-    <!-- ! ========= -->
-    <!-- ! SELECT DROPDOWN MENU -->
+
+    <!-- * SELECT DROPDOWN MENU -->
+
     <label for="dropdown-trigger" class="dropdown-label">Trier par:</label>
     <div id="dropdown">
       <button id="dropdown-trigger" type="button" aria-haspopup="listbox" aria-controls="listbox"
@@ -49,13 +50,15 @@
         </li>
       </ul>
     </div>
-
-
     <section id="photograph_gallery">
-      <!-- !PHOTOGRAPH GALLERY HERE-->
+
+      <!-- * PHOTOGRAPH GALLERY HERE-->
+
     </section>
   </main>
-  <!-- ! CONTACT MODAL -->
+
+  <!-- * CONTACT MODAL -->
+
   <div id="contact_modal" role="dialog" aria-labelledby="contact-modal-name" aria-hidden="true">
     <div class="modal">
       <header id="modal-header">
@@ -66,7 +69,9 @@
         <img role="button" alt="Fermer le formulaire de contact" class="close-modal-cross" src="assets/icons/close.svg"
           onclick="closeModal()" tabindex="0">
       </header>
-      <!-- ! FORM -->
+
+      <!-- * FORM -->
+
       <form id="contact_form" name="contact_form" method="get" action="index.html" onsubmit="return validate();">
         <div role="group" id="all_inputs_container">
           <label for="firstname">Prénom
@@ -91,7 +96,8 @@
     </div>
   </div>
 
-  <!-- ! LIGHTBOX -->
+  <!--* LIGHTBOX -->
+
   <div class="lightbox" aria-label="Vu détaillée de l'image" aria-hidden="true">
     <button class="lightbox_close" aria-label="Fermer modale">X</button>
     <button class="lightbox_next" aria-label="Image suivante">Next</button>
@@ -104,9 +110,6 @@
       </div>
     </div>
   </div>
-
-
-
   <script src="/scripts/factories/galleryFactory.js"></script>
   <script src="/scripts/factories/photographerFactory.js"></script>
   <script src="/scripts/pages/photographer.js"></script>
@@ -114,8 +117,6 @@
   <script src="/scripts/utils/lightbox.js"></script>
   <script src="/scripts/utils/keyboard.js"></script>
   <script src="/scripts/utils/dropdown.js"></script>
-  <script src="/scripts/utils/likes.js"></script>
 </body>
-
 
 </html>

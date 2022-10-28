@@ -1,7 +1,5 @@
-// !FACTORY DU PROFIL DE CHAQUE PHOTOGRAPHE PAGE PHOTOGRAPHER
-//! ===================================
-// !CREATION DU PROFILE DES PHOTOGRAPHES
-
+//* Factory du photographe de la page photographer
+//* ===================================
 function _photographerProfilFactory (data) {
   const { name, id, portrait, city, country, tagline, price, likes } = data
   const picture = `assets/photographers/${portrait}`

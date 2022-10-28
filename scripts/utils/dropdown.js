@@ -1,4 +1,5 @@
-// Gestion dropdown menu
+//* Gestion du dropdown menu
+
 const dropdownToggle = document.querySelector('.dropdown-toggle')
 const dropdownMenu = document.querySelector('.dropdown-menu')
 const dropdownArrow = document.querySelector('.dropdown-arrow')
@@ -32,4 +33,20 @@ dropdownMenu.addEventListener('mouseout', function () {
   dropdownToggle.classList.toggle('open')
   dropdownArrow.classList.toggle('reverse')
   dropdownTrigger.setAttribute('aria-expanded', 'false')
+})
+
+//  * BOUTON TRI date
+document.querySelector('.dropdown-date').addEventListener('click', () => {
+  sortedByIdDate()
+  console.log('Sorted by Date')
+})
+//  * BOUTON TRI likes
+document.querySelector('.dropbtn').addEventListener('click', () => {
+  sortedByIdLikes()
+  console.log('Sorted by Likes')
+})
+//  * BOUTON TRI title
+document.querySelector('.dropdown-title').addEventListener('click', () => {
+  sortedByIdTitle()
+  console.log('Sorted by title')
 })
