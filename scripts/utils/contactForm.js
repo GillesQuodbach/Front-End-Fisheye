@@ -2,7 +2,7 @@
 
 const mainContent = document.querySelector('#main')
 async function _displayModal () {
-  const modal = document.getElementById('contact_modal')
+  const modal = document.getElementById('contact-modal')
   modal.setAttribute('aria-hidden', 'false')
   mainContent.setAttribute('aria-hidden', 'true')
   const jsonUrl = 'data/photographers.json'
@@ -28,10 +28,10 @@ async function _displayModal () {
   getFocus()
 }
 
-const contactButton = document.querySelector('.form_open_button')
+const contactButton = document.querySelector('.form-open-button')
 // * FERMETURE FORMULAIRE
 function closeModal () {
-  const modal = document.getElementById('contact_modal')
+  const modal = document.getElementById('contact-modal')
   modal.style.display = 'none'
   modal.setAttribute('aria-hidden', 'true')
   mainContent.setAttribute('aria-hidden', 'false')
@@ -44,7 +44,7 @@ const firstName = document.querySelector('#firstname')
 const lastName = document.querySelector('#lastname')
 const email = document.querySelector('#email')
 const message = document.querySelector('#contact-message')
-const myForm = document.querySelector('#contact_form')
+const myForm = document.querySelector('#contact-form')
 
 // * Messages erreur
 

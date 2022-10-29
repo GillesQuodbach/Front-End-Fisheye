@@ -6,7 +6,7 @@
   <meta name="description"
     content="FishEye est un site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet">
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -15,22 +15,22 @@
 
 <body>
   <header>
-    <a href="index.html">
-      <img alt="FishEye Home page" src="assets/images/logo.png" class="logo">
+    <a href="index.html" tabindex="-1">
+      <img alt="FishEye Home page" src="assets/images/logo.png" class="logo" tabindex="0">
     </a>
   </header>
   <main id="main" aria-hidden="false" onclick='closeDropdown()'>
     <div class="photograph-header">
-      <button aria-label="Ouvrir le formulaire de contact" class="contact_button form_open_button"
+      <button aria-label="Ouvrir le formulaire de contact" class="contact-button form-open-button"
         onclick="_displayModal()">Contactez-moi</button>
     </div>
 
     <!-- * FIXED INFOS -->
 
-    <div class="bottom_fixed_infos" tabindex="0">
-      <p class="fixed_likes"></p>
+    <div class="bottom-fixed-infos" tabindex="0">
+      <p class="fixed-likes"></p>
       <em class="fa-sharp fa-solid fa-heart" aria-label="likes"></em>
-      <p class="fixed_price"></p>
+      <p class="fixed-price"></p>
     </div>
 
     <!-- * SELECT DROPDOWN MENU -->
@@ -50,7 +50,7 @@
         </li>
       </ul>
     </div>
-    <section id="photograph_gallery">
+    <section id="photograph-gallery">
 
       <!-- * PHOTOGRAPH GALLERY HERE-->
 
@@ -59,7 +59,7 @@
 
   <!-- * CONTACT MODAL -->
 
-  <div id="contact_modal" role="dialog" aria-labelledby="contact-modal-name" aria-hidden="true">
+  <div id="contact-modal" role="dialog" aria-labelledby="contact-modal-name" aria-hidden="true">
     <div class="modal">
       <header id="modal-header">
         <div id="contact-modal-name">
@@ -72,26 +72,28 @@
 
       <!-- * FORM -->
 
-      <form id="contact_form" name="contact_form" method="get" action="index.html" onsubmit="return validate();">
-        <div role="group" id="all_inputs_container">
+      <form id="contact-form" name="contact-form" method="get" action="index.html" onsubmit="return validate();">
+        <div role="group" id="all-inputs-container">
           <label for="firstname">Prénom
-            <input type="text" id="firstname" name="firstname" autocomplete="on" aria-invalid="false">
+            <input type="text" id="firstname" name="firstname" autocomplete="on" aria-invalid="false"
+              aria-placeholder="Prénom">
             <span class="firstname-error error-msg"></span>
           </label>
           <label for="lastname">Nom
-            <input type="text" id="lastname" name="lastname" autocomplete="on" aria-invalid="false">
+            <input type="text" id="lastname" name="lastname" autocomplete="on" aria-invalid="false"
+              aria-placeholder="nom">
             <span class="lastname-error error-msg"></span>
           </label>
           <label for="email">Email
-            <input type="email" id="email" name="email" autocomplete="on" aria-invalid="false">
+            <input type="email" id="email" name="email" autocomplete="on" aria-invalid="false" aria-placeholder="Email">
             <span class="email-error error-msg"></span>
           </label>
           <label for="contact-message">Votre message
-            <textarea id="contact-message" name="contact-message" form="contact_form" aria-invalid="false"></textarea>
+            <textarea id="contact-message" name="contact-message" form="contact-form" aria-invalid="false"></textarea  aria-placeholder="Votre message">
             <span class="contact-message-error error-msg"></span>
           </label>
         </div>
-        <button type="submit" class="contact_button" aria-label="Envoyer le formulaire">Envoyer</button>
+        <button type="submit" class="contact-button" aria-label="Envoyer le formulaire">Envoyer</button>
       </form>
     </div>
   </div>
@@ -99,14 +101,14 @@
   <!--* LIGHTBOX -->
 
   <div class="lightbox" aria-label="Vu détaillée de l'image" aria-hidden="true">
-    <button class="lightbox_close" aria-label="Fermer modale">X</button>
-    <button class="lightbox_next" aria-label="Image suivante">Next</button>
-    <button class="lightbox_previous" aria-label="Image précédente">Prev</button>
-    <div class="lightbox_container">
+    <button class="lightbox-close" aria-label="Fermer modale">X</button>
+    <button class="lightbox-next" aria-label="Image suivante">Next</button>
+    <button class="lightbox-previous" aria-label="Image précédente">Prev</button>
+    <div class="lightbox-container">
       <div class="lightbox-media-container">
-        <img src="#" class="lightbox_picture show" alt="No description yet">
-        <video src="#" class="lightbox_video" alt="No description yet"></video>
-        <p class="lightbox_media_title"></p>
+        <img src="#" class="lightbox-picture show" alt="No description yet">
+        <video src="#" class="lightbox-video" alt="No description yet"></video>
+        <p class="lightbox-media-title"></p>
       </div>
     </div>
   </div>

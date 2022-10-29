@@ -1,5 +1,5 @@
 /*! MISE EN FORME MODALE DE CONTACT */
-#contact_modal {
+#contact-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -66,7 +66,7 @@ form {
     align-items: flex-start;
 }
 
-#all_inputs_container {
+#all-inputs-container {
     margin-top: 50px;
 }
 
@@ -124,12 +124,12 @@ form textarea {
     justify-content: center;
 }
 
-.detail_profile_image {
+.detail-profile-image {
     background-color: aquamarine;
     margin: auto;
 }
 
-.contact_button {
+.contact-button {
     font-size: 20px;
     font-weight: 700;
     color: white;
@@ -142,20 +142,20 @@ form textarea {
     cursor: pointer;
 }
 
-.form_open_button:hover {
+.form-open-button:hover {
     background-color: #DB8876;
     color: black;
     ;
 }
 
-.photograph_profile_photo {
+.photograph-profile-photo {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.photograph_profile_name {
+.photograph-profilename {
     color: #D3573C;
     font-size: 50px;
     font-weight: 400;
@@ -165,7 +165,7 @@ form textarea {
 
 }
 
-.photograph_profile_living_place {
+.photograph-profile-living-place {
     color: #901C1C;
     font-size: 24px;
     font-weight: 400;
@@ -174,14 +174,25 @@ form textarea {
 
 }
 
-.photograph_profile_tagline {
+.photograph-profile-tagline {
     color: #525252;
     font-size: 18px;
     margin: 0;
 }
 
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+figcaption {
+    margin: 0;
+    padding: 0;
+}
+
 /*! PHOTOGRAPH GALLERY */
-#photograph_gallery {
+#photograph-gallery {
     height: auto;
     margin: 50px 100px 100px 100px;
     display: grid;
@@ -191,14 +202,14 @@ form textarea {
     column-gap: 5%;
 }
 
-#photograph_gallery article {
+#photograph-gallery article {
     min-width: 30%;
     max-width: 100%;
     height: 320px;
     border-radius: 5px;
 }
 
-.cards_image {
+.cards-image {
     min-width: 100%;
     max-width: 100%;
     height: 300px;
@@ -206,7 +217,7 @@ form textarea {
     object-fit: cover;
 }
 
-.cards_infos_container {
+.cards-infos-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -233,8 +244,8 @@ form textarea {
     line-height: 40px;
 }
 
-.cards_title,
-.card_likes {
+.cards-title,
+.card-likes {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 18px;
@@ -243,13 +254,13 @@ form textarea {
 
 }
 
-.cards_likes {
+.cards-likes {
     margin-left: auto;
 }
 
 
 /* Fixed infos */
-.bottom_fixed_infos {
+.bottom-fixed-infos {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -268,10 +279,10 @@ form textarea {
     font-weight: 600;
 }
 
-.bottom_fixed_infos em {
+.bottom-fixed-infos em {
     margin-left: 5px;
 }
 
-.bottom_price {
+.bottom-price {
     margin-left: auto;
 }

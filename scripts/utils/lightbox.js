@@ -1,6 +1,6 @@
 const lightbox = document.querySelector('.lightbox')
-const lightboxImg = document.querySelector('.lightbox_picture')
-const loadedGallery = document.querySelector('#photograph_gallery') // Attente du chargement de la page
+const lightboxImg = document.querySelector('.lightbox-picture')
+const loadedGallery = document.querySelector('#photograph-gallery') // Attente du chargement de la page
 const observer = new MutationObserver(modifDomGallery)
 observer.observe(loadedGallery, { childList: true })
 
@@ -11,18 +11,16 @@ function incLikesClicks () {
       const thisId = e.target.dataset.id
       console.log(thisId)
       const thisArticle = document.getElementById(`${thisId}`)
-      const thisArticleLikes = thisArticle.querySelector('.cards_likes')
-      const bottomTotalLikes = document.querySelector('.bottom_likes')
+      const thisArticleLikes = thisArticle.querySelector('.cards-likes')
+      const bottomTotalLikes = document.querySelector('.bottom-likes')
       console.log(bottomTotalLikes.innerHTML)
-      // e.target.classList.toggle('cardHeart-no')
-      if (e.target.classList.contains('cardHeart-yes')) {
-        alert('Vous avez déja liké cette photo')
+      if (e.target.classList.contains('cards-heart-yes')) {
+        console.log('Vous avez déja liké cette photo')
       } else {
-        e.target.classList.toggle('cardHeart-yes')
+        e.target.classList.toggle('cards-heart-yes')
         thisArticleLikes.innerHTML++
         bottomTotalLikes.innerHTML++
-        e.target.classList.add('cardHeart-yes')
-        // e.target.classList.remove('cardHeart-no')
+        e.target.classList.add('cards-heart-yes')
       }
     })
   })
@@ -32,24 +30,22 @@ function modifDomGallery (mutations) {
   incLikesClicks()
   incLikesClicksWithEnter ()
 
-  const completePhotographGallery = document.querySelector('#photograph_gallery')
-  const photographProfilePhoto = document.querySelector('.photograph_profile_photo')
-  // Quand le premier noeud enfant va être focus (focus in) ferme le menu dropdown
-  completePhotographGallery.querySelector('.gallery_cards').addEventListener('focusin', function() {
+  const completePhotographGallery = document.querySelector('#photograph-gallery')
+  completePhotographGallery.querySelector('.gallery-cards').addEventListener('focusin', function() {
       dropdownMenu.classList.remove('show')
       dropdownToggle.classList.remove('open')
       console.log('Marche Sortie')
   })
   for (const mutation of mutations) {
     if (mutation.type === 'childList') {
-      const gallery = document.querySelectorAll('.cards_image')
+      const gallery = document.querySelectorAll('.cards-image')
       const totalGallery = gallery.length
       const mainContent = document.querySelector('#main')
-      const lightboxVideo = document.querySelector('.lightbox_video')
-      const lightboxTitle = document.querySelector('.lightbox_media_title')
-      const closeButton = document.querySelector('.lightbox_close')
-      const prevBtn = document.querySelector('.lightbox_previous')
-      const nextBtn = document.querySelector('.lightbox_next')
+      const lightboxVideo = document.querySelector('.lightbox-video')
+      const lightboxTitle = document.querySelector('.lightbox-media-title')
+      const closeButton = document.querySelector('.lightbox-close')
+      const prevBtn = document.querySelector('.lightbox-previous')
+      const nextBtn = document.querySelector('.lightbox-next')
       for (let i = 0; i < gallery.length; i++) {
         let newIndex = i
         const clickedImgIndex = ''
@@ -151,7 +147,7 @@ function modifDomGallery (mutations) {
       //* Ouverture lightbox au cliavier
 
       function openLightBoxWithEnter () {
-      const galleryImages = document.querySelectorAll('.cards_image')
+      const galleryImages = document.querySelectorAll('.cards-image')
       console.log(galleryImages)
       galleryImages.forEach((img) => {
           img.addEventListener('keydown', (e) => {
@@ -161,7 +157,7 @@ function modifDomGallery (mutations) {
           })})
       }
 
-      const galleryImages = document.querySelectorAll('.cards_image')
+      const galleryImages = document.querySelectorAll('.cards-image')
       for (let i = 0; i < galleryImages.length; i++) {
         let newIndex = i
         const clickedImgIndex = ''

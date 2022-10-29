@@ -17,7 +17,7 @@
 }
 
 /* Bouton NEXT */
-.lightbox_next {
+.lightbox-next {
     display: block;
     border: none;
     background: url(/assets/icons/arrow.svg) center center / 20px 38px no-repeat;
@@ -34,7 +34,7 @@
 }
 
 /* Bouton PREVIOUS */
-.lightbox_previous {
+.lightbox-previous {
     display: block;
     border: none;
     background: url(/assets/icons/arrow.svg) center center / 20px 38px no-repeat;
@@ -62,19 +62,19 @@
 }
 
 /* Bouton CLOSE */
-.lightbox_close {
+.lightbox-close {
     border: none;
     background: url(/assets/icons/lb_close.svg) center center /100% 100% no-repeat transparent;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     position: fixed;
     top: 20px;
-    right: 25px;
+    right: 35px;
     z-index: 20000;
 }
 
 /* CONTAINER de la lightbox */
-.lightbox_container {
+.lightbox-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,8 +90,8 @@
     /* Firefox */
 }
 
-.lightbox_picture,
-.lightbox_video {
+.lightbox-picture,
+.lightbox-video {
 
     display: none;
     max-height: 500px;
@@ -101,19 +101,19 @@
 }
 
 /* Affichage photos ou video */
-.lightbox_picture.show {
+.lightbox-picture.show {
     display: block;
 
 }
 
-.lightbox_video.show {
+.lightbox-video.show {
     display: block;
 }
 
-.lightbox_media_title {
+.lightbox-media-title {
     margin-right: auto;
     color: #901C1C;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
 }
 

@@ -13,8 +13,10 @@ function galleryFactory (data) {
     const data = await response.json()
     const mediasArray = data.media
     mediasArray.filter((el) => el.photographerId == id) 
+
+    // Gestion du total des likes
     const allPhotographLikesArray = []
-    const allCardLikes = document.querySelectorAll('.cards_likes')
+    const allCardLikes = document.querySelectorAll('.cards-likes')
     allCardLikes.forEach((heart) => {
       allPhotographLikesArray.push(parseInt(heart.dataset.likes))
     })
@@ -22,7 +24,7 @@ function galleryFactory (data) {
     for (let i = 0; i < allPhotographLikesArray.length; i++) {
       sum += allPhotographLikesArray[i]
     }
-    const totalBottomLikes = document.querySelector('.bottom_likes')
+    const totalBottomLikes = document.querySelector('.bottom-likes')
     totalBottomLikes.innerHTML = sum
   }
   getTotalLikes()
@@ -32,31 +34,27 @@ function galleryFactory (data) {
     const { date, id, video, likes, photographerId, price, title } = data
     const clip = `assets/images/${video}`
     function getImageDOM () {
-      const article = document.createElement('article')
+      const article = document.createElement('figure')
       article.setAttribute('id', id)
-      article.setAttribute('data-likes', `${likes}`)
-      article.setAttribute('data-date', `${date}`)
-      article.setAttribute('data-title', `${title}`)
-      article.setAttribute('class', 'gallery_cards')
+      article.setAttribute('class', 'gallery-cards')
       const vids = document.createElement('video')
       vids.setAttribute('src', clip)
       vids.setAttribute('muted', 'muted')
-      article.setAttribute('class', 'gallery_cards')
-      vids.className = 'cards_image'
+      article.setAttribute('class', 'gallery-cards')
+      vids.className = 'cards-image'
       vids.setAttribute('alt', `${title} vue détaillée`)
       vids.setAttribute('tabindex', '0')
       // vids.setAttribute('poster', 'assets/images/miniatures/vignetteVideoMimi.png')
-      const cardInfosContainer = document.createElement('div')
-      cardInfosContainer.className = 'cards_infos_container'
+      const cardInfosContainer = document.createElement('figcaption')
+      cardInfosContainer.className = 'cards-infos-container'
       const h2 = document.createElement('h2')
       h2.textContent = title
-      h2.className = 'cards_title'
+      h2.className = 'cards-title'
       h2.setAttribute('tabindex', '0')
       const like = document.createElement('p')
       like.textContent = likes
-      like.className = 'cards_likes'
+      like.className = 'cards-likes'
       like.setAttribute('data-likes', `${likes}`)
-      like.setAttribute('tabindex', '0')
       const heartTag = document.createElement('i')
       heartTag.className = 'fa-sharp fa-solid fa-heart likes-heart'
       heartTag.setAttribute('data-id', `${id}`)
@@ -87,28 +85,24 @@ function galleryFactory (data) {
   const picture = `assets/images/${image}`
   //*  Création de la carte de chaque photographe
   function getImageDOM () {
-    const article = document.createElement('article')
+    const article = document.createElement('figure')
     article.setAttribute('id', id)
-    article.setAttribute('class', 'gallery_cards')
-    article.setAttribute('data-likes', `${likes}`)
-    article.setAttribute('data-date', `${date}`)
-    article.setAttribute('data-title', `${title}`)
+    article.setAttribute('class', 'gallery-cards')
     const img = document.createElement('img')
     img.setAttribute('src', picture)
-    img.className = 'cards_image'
+    img.className = 'cards-image'
     img.setAttribute('alt', `${title} vue détaillée`)
     img.setAttribute('tabindex', '0')
-    const cardInfosContainer = document.createElement('div')
-    cardInfosContainer.className = 'cards_infos_container'
+    const cardInfosContainer = document.createElement('figcaption')
+    cardInfosContainer.className = 'cards-infos-container'
     const h2 = document.createElement('h2')
     h2.textContent = title
-    h2.className = 'cards_title'
+    h2.className = 'cards-title'
     h2.setAttribute('tabindex', '0')
     const like = document.createElement('p')
     like.textContent = likes
-    like.className = 'cards_likes'
+    like.className = 'cards-likes'
     like.setAttribute('data-likes', `${likes}`)
-    like.setAttribute('tabindex', '0')
     document.createElement('span')
     const heartTag = document.createElement('i')
     heartTag.className = 'fa-sharp fa-solid fa-heart likes-heart'

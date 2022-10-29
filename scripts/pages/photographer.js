@@ -26,7 +26,7 @@ async function displayPhotographersProfils (photographer) {
 async function initProfils () {
   const { photographers } = await getPhotographersProfils()
   await displayPhotographersProfils(photographers)
-   const photographProfilePhoto = document.querySelector('.photograph_profile_photo')
+   const photographProfilePhoto = document.querySelector('.photograph-profile-photo')
    photographProfilePhoto.addEventListener('focusin', function() {
        dropdownMenu.classList.remove('show')
        dropdownToggle.classList.remove('open')
@@ -61,7 +61,7 @@ async function getGalleryItems () {
 }
 function displayGallery (medias) {
   // console.log(medias)
-  const gallerySection = document.querySelector('#photograph_gallery')
+  const gallerySection = document.querySelector('#photograph-gallery')
   gallerySection.innerHTML = ''
   medias.forEach((media) => {
     const photographerGallery = galleryFactory(media)
@@ -100,7 +100,7 @@ function sortedByIdDate () {
   // Affichage des données des photographes
   function displayGallery (medias) {
     // console.log(medias)
-    const gallerySection = document.querySelector('#photograph_gallery')
+    const gallerySection = document.querySelector('#photograph-gallery')
     gallerySection.innerHTML = ''
     medias.forEach((media) => {
       const photographerGallery = galleryFactory(media)
@@ -136,7 +136,7 @@ function sortedByIdTitle () {
     }
   }
   function displayGallery (medias) {
-    const gallerySection = document.querySelector('#photograph_gallery')
+    const gallerySection = document.querySelector('#photograph-gallery')
     gallerySection.innerHTML = ''
     medias.forEach((media) => {
       const photographerGallery = galleryFactory(media)
@@ -175,7 +175,7 @@ function sortedByIdLikes () {
   }
   function displayGallery (medias) {
     // console.log(medias)
-    const gallerySection = document.querySelector('#photograph_gallery')
+    const gallerySection = document.querySelector('#photograph-gallery')
     gallerySection.innerHTML = ''
     medias.forEach((media) => {
       const photographerGallery = galleryFactory(media)

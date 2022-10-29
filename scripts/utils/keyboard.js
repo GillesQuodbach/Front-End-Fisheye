@@ -4,7 +4,7 @@ const dropdownBtn = document.querySelector('#dropdown-trigger')
 const dropdownListTitle = document.querySelector('#dropdown-title')
 const dropdownListDate = document.querySelector('#dropdown-date')
 const dropdownMenu = document.querySelector('.dropdown-menu')
-const fixedInfosContainer = document.querySelector('.bottom_fixed_infos')
+const fixedInfosContainer = document.querySelector('.bottom-fixed-infos')
 
 //*Ouverture dropdown au focus (TAB)
 dropdownBtn.addEventListener('focus', function() {
@@ -77,25 +77,25 @@ function incLikesClicksWithEnter () {
         const thisId = e.target.dataset.id
         console.log(thisId)
         const thisArticle = document.getElementById(`${thisId}`)
-        const thisArticleLikes = thisArticle.querySelector('.cards_likes')
-        const bottomTotalLikes = document.querySelector('.bottom_likes')
+        const thisArticleLikes = thisArticle.querySelector('.cards-likes')
+        const bottomTotalLikes = document.querySelector('.bottom-likes')
         console.log(bottomTotalLikes.innerHTML)
-        // e.target.classList.toggle('cardHeart-no')
-        if (e.target.classList.contains('cardHeart-yes')) {
+        // e.target.classList.toggle('cards-heart-no')
+        if (e.target.classList.contains('cards-heart-yes')) {
           alert('Vous avez déja liké cette photo')
         } else {
-          e.target.classList.toggle('cardHeart-yes')
+          e.target.classList.toggle('cards-heart-yes')
           thisArticleLikes.innerHTML++
           bottomTotalLikes.innerHTML++
-          e.target.classList.add('cardHeart-yes')
-          // e.target.classList.remove('cardHeart-no')
+          e.target.classList.add('cards-heart-yes')
+          // e.target.classList.remove('cards-heart-no')
         }
       }})
     })
   }
 
   const closeFormModalCross = document.querySelector('.close-modal-cross')
-const formModal = document.querySelector('#contact_modal')
+const formModal = document.querySelector('#contact-modal')
 
 // * Fermeture du formulaire avec Esc
 
