@@ -26,17 +26,17 @@ h1 {
     z-index: 9999;
 }
 
-/* PARTIE PHOTOGRAPHER_SECTION */
+/* PARTIE PHOTOGRAPHER-SECTION */
 /* block principal */
-.photographer_section {
+.photographer-section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+    gap: 40px;
+    margin-top: 50px;
 }
 
 /* article complet */
-.photographer_section article {
+.photographer-section figure {
     justify-self: center;
     display: flex;
     justify-content: center;
@@ -44,7 +44,7 @@ h1 {
     flex-direction: column;
 }
 
-.photographer_section article h2 {
+.photographer-section figure h2 {
     color: #D3573C;
     font-size: 36px;
     font-weight: 400;
@@ -53,7 +53,7 @@ h1 {
     text-align: center;
 }
 
-.photographer_section article img {
+.photographer-section figure img {
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -66,7 +66,7 @@ h1 {
 
 
 .living-place,
-.tagline,
+.tag-line,
 .price {
     margin: 0;
 }
@@ -78,8 +78,8 @@ h1 {
     margin-bottom: 5px;
 }
 
-/*Tagline*/
-.tagline {
+/*Tag-line*/
+.tag-line {
     font-size: 10px;
     margin-bottom: 3px;
 }
@@ -98,4 +98,7 @@ h1 {
 
 }
 
-/* Lightbox */
+.photograph-profile {
+    justify-content: center;
+    align-items: center;
+}

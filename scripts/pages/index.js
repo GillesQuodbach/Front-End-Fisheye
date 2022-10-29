@@ -13,13 +13,13 @@ async function getPhotographers () {
   }
 }
 async function displayData (photographers) {
-  const photographersSection = document.querySelector('.photographer_section')
+  const photographersSection = document.querySelector('.photographer-section')
   photographers.forEach((photographer) => {
     const photographerModel = _photographerFactory(photographer)
     const userCardDOM = photographerModel.getUserCardDOM()
     photographersSection.appendChild(userCardDOM)
   })
-  const cardsLinks = document.querySelectorAll('.cardsLink')
+  const cardsLinks = document.querySelectorAll('.cards-container')
   cardsLinks.forEach((cardsLink) =>
     cardsLink.addEventListener('click', () => {
       window.location = `photographer.html?id=${cardsLink.id}`

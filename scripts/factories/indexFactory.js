@@ -6,9 +6,9 @@ function _photographerFactory (data) {
     // Création de la carte de chaque photographe
     function getUserCardDOM () {
       // Cards container
-      const article = document.createElement('article')
+      const article = document.createElement('figure')
       article.setAttribute('id', id)
-      article.setAttribute('class', 'cardsLink')
+      article.setAttribute('class', 'cards-container')
       const readerLink = document.createElement('div')
       readerLink.setAttribute('class', 'photograph-profile')
       readerLink.setAttribute('role', 'link')
@@ -16,22 +16,23 @@ function _photographerFactory (data) {
       readerLink.setAttribute('tabindex', '0')
       const img = document.createElement('img')
       img.setAttribute('src', picture)
-      img.className = 'detail_profile_image'
+      img.className = 'detail-profile-image'
       img.setAttribute('alt', `Photo de ${name}`)
       // Photographer name
       const h2 = document.createElement('h2')
       h2.textContent = name
       h2.className = 'name'
       // Photographers living place
-      const profileText = document.createElement('div')
+      const profileText = document.createElement('figcaption')
       profileText.setAttribute('class', 'profile-text')
+      profileText.setAttribute('tabindex', '0')
       const livingPlace = document.createElement('p')
       livingPlace.innerHTML = `${city}, ${country}`
       livingPlace.className = 'living-place'
-      // Photographers tagline
+      // Photographers tag-line
       const tag = document.createElement('p')
       tag.textContent = tagline
-      tag.className = 'tagline'
+      tag.className = 'tag-line'
       // Photographers price
       const cost = document.createElement('p')
       cost.textContent = `${price}€/jour`
