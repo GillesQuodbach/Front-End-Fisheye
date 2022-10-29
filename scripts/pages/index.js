@@ -26,8 +26,26 @@ async function displayData (photographers) {
     })
   )
     }
-
-init() 
+    async function init () {
+      const { photographers } = await getPhotographers()
+      await displayData(photographers)
+         // *Gestion du clavier pour ajouter un like
+          function openPhotographGalleryWithEnter () {
+          const hearts = document.querySelectorAll('.photograph-profile')
+          console.log(hearts)
+          console.log('hearts')
+          hearts.forEach((heart) => {
+            heart.addEventListener('keydown', (e) => {
+              if((e.target === document.activeElement) && (e.key === 'Enter')){
+                    window.location = `photographer.html?id=${e.target.parentElement.id}`
+                    // console.log(e.target.parentElement.id)
+            }})
+          })
+        }
+        openPhotographGalleryWithEnter ()
+    }
+    
+    init() 
 
 
 
