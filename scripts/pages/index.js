@@ -19,12 +19,12 @@ async function displayData (photographers) {
     const userCardDOM = photographerModel.getUserCardDOM()
     photographersSection.appendChild(userCardDOM)
   })
-  const cardsLinks = document.querySelectorAll('.cards-container')
-  cardsLinks.forEach((cardsLink) =>
-    cardsLink.addEventListener('click', () => {
-      window.location = `photographer.html?id=${cardsLink.id}`
-    })
-  )
+  // const cardsLinks = document.querySelectorAll('.cards-container')
+  // cardsLinks.forEach((cardsLink) =>
+  //   cardsLink.addEventListener('click', () => {
+  //     window.location = `photographer.html?id=${cardsLink.id}`
+  //   })
+  // )
     }
     async function init () {
       const { photographers } = await getPhotographers()

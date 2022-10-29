@@ -9,15 +9,16 @@ function _photographerFactory (data) {
       const article = document.createElement('figure')
       article.setAttribute('id', id)
       article.setAttribute('class', 'cards-container')
-      const readerLink = document.createElement('div')
+      const readerLink = document.createElement('a')
       readerLink.setAttribute('class', 'photograph-profile')
-      readerLink.setAttribute('role', 'link')
+      readerLink.setAttribute('href', `photographer.html?id=${this.id}`)
+      // readerLink.setAttribute('role', 'link')
       readerLink.setAttribute('aria-label', `${name} `)
       readerLink.setAttribute('tabindex', '0')
       const img = document.createElement('img')
       img.setAttribute('src', picture)
       img.className = 'detail-profile-image'
-      img.setAttribute('alt', `Photo de ${name}`)
+      img.setAttribute('alt', '')
       // Photographer name
       const h2 = document.createElement('h2')
       h2.textContent = name

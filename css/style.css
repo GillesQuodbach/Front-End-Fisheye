@@ -2,6 +2,11 @@
 @import url("lightbox.css");
 @import url("dropdown-menu.css");
 
+
+a:link {
+    text-decoration: none
+}
+
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
