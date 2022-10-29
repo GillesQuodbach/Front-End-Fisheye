@@ -28,8 +28,6 @@ function incLikesClicks () {
   })
 }
 
-
-
 function modifDomGallery (mutations) {
   incLikesClicks()
   incLikesClicksWithEnter ()
@@ -91,29 +89,22 @@ function modifDomGallery (mutations) {
             // décrément l'index
             if (newIndex == 0) {
               preview()
-              prevBtn.style.display = 'block'
             } else {
               newIndex--
               preview()
-              nextBtn.style.display = 'block'
             }
           }
-          // Défilement photos suivantes
           nextBtn.onclick = () => {
             if (newIndex >= totalGallery - 1) {
               preview()
-              nextBtn.style.display = 'block'
             } else {
-              newIndex++ // décrément l'index
+              newIndex++
               preview()
-              prevBtn.style.display = 'block'
             }
           }
           lightbox.classList.add('show')
           closeButton.onclick = () => {
             newIndex = clickedImgIndex
-            prevBtn.style.display = 'block'
-            nextBtn.style.display = 'block'
             lightbox.classList.remove('show')
             lightbox.setAttribute('aria-hidden', 'true')
             mainContent.setAttribute('aria-hidden', 'false')
@@ -135,11 +126,9 @@ function modifDomGallery (mutations) {
               // décrément l'index
               if (newIndex == 0) {
                 preview()
-                prevBtn.style.display = 'block'
               } else {
                 newIndex--
                 preview()
-                nextBtn.style.display = 'block'
               }
             }
             if (
@@ -148,11 +137,9 @@ function modifDomGallery (mutations) {
             ) {
               if (newIndex >= totalGallery - 1) {
                 preview()
-                nextBtn.style.display = 'block'
               } else {
                 newIndex++
                 preview()
-                prevBtn.style.display = 'block'
               }
             }
             
@@ -216,28 +203,22 @@ function modifDomGallery (mutations) {
           prevBtn.onclick = () => {
             if (newIndex == 0) {
               preview()
-              prevBtn.style.display = 'block'
             } else {
               newIndex--
               preview()
-              nextBtn.style.display = 'block'
             }
           }
           nextBtn.onclick = () => {
             if (newIndex >= totalGallery - 1) {
               preview()
-              nextBtn.style.display = 'block'
             } else {
               newIndex++
               preview()
-              prevBtn.style.display = 'block'
             }
           }
           lightbox.classList.add('show')
           closeButton.onclick = () => {
             newIndex = clickedImgIndex
-            prevBtn.style.display = 'block'
-            nextBtn.style.display = 'block'
             lightbox.classList.remove('show')
             lightbox.setAttribute('aria-hidden', 'true')
             mainContent.setAttribute('aria-hidden', 'false')
@@ -258,11 +239,9 @@ function modifDomGallery (mutations) {
             ) {
               if (newIndex == 0) {
                 preview()
-                prevBtn.style.display = 'block'
               } else {
                 newIndex--
                 preview()
-                nextBtn.style.display = 'block'
               }
             }
             if (
@@ -271,11 +250,9 @@ function modifDomGallery (mutations) {
             ) {
               if (newIndex >= totalGallery - 1) {
                 preview()
-                nextBtn.style.display = 'block'
               } else {
                 newIndex++
                 preview()
-                prevBtn.style.display = 'block'
               }
             }
             

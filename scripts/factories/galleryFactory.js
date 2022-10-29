@@ -3,6 +3,8 @@
 //  ? FACTORY DE LA GALERIE PHOTOGRAPHER
 //  ? ===================================
 function galleryFactory (data) {
+
+  // Affichage du total des likes
   async function getTotalLikes () {
     const queryStringUrlId = window.location.search
     const urlSearchParams = new URLSearchParams(queryStringUrlId)
@@ -24,6 +26,7 @@ function galleryFactory (data) {
     totalBottomLikes.innerHTML = sum
   }
   getTotalLikes()
+
   const videoInList = data.video
   if (videoInList !== undefined) {
     const { date, id, video, likes, photographerId, price, title } = data
@@ -42,6 +45,7 @@ function galleryFactory (data) {
       vids.className = 'cards_image'
       vids.setAttribute('alt', `${title} vue détaillée`)
       vids.setAttribute('tabindex', '0')
+      // vids.setAttribute('poster', 'assets/images/miniatures/vignetteVideoMimi.png')
       const cardInfosContainer = document.createElement('div')
       cardInfosContainer.className = 'cards_infos_container'
       const h2 = document.createElement('h2')
@@ -59,8 +63,6 @@ function galleryFactory (data) {
       heartTag.setAttribute('role', 'text')
       heartTag.setAttribute('aria-label', 'likes')
       heartTag.setAttribute('tabindex', '0')
-      // ? RAJOUTER PRIX ET CUMUL DES LIKES
-
       // Création de la card
       article.appendChild(vids)
       article.appendChild(cardInfosContainer)
