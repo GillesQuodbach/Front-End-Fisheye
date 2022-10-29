@@ -18,7 +18,6 @@ async function _displayModal () {
     sortedById[photographersData[i].id] = photographersData[i]
   }
   const photographerName = sortedById[id].name
-  console.log(photographerName)
   const name = document.querySelector('.photograph-contact-name')
   name.innerText = `${photographerName}`
 

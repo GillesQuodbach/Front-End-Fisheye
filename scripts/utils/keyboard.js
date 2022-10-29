@@ -4,8 +4,8 @@ const dropdownBtn = document.querySelector('#dropdown-trigger')
 const dropdownListTitle = document.querySelector('#dropdown-title')
 const dropdownListDate = document.querySelector('#dropdown-date')
 const dropdownComplet = document.querySelector('#dropdown')
-
-//
+const dropdownMenu = document.querySelector('.dropdown-menu')
+const fixedInfosContainer = document.querySelector('.bottom_fixed_infos')
 
 //*Ouverture dropdown au focus (TAB)
 dropdownBtn.addEventListener('focus', function() {
@@ -46,6 +46,12 @@ document.onkeydown = function(e) {
         dropdownToggle.classList.remove('open')
     }
 }
+
+fixedInfosContainer.addEventListener('focusin', function(e) {
+  dropdownMenu.classList.remove('show')
+  dropdownToggle.classList.remove('open')
+  console.log('Marche 1')
+})
 
 // *Gestion du clavier pour ajouter un like
 

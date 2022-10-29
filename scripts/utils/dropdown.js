@@ -4,6 +4,7 @@ const dropdownToggle = document.querySelector('.dropdown-toggle')
 const dropdownMenu = document.querySelector('.dropdown-menu')
 const dropdownArrow = document.querySelector('.dropdown-arrow')
 const dropdownTrigger = document.querySelector('#dropdown-trigger')
+const main = document.querySelector('#main')
 
 // article.setAttribute('data-likes', `${likes}`)
 // Ouverture/fermeture menu
@@ -33,7 +34,19 @@ dropdownMenu.addEventListener('mouseout', function () {
   dropdownToggle.classList.toggle('open')
   dropdownArrow.classList.toggle('reverse')
   dropdownTrigger.setAttribute('aria-expanded', 'false')
-})
+})  
+
+dropdownMenu.addEventListener('blur', function () {
+  if ((dropdownBtn.classList.contains('open'))){
+    dropdownMenu.classList.remove('show')
+    dropdownToggle.classList.remove('open')
+}
+  })   
+// dropdownMenu.addEventListener('focusout', function(e) {
+//   dropdownMenu.classList.remove('show')
+//   dropdownToggle.classList.remove('open')
+//   console.log('Marche 1')
+// })
 
 //  * BOUTON TRI date
 document.querySelector('.dropdown-date').addEventListener('click', () => {
