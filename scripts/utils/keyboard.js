@@ -1,9 +1,8 @@
 // Ouverture dropdown au focus
-const body = document.querySelector('#body')
+window.onload = () => {
 const dropdownBtn = document.querySelector('#dropdown-trigger')
 const dropdownListTitle = document.querySelector('#dropdown-title')
 const dropdownListDate = document.querySelector('#dropdown-date')
-const dropdownComplet = document.querySelector('#dropdown')
 const dropdownMenu = document.querySelector('.dropdown-menu')
 const fixedInfosContainer = document.querySelector('.bottom_fixed_infos')
 
@@ -52,6 +51,14 @@ fixedInfosContainer.addEventListener('focusin', function(e) {
   dropdownToggle.classList.remove('open')
   console.log('Marche 1')
 })
+}
+// * Fermeture du dropDownMenu au clic sur main
+function closeDropdown() {
+  dropdownMenu.classList.remove('show')
+  dropdownToggle.classList.remove('open')
+  console.log('Dropdown OK')
+}
+
 
 // *Gestion du clavier pour ajouter un like
 
