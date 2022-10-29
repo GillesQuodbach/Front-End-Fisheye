@@ -32,11 +32,18 @@ dropdownListTitle.addEventListener('focusin', function(e) {
 dropdownListDate.addEventListener('keydown', function(e) { 
     if (e.key == 'Enter') {
         sortedByIdDate()
+        dropdownMenu.classList.remove('show')
+        dropdownToggle.classList.remove('open')
+        
+        
 }})
 
 dropdownListTitle.addEventListener('keydown', function(e) { 
     if (e.key == 'Enter') {
         sortedByIdTitle()
+        dropdownMenu.classList.remove('show')
+        dropdownToggle.classList.remove('open')
+      
 }})
 
 document.onkeydown = function(e) {

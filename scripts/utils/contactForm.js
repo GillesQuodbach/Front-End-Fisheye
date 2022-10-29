@@ -28,12 +28,14 @@ async function _displayModal () {
   getFocus()
 }
 
+const contactButton = document.querySelector('.form_open_button')
 // * FERMETURE FORMULAIRE
 function closeModal () {
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'none'
   modal.setAttribute('aria-hidden', 'true')
   mainContent.setAttribute('aria-hidden', 'false')
+  contactButton.focus()
 }
 
 // * Validation et récupération infos formulaire
