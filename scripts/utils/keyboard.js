@@ -1,71 +1,59 @@
 // Ouverture dropdown au focus
 window.onload = () => {
-const dropdownBtn = document.querySelector('#dropdown-trigger')
+const dropdownTrigger = document.querySelector('#dropdown-trigger')
 const dropdownListTitle = document.querySelector('#dropdown-title')
 const dropdownListDate = document.querySelector('#dropdown-date')
 const dropdownMenu = document.querySelector('.dropdown-menu')
 const fixedInfosContainer = document.querySelector('.bottom-fixed-infos')
 
 //*Ouverture dropdown au focus (TAB)
-dropdownBtn.addEventListener('focus', function() {
+dropdownTrigger.addEventListener('focus', function() {
         dropdownMenu.classList.add('show') //Listbox active
-        dropdownToggle.classList.add('open') //Button avec radius 0 OK
+        dropdownTrigger.classList.add('open') //Button avec radius 0 OK
+        dropdownTrigger.setAttribute('aria-expanded', 'true')
 })
 
 dropdownListDate.addEventListener('focusin', function(e) {
         dropdownMenu.classList.add('show')
-        dropdownToggle.classList.add('open')
-        console.log('Marche 1')
+        dropdownTrigger.classList.add('open')
+        dropdownTrigger.setAttribute('aria-expanded', 'true')
 })
 dropdownListDate.addEventListener('focusout', function(e) {
     dropdownMenu.classList.add('show')
-    dropdownToggle.classList.add('open')
-    console.log('Marche 2')
+    dropdownTrigger.classList.add('open')
+    dropdownTrigger.setAttribute('aria-expanded', 'true')
 })
 dropdownListTitle.addEventListener('focusin', function(e) {
     dropdownMenu.classList.add('show')
-    dropdownToggle.classList.add('open')
-    console.log('Marche 3')
+    dropdownTrigger.classList.add('open')
+    dropdownTrigger.setAttribute('aria-expanded', 'true')
 })
 
 //* Filtrage de la gallery a l'appui sur d'ENTRER
 dropdownListDate.addEventListener('keydown', function(e) { 
     if (e.key == 'Enter') {
         sortedByIdDate()
-        dropdownMenu.classList.remove('show')
-        dropdownToggle.classList.remove('open')
-        
-        
 }})
 
 dropdownListTitle.addEventListener('keydown', function(e) { 
     if (e.key == 'Enter') {
         sortedByIdTitle()
-        dropdownMenu.classList.remove('show')
-        dropdownToggle.classList.remove('open')
-      
 }})
 
 document.onkeydown = function(e) {
-    if ((dropdownBtn.classList.contains('open'))&&(e.key == 'Escape')){
+    if ((dropdownTrigger.classList.contains('open'))&&(e.key == 'Escape')){
         dropdownMenu.classList.remove('show')
         dropdownToggle.classList.remove('open')
+        dropdownTrigger.setAttribute('aria-expanded', 'false')
     }
 }
 
 fixedInfosContainer.addEventListener('focusin', function(e) {
   dropdownMenu.classList.remove('show')
-  dropdownToggle.classList.remove('open')
-  console.log('Marche 1')
+  dropdownTrigger.classList.remove('open')
+  dropdownTrigger.setAttribute('aria-expanded', 'false')
 })
 }
-// * Fermeture du dropDownMenu au clic sur main
-function closeDropdown() {
-  dropdownMenu.classList.remove('show')
-  dropdownToggle.classList.remove('open')
-  console.log('Dropdown OK')
-}
-
 
 // *Gestion du clavier pour ajouter un like
 

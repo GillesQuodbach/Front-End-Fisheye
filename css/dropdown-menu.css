@@ -44,16 +44,14 @@ li {
   text-align: left;
 }
 
+.dropdown-menu.show {
+  display: block;
+}
+
 .dropdown-items {
   margin-right: auto;
   padding: 10px 10px 10px 20px;
-  /* background-color: aqua; */
   border-radius: 0px 0px 5px 5px;
-}
-
-.dropdown-menu.show {
-  display: block;
-  /* border-radius: 0px 0px 5px 5px; */
 }
 
 .dropdown-arrow {

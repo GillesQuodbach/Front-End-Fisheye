@@ -4,69 +4,72 @@ const dropdownToggle = document.querySelector('.dropdown-toggle')
 const dropdownMenu = document.querySelector('.dropdown-menu')
 const dropdownArrow = document.querySelector('.dropdown-arrow')
 const dropdownTrigger = document.querySelector('#dropdown-trigger')
-const main = document.querySelector('#main')
+const contactButtons = document.querySelectorAll('.contact-button')
 
-// article.setAttribute('data-likes', `${likes}`)
-// Ouverture/fermeture menu
-dropdownToggle.addEventListener('mouseover', function () {
+// // Ouverture/fermeture menu
+dropdownTrigger.addEventListener('mouseover', function (e) {
   dropdownMenu.classList.add('show')
-  dropdownToggle.classList.add('open')
+  dropdownTrigger.classList.add('open')
   dropdownArrow.classList.add('reverse')
   dropdownTrigger.setAttribute('aria-expanded', 'true')
+  e.stopPropagation()
+  
 })
 
-dropdownToggle.addEventListener('mouseout', function () {
+dropdownTrigger.addEventListener('mouseout', function (e) {
   dropdownMenu.classList.remove('show')
-  dropdownToggle.classList.remove('open')
+  dropdownTrigger.classList.remove('open')
   dropdownArrow.classList.remove('reverse')
   dropdownTrigger.setAttribute('aria-expanded', 'false')
+  e.stopPropagation()
 })
 // Ouverture/fermeture liste
-dropdownMenu.addEventListener('mouseover', function () {
+dropdownMenu.addEventListener('mouseover', function (e) {
   dropdownMenu.classList.add('show')
-  dropdownToggle.classList.add('open')
+  dropdownTrigger.classList.add('open')
   dropdownArrow.classList.add('reverse')
   dropdownTrigger.setAttribute('aria-expanded', 'true')
+  e.stopPropagation()
 })
 
-dropdownMenu.addEventListener('mouseout', function () {
+dropdownMenu.addEventListener('mouseout', function (e) {
   dropdownMenu.classList.remove('show')
-  dropdownToggle.classList.remove('open')
+  dropdownTrigger.classList.remove('open')
   dropdownArrow.classList.remove('reverse')
   dropdownTrigger.setAttribute('aria-expanded', 'false')
+  e.stopPropagation()
 })  
 
 dropdownMenu.addEventListener('blur', function () {
   if ((dropdownTrigger.classList.contains('open'))){
-    dropdownToggle.classList.remove('open')
+    dropdownTrigger.classList.remove('open')
     dropdownMenu.classList.remove('show')
 }
   })   
 
 //  * BOUTON TRI date
-document.querySelector('.dropdown-date').addEventListener('click', () => {
+document.querySelector('.dropdown-date').addEventListener('click', (e) => {
   sortedByIdDate()
-  console.log('Sorted by Date')
-  main.focus()
-  dropdownToggle.classList.remove('open')
-  dropdownMenu.classList.remove('show')
-  dropdownTrigger.setAttribute('aria-expanded', 'false')
+  // console.log('Sorted by Date')
+  // dropdownMenu.classList.remove('show')
+  // dropdownTrigger.classList.remove('open')
+  // dropdownTrigger.setAttribute('aria-expanded', 'false')
+
 })
 //  * BOUTON TRI likes
-document.querySelector('.dropbtn').addEventListener('click', () => {
+document.querySelector('.dropbtn').addEventListener('click', (e) => {
   sortedByIdLikes()
-  console.log('Sorted by Likes')
-  main.focus()
-  dropdownToggle.classList.remove('open')
-  dropdownMenu.classList.remove('show')
-  dropdownTrigger.setAttribute('aria-expanded', 'false')
+  // console.log('Sorted by Likes')
+  // dropdownMenu.classList.remove('show')
+  // dropdownTrigger.classList.remove('open')
+  // dropdownTrigger.setAttribute('aria-expanded', 'false')
+
 })
 //  * BOUTON TRI title
-document.querySelector('.dropdown-title').addEventListener('click', () => {
+document.querySelector('.dropdown-title').addEventListener('click', (e) => {
   sortedByIdTitle()
-  console.log('Sorted by title')
-  main.focus()
-  dropdownToggle.classList.remove('open')
-  dropdownMenu.classList.remove('show')
-  dropdownTrigger.setAttribute('aria-expanded', 'false')
+  // console.log('Sorted by title')
+  // dropdownMenu.classList.remove('show')
+  // dropdownTrigger.classList.remove('open')
+  // dropdownTrigger.setAttribute('aria-expanded', 'false')
 })
