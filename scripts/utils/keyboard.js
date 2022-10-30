@@ -63,11 +63,11 @@ function incLikesClicksWithEnter () {
       heart.addEventListener('keydown', (e) => {
         if((e.target === document.activeElement) && (e.key === 'Enter')){
         const thisId = e.target.dataset.id
-        console.log(thisId)
+        // console.log(thisId)
         const thisArticle = document.getElementById(`${thisId}`)
         const thisArticleLikes = thisArticle.querySelector('.cards-likes')
         const bottomTotalLikes = document.querySelector('.bottom-likes')
-        console.log(bottomTotalLikes.innerHTML)
+        // console.log(bottomTotalLikes.innerHTML)
         // e.target.classList.toggle('cards-heart-no')
         if (e.target.classList.contains('cards-heart-yes')) {
           alert('Vous avez déja liké cette photo')

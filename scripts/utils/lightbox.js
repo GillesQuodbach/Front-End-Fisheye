@@ -9,13 +9,13 @@ function incLikesClicks () {
   hearts.forEach((heart) => {
     heart.addEventListener('click', (e) => {
       const thisId = e.target.dataset.id
-      console.log(thisId)
+      // console.log(thisId)
       const thisArticle = document.getElementById(`${thisId}`)
       const thisArticleLikes = thisArticle.querySelector('.cards-likes')
       const bottomTotalLikes = document.querySelector('.bottom-likes')
-      console.log(bottomTotalLikes.innerHTML)
+      // console.log(bottomTotalLikes.innerHTML)
       if (e.target.classList.contains('cards-heart-yes')) {
-        console.log('Vous avez déja liké cette photo')
+        // console.log('Vous avez déja liké cette photo')
       } else {
         e.target.classList.toggle('cards-heart-yes')
         thisArticleLikes.innerHTML++
@@ -34,7 +34,7 @@ function modifDomGallery (mutations) {
   completePhotographGallery.querySelector('.gallery-cards').addEventListener('focusin', function() {
       dropdownMenu.classList.remove('show')
       dropdownToggle.classList.remove('open')
-      console.log('Marche Sortie')
+      // console.log('Marche Sortie')
   })
   for (const mutation of mutations) {
     if (mutation.type === 'childList') {
@@ -55,7 +55,7 @@ function modifDomGallery (mutations) {
             lightbox.setAttribute('aria-hidden', 'false')
             mainContent.setAttribute('aria-hidden', 'true')
             const imageUrl = gallery[newIndex].src
-            console.log(gallery[newIndex])
+            // console.log(gallery[newIndex])
             lightboxImg.src = imageUrl
             const extension = imageUrl.split('.').pop()
             //? PARTIE VIDEO
@@ -148,7 +148,7 @@ function modifDomGallery (mutations) {
 
       function openLightBoxWithEnter () {
       const galleryImages = document.querySelectorAll('.cards-image')
-      console.log(galleryImages)
+      // console.log(galleryImages)
       galleryImages.forEach((img) => {
           img.addEventListener('keydown', (e) => {
            if((e.target === document.activeElement) && (e.key === 'Enter')) {
@@ -168,12 +168,12 @@ function modifDomGallery (mutations) {
             lightbox.setAttribute('aria-hidden', 'false')
             mainContent.setAttribute('aria-hidden', 'true')
             const imageUrl = gallery[newIndex].src
-            console.log(gallery[newIndex])
+            // console.log(gallery[newIndex])
             lightboxImg.src = imageUrl
             // Titre de l'image cliquée
             const extension = imageUrl.split('.').pop()
-            console.log(extension) // extension jpg
-            console.log(gallery[newIndex].alt)
+            // console.log(extension) // extension jpg
+            // console.log(gallery[newIndex].alt)
             //? PARTIE VIDEO
             if (extension == 'mp4') {
               const videoUrl = gallery[newIndex].src

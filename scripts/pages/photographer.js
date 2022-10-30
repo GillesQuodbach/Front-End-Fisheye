@@ -30,7 +30,6 @@ async function initProfils () {
    photographProfilePhoto.addEventListener('focusin', function() {
        dropdownMenu.classList.remove('show')
        dropdownToggle.classList.remove('open')
-       console.log('Marche Sortie')
    })
 }
 initProfils()
