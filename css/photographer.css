@@ -112,7 +112,7 @@ form textarea {
     margin-bottom: 20px;
 }
 
-.cardsLink {
+.cards-link {
     display: flex;
     justify-content: center;
 }
@@ -125,7 +125,6 @@ form textarea {
 }
 
 .detail-profile-image {
-    background-color: aquamarine;
     margin: auto;
 }
 
@@ -155,7 +154,7 @@ form textarea {
     object-fit: cover;
 }
 
-.photograph-profilename {
+.photograph-profile-name {
     color: #D3573C;
     font-size: 50px;
     font-weight: 400;
