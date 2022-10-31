@@ -44,7 +44,6 @@ function photographerProfilFactory (data) {
     // Photographers likes
     const totalLikes = document.querySelector('.fixed-likes')
     totalLikes.className = 'bottom-likes'
-    totalLikes.setAttribute('tabindex', '0')
     totalLikes.setAttribute('role', 'text')
     // Photographers price
     const cost = document.querySelector('.fixed-price')

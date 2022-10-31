@@ -43,7 +43,7 @@ dropdownListTitle.addEventListener('keydown', function(e) {
 document.onkeydown = function(e) {
     if ((dropdownTrigger.classList.contains('open'))&&(e.key == 'Escape')){
         dropdownMenu.classList.remove('show')
-        dropdownToggle.classList.remove('open')
+        dropdownTrigger.classList.remove('open')
         dropdownTrigger.setAttribute('aria-expanded', 'false')
     }
 }
